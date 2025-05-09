@@ -1,0 +1,88 @@
+/* -----------------------------COLORS----------------------------- */
+
+:root {
+  --black: #060604;
+  --dark_green: #21221a;
+  --off_white: #fffffa;
+  --green: #cfff5c;
+  --black_opacity: #06060482;
+}
+
+/* -----------------------------FONTS----------------------------- */
+/* DESKTOP */
+
+@media (min-width: 800px) {
+  /* general sans */
+  h1 {
+    font-size: 80px;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--black);
+  }
+
+  .desktop_h2 {
+    font-size: 40px;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--black);
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--black);
+  }
+
+  /* red hat display*/
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--black);
+  }
+
+  .small_p {
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--black);
+  }
+}
+
+/* MOBILE */
+/* general sans */
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--black);
+}
+h2 {
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--black);
+}
+
+/* red hat display*/
+
+p {
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}
+
+.small_p {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}

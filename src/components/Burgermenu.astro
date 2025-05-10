@@ -4,7 +4,7 @@
 
 <header class="class_header">
   <nav class="menubar">
-    <div class="logo" class="left_row">
+    <div class="left_row">
       <a href="/index.html"
         ><img class="logo" src="/imgs/logo.png" alt="burger" /></a
       >
@@ -23,16 +23,27 @@
   </nav>
   <nav>
     <div class="burger">
-      <a href="/news.html" class="burger_tab" id="news">News</a>
-      <a href="/program.html" class="burger_tab" id="program">Program</a>
-      <a href="/tickets.html" class="burger_tab" id="tickets">Tickets</a>
-      <a href="/map.html" class="burger_tab" id="map">Map</a>
-      <a
-        href="/practical_information.html"
-        class="burger_tab"
-        id="practical_information">Practical Information</a
-      >
-      <a href="/about.html" class="burger_tab" id="about">About</a>
+      <div class="burger_tab">
+        <a href="/news.html" id="news">News</a>
+        <img class="news_img" src="/imgs/logo.png" alt="burger" />
+      </div>
+      <div class="burger_tab">
+        <a href="/program.html" id="program">Program</a>
+      </div>
+      <div class="burger_tab">
+        <a href="/tickets.html" id="tickets">Tickets</a>
+      </div>
+      <div class="burger_tab">
+        <a href="/map.html" id="map">Map</a>
+      </div>
+      <div class="burger_tab">
+        <a href="/practical_information.html" id="practical_information"
+          >Practical Information</a
+        >
+      </div>
+      <div class="burger_tab">
+        <a href="/about.html" id="about">About</a>
+      </div>
     </div>
   </nav>
 </header>
@@ -43,6 +54,7 @@
   header {
     width: 100%;
     position: fixed;
+    transition: 0.4s;
   }
 
   /*styling af tekst*/
@@ -81,6 +93,15 @@
     flex-shrink: 0;
     border-bottom: 1px solid var(--Black, #060604); /*tilføj border*/
     box-shadow: 0px 3px 10px 5px rgba(33, 34, 26, 0.2); /*tilføj shadow*/
+  }
+
+  .left_row {
+    border-right: 1px solid var(--Black, #060604);
+    padding-right: 40px;
+    height: 100%;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
   }
   /*styling af højre side af menuen*/
   .right_row {
@@ -132,24 +153,26 @@
   }
 
   /*STYLING AF ÅBEN MENU*/
+
+  /*ændre header med klasse change*/
+
   header.change {
-    background-color: var(--green);
-    height: 100%;
+    background-color: var(--green); /*skift baggrundsfarve*/
+    height: 100%; /*fyld hele skærmen*/
   }
-  header.change {
-    background-color: var(--green);
-    height: 100%;
-  }
-  header.change .menubar {
-    border-bottom: none;
-    box-shadow: none; /*tilføj shadow*/
+  header.change .menubar,
+  header.change .menubar .ikon_holder,
+  header.change .menubar .left_row {
+    border: none; /*fjern borders*/
+    box-shadow: none; /*fjern shadow*/
   }
   header.change .menubar .visible_tab {
-    display: none;
+    display: none; /*fjern visible tabs*/
   }
-  header.change .menubar .ikon_holder {
-    border: none;
-  }
+
+  /****BURGER****/
+
+  /*Primært Layout*/
   .change .burger {
     display: flex;
     flex-direction: column;
@@ -167,6 +190,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.4s;
+  }
+  /*Billeders positioner*/
+  .news_img {
+    position: fixed;
+    top: 90%;
+    left: 80%;
+  }
+
+  /*Billeder vises og skrift bliver opacity ved hover*/
+  .burger img {
+    display: none; /*sørg for billeder by default ikke vises*/
+  }
+  .burger .burger_tab:hover img {
+    display: block; /*sørg for at billeder i den div der bliver hoveret på vises*/
+  }
+
+  .burger:hover .burger_tab {
+    opacity: 0.5; /*sørg for at når man hover over burgeren får burger tabs 50% opacity */
+  }
+  .burger .burger_tab:hover {
+    opacity: 1; /*sørg for at hvis man hover over en burger tab bliver opacity 100% - Nu vil KUN en tab være helt sort */
   }
   /**** BURGER MENU *****/
 </style>

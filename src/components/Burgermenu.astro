@@ -1,0 +1,191 @@
+---
+
+---
+
+<header class="class_header">
+  <nav class="menubar">
+    <div class="logo" class="left_row">
+      <a href="/index.html"
+        ><img class="logo" src="/imgs/logo.png" alt="burger" /></a
+      >
+    </div>
+    <div class="right_row">
+      <a href="/news.html" class="visible_tab" id="news">News</a>
+      <a href="/program.html" class="visible_tab" id="program">Program</a>
+      <a href="/tickets.html" class="visible_tab" id="tickets">Tickets</a>
+      <div class="ikon_holder">
+        <div class="menu_ikon">
+          <div class="line1"></div>
+          <div class="line2"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav>
+    <div class="burger">
+      <a href="/news.html" class="burger_tab" id="news">News</a>
+      <a href="/program.html" class="burger_tab" id="program">Program</a>
+      <a href="/tickets.html" class="burger_tab" id="tickets">Tickets</a>
+      <a href="/map.html" class="burger_tab" id="map">Map</a>
+      <a
+        href="/practical_information.html"
+        class="burger_tab"
+        id="practical_information">Practical Information</a
+      >
+      <a href="/about.html" class="burger_tab" id="about">About</a>
+    </div>
+  </nav>
+</header>
+<style>
+  /*HEADER*/
+
+  /*position og brede af header*/
+  header {
+    width: 100%;
+    position: fixed;
+  }
+
+  /*styling af tekst*/
+
+  /*styling der skal forblive ens i lukket/åben*/
+  a {
+    font-family: "GeneralSans", sans-serif;
+    font-style: normal;
+    color: var(--black);
+    text-align: center;
+    text-decoration: none;
+  }
+  /*styling af lukket*/
+  .visible_tab {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  /*styling af åben burger*/
+  .burger_tab {
+    font-size: 80px;
+    font-weight: 500;
+  }
+
+  /*STYLING AF LUKKET MENU*/
+  .burger {
+    display: none;
+  }
+
+  /**** MENUBAR *****/
+  .menubar {
+    display: flex;
+    height: 60px;
+    padding: 0px 40px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--Black, #060604); /*tilføj border*/
+    box-shadow: 0px 3px 10px 5px rgba(33, 34, 26, 0.2); /*tilføj shadow*/
+  }
+  /*styling af højre side af menuen*/
+  .right_row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
+  }
+
+  /*styling af visible_tabs*/
+  .visible_tab {
+    padding: 0px 40px;
+    border-left: 1px solid var(--Black, #060604);
+    height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
+
+  /**** BURGER IKON OG KRYDS *****/
+
+  /*Styling af ikon holder - primært layout*/
+  .ikon_holder {
+    height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    width: 40px;
+    border-left: 1px solid var(--Black, #060604);
+  }
+  /*Styling af burgerikon*/
+  .line1,
+  .line2 {
+    width: 40px;
+    height: 2px;
+    background-color: var(--black);
+    margin: 15px 0;
+    transition: 0.4s; /*transition-lenght ved klik*/
+  }
+  /*Styling af kryds med klasse change*/
+  .change .line1 {
+    transform: rotate(45deg) translate(7px, 5px); /*Roter første linje*/
+  }
+
+  .change .line2 {
+    transform: rotate(-45deg) translate(7px, -5px); /* Roter anden linje linje*/
+  }
+
+  /*STYLING AF ÅBEN MENU*/
+  header.change {
+    background-color: var(--green);
+    height: 100%;
+  }
+  header.change {
+    background-color: var(--green);
+    height: 100%;
+  }
+  header.change .menubar {
+    border-bottom: none;
+    box-shadow: none; /*tilføj shadow*/
+  }
+  header.change .menubar .visible_tab {
+    display: none;
+  }
+  header.change .menubar .ikon_holder {
+    border: none;
+  }
+  .change .burger {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 85.74%;
+  }
+  .burger_tab {
+    border-top: 1px solid var(--Black, #060604);
+    width: 100%;
+    height: 16.6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /**** BURGER MENU *****/
+</style>
+<script>
+  // lav konstanter for burger ikon, burger menu og kryds ikon
+  const icon = document.querySelector(".menu_ikon");
+  const header = document.querySelector("header");
+  const burger = document.querySelector("burger");
+
+  // kald funktionen burgermenu, når der klikkes på burger eller kryds
+  icon.addEventListener("click", burgermenu);
+
+  // toggle class: hide og change (svarer til add ved klik på burgerikon og remove ved klik på kryds)
+  // Hvis burgerikonet klikkes vises burgermenuen, og ligger sig ovenpå resten af indholdet
+  // Hvis burgerikonet klikkes erstattes burgerikonet med krydset
+  function burgermenu() {
+    console.log("burger");
+    icon.classList.toggle("change");
+    header.classList.toggle("change");
+    burger.classList.toggle("change");
+  }
+</script>

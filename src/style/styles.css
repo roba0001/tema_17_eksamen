@@ -47,7 +47,8 @@
   }
 
   /* red hat display*/
-  p {
+  p,
+  .footer_p {
     font-family: "Red Hat Display", sans-serif;
     font-size: 15px;
     font-weight: 400;

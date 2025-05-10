@@ -1,0 +1,93 @@
+---
+import "../style/styles.css";
+import Skelet from "../layouts/Skelet.astro";
+---
+
+<Skelet>
+  <h1>About</h1>
+  <div class="about_grid">
+    <div class="text_div">
+      <div class="about_div">
+        <h3>( About )</h3>
+        <p>
+          Visual Impact is a new digital design festival by Softworld, created to support live
+          learning and professional development for creatives. Over four days in central Copenhagen,
+          the festival hosts talks, workshops, exhibitions, and networking events within fields like
+          motion graphics, web design, branding, animation, AI, and digital marketing. The event is
+          designed for designers, marketers, students, and industry professionals who want to stay
+          up to date with new tools, workflows, and trends — without sitting through long courses.
+          Our format is fast, flexible, and relevant to today’s creative landscape.
+        </p>
+      </div>
+      <div class="contact_div">
+        <h3>( Contact )</h3>
+        <div class="contact_info_flex">
+          <p>contact@visualimpact.com</p>
+          <p>+45 71 23 45 67</p>
+        </div>
+      </div>
+      <div class="mission_div">
+        <h3>( Mission )</h3>
+        <p>
+          Visual Impact exists to empower creatives with future-ready skills and inspiration. We
+          believe learning should be dynamic, accessible, and in sync with the pace of the digital
+          world. Through hands-on events, expert talks, and real-world insights, we bring designers,
+          marketers, and creators together to explore what’s next in digital design — and to grow,
+          adapt, and thrive in a constantly evolving industry.
+        </p>
+      </div>
+    </div>
+    <div class="about_img_div">
+      <img class="big_img" src="/public/imgs/about_img_l.png" alt="Big image on the venue inside" />
+      <img
+        class="small_img"
+        src="/public/imgs/about_img_s.png"
+        alt="Small image on the venue outside"
+      />
+    </div>
+  </div>
+</Skelet>
+
+<style>
+  .about_grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-template-rows: auto;
+  }
+
+  .text_div {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    width: fit-content;
+  }
+
+  p {
+    max-width: 30rem;
+  }
+
+  .about_div,
+  .contact_div,
+  .mission_div {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 6rem;
+    margin-bottom: 2rem; /* optional spacing between sections */
+  }
+  .contact_info_flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .big_img {
+    width: 400px;
+  }
+  .small_img {
+    transform: translateY(-50%);
+    z-index: 2;
+    position: relative;
+    left: 40%;
+  }
+</style>

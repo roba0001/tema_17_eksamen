@@ -42,11 +42,11 @@ import Button from "./Button.astro";
       <div class="practical_information">
         <h3>Practical Information</h3>
         <ul>
-          <li class="footer_p"><a href="#">Cancellation Policy</a></li>
-          <li class="footer_p"><a href="#">Health & Safety</a></li>
-          <li class="footer_p"><a href="#">Location & Directions</a></li>
-          <li class="footer_p"><a href="#">Program</a></li>
-          <li class="footer_p"><a href="#">Tickets</a></li>
+          <li class="footer_p"><a href="/practical_information.html">Cancellation Policy</a></li>
+          <li class="footer_p"><a href="/practical_information.html">Health & Safety</a></li>
+          <li class="footer_p"><a href="/practical_information.html">Location & Directions</a></li>
+          <li class="footer_p"><a href="/program.html">Program</a></li>
+          <li class="footer_p"><a href="/tickets.html">Tickets</a></li>
         </ul>
       </div>
       <div class="our_platforms">
@@ -79,11 +79,15 @@ import Button from "./Button.astro";
     </div>
   </section>
   <section class="footer_bottom_section">
-    <img src="/public/imgs/logos/footer_logo_1640.svg" alt="big logo" />
+    <img class="big_footer_img" src="/public/imgs/logos/footer_logo_1640.svg" alt="big logo" />
+    <img class="small_footer_img" src="/public/imgs/logos/footer_logo_350.svg" alt="small logo" />
   </section>
 </section>
 
 <style>
+  .small_footer_img {
+    padding: 2.5rem 0;
+  }
   h3 {
     margin-bottom: 0.69rem;
   }
@@ -104,36 +108,23 @@ import Button from "./Button.astro";
     margin-top: 0.62;
   }
 
-  .footer_top_section {
-    display: flex;
-    width: 100%;
-    border-bottom-style: solid;
-    border-width: 0.0625rem;
-  }
-
-  .footer_bottom_section {
-    display: flex;
-    justify-content: center;
-    margin: 0.62rem 0;
-    width: 100%;
-    height: fit-content;
+  .big_footer_img {
+    display: none;
   }
 
   .footer_info_flex {
     display: flex;
+    flex-direction: column;
     padding: 2.5rem;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-shrink: 0;
-    border-right-style: solid;
-    border-width: 0.0625rem;
-    width: 60%;
+    gap: 2.5rem;
+    border-bottom: solid;
+    border-color: var(--black);
+    border-width: 1px;
   }
 
   .footer_newsletter {
     width: 40%;
     margin: 0;
-    padding: 2.5rem;
 
     h3 {
       align-self: flex-start;
@@ -141,7 +132,7 @@ import Button from "./Button.astro";
     }
 
     form {
-      width: 100%;
+      width: 20rem;
     }
 
     input {
@@ -154,15 +145,21 @@ import Button from "./Button.astro";
   }
 
   .newsletter_wrapper {
+    width: min-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.6875rem;
 
+    padding: 2.5rem;
+    border-width: 1px;
+    border-bottom-style: solid;
+
     form {
       display: flex;
       flex-direction: column;
       gap: 1.6875rem;
+      width: 21rem;
     }
   }
 
@@ -171,5 +168,54 @@ import Button from "./Button.astro";
     border-top-style: solid;
     border-bottom-style: solid;
     border-width: 0.0625rem;
+  }
+
+  .footer_bottom_section {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* desktop */
+  @media (min-width: 800px) {
+    a:hover {
+      text-decoration: underline;
+    }
+    .small_footer_img {
+      display: none;
+    }
+    .big_footer_img {
+      display: block;
+    }
+    .footer_top_section {
+      display: flex;
+      width: 100%;
+      border-bottom-style: solid;
+      border-width: 0.0625rem;
+    }
+
+    .footer_bottom_section {
+      display: flex;
+      justify-content: center;
+      margin: 0.62rem 0;
+      width: 100%;
+      height: fit-content;
+    }
+
+    .footer_info_flex {
+      display: flex;
+      flex-direction: row;
+      padding: 2.5rem;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-shrink: 0;
+      border-right-style: solid;
+      border-bottom-style: none;
+      border-width: 0.0625rem;
+      width: 60%;
+    }
+
+    .newsletter_wrapper {
+      border-bottom-style: none;
+    }
   }
 </style>

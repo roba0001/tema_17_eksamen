@@ -54,19 +54,37 @@ console.log("data:", data);
 <style>
   /* mobile */
   .program_row_closed {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 0 2.5rem;
     border-color: var(--black);
     border-width: 1px;
     border-bottom-style: solid;
     border-top-style: solid;
+    margin-bottom: 10rem;
+  }
+  .program_row_open {
+    width: 100%;
+    padding: 2.5rem;
+    border-color: var(--black);
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    margin-bottom: 10rem;
   }
 
   .stretched_number_svg {
     display: none;
+  }
+
+  .scroll_section {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    overflow: hidden;
+    overflow-x: scroll;
   }
 
   /* desktop */
@@ -131,11 +149,10 @@ console.log("data:", data);
   .visible {
     opacity: 1;
     max-height: fit-content;
-    width: 100%;
   }
 
   .program_row_wrapper {
-    margin-bottom: 5rem;
+    width: 100%;
   }
 </style>
 

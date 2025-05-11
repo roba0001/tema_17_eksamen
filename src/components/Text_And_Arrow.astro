@@ -1,13 +1,11 @@
 ---
-import "../style/styles.css";
 import Arrow from "./Arrow.astro";
 const { text } = Astro.props;
-const { text_arrow_class } = Astro.props;
 ---
 
-<div class="container" class={text_arrow_class}>
+<div class="container">
   <h2>{text}</h2>
-  <Arrow arrow_class="downleft" />
+  <img class="pracical_arrow" src="/imgs/arrow.svg" alt="arrow" />
 </div>
 
 <style>
@@ -18,8 +16,19 @@ const { text_arrow_class } = Astro.props;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
+    padding: 20px 0px;
+    border-top: 1px solid var(--Black, #060604);
   }
-  .container:hover #downleft {
-    transform: rotate(0deg);
+  img {
+    transform: rotate(45deg) !important;
+    display: block;
+    width: 80px;
+  }
+  .container:hover img {
+    transform: rotate(0deg) !important;
+  }
+
+  .active .container img {
+    transform: rotate(0deg) !important;
   }
 </style>

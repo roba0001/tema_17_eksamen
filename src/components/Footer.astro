@@ -44,7 +44,9 @@ import Button from "./Button.astro";
         <ul>
           <li class="footer_p"><a href="/practical_information.html">Cancellation Policy</a></li>
           <li class="footer_p"><a href="/practical_information.html">Health & Safety</a></li>
-          <li class="footer_p"><a href="/practical_information.html">Location & Directions</a></li>
+          <li class="footer_p">
+            <a href="/practical_information.html">Location & Directions</a>
+          </li>
           <li class="footer_p"><a href="/program.html">Program</a></li>
           <li class="footer_p"><a href="/tickets.html">Tickets</a></li>
         </ul>
@@ -111,6 +113,10 @@ import Button from "./Button.astro";
   .big_footer_img {
     display: none;
   }
+  .small_footer_img {
+    width: 100%;
+    height: auto;
+  }
 
   .footer_info_flex {
     display: flex;
@@ -123,7 +129,6 @@ import Button from "./Button.astro";
   }
 
   .footer_newsletter {
-    width: 40%;
     margin: 0;
 
     h3 {
@@ -145,7 +150,7 @@ import Button from "./Button.astro";
   }
 
   .newsletter_wrapper {
-    width: min-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -168,6 +173,7 @@ import Button from "./Button.astro";
     border-top-style: solid;
     border-bottom-style: solid;
     border-width: 0.0625rem;
+    grid-column: full;
   }
 
   .footer_bottom_section {
@@ -185,6 +191,8 @@ import Button from "./Button.astro";
     }
     .big_footer_img {
       display: block;
+      width: 100%;
+      height: auto;
     }
     .footer_top_section {
       display: flex;

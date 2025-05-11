@@ -47,8 +47,10 @@
   }
 
   /* red hat display*/
-  p {
+  p,
+  .footer_p {
     font-family: "Red Hat Display", sans-serif;
+    line-height: normal;
     font-size: 15px;
     font-weight: 400;
     font-style: normal;
@@ -58,6 +60,7 @@
   .small_p {
     font-family: "Red Hat Display", sans-serif;
     font-size: 15px;
+    line-height: normal;
     font-weight: 400;
     font-style: normal;
     color: var(--black);
@@ -68,7 +71,7 @@
 /* general sans */
 h1 {
   font-family: "GeneralSans", sans-serif;
-  font-size: 40px;
+  font-size: 5rem;
   font-weight: 500;
   font-style: normal;
   color: var(--black);
@@ -92,6 +95,7 @@ h3 {
 
 p {
   font-family: "Red Hat Display", sans-serif;
+  line-height: normal;
   font-size: 15px;
   font-weight: 400;
   font-style: normal;
@@ -101,6 +105,7 @@ p {
 .small_p {
   font-family: "Red Hat Display", sans-serif;
   font-size: 12px;
+  line-height: normal;
   font-weight: 400;
   font-style: normal;
   color: var(--black);

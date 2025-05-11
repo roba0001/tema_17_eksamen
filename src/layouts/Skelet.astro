@@ -30,35 +30,22 @@ import Footer from "../components/Footer.astro";
   </body>
 
   <style>
+    html,
     body {
       padding: 0;
       margin: 0rem;
       width: 100%;
       background-color: var(--off_white);
 
-      display: grid;
-      grid-template-columns: [full-start] 2.5rem [content] 1fr 2.5rem [full-end];
+      display: flex;
+      flex-direction: column;
       min-height: 100vh;
     }
 
     main {
-      grid-column: full;
-      display: grid;
-      grid-template-columns: subgrid;
-
-      > * {
-        grid-column: content;
-      }
-    }
-
-    .full-bleed {
-      grid-column: full;
-      display: grid;
-      grid-template-columns: subgrid;
-
-      > * {
-        grid-column: content;
-      }
+      flex: 1;
+      margin: 2.5rem;
+      margin-top: 120px;
     }
   </style>
 </html>

@@ -1,9 +1,8 @@
 ---
-import Arrow from "./Arrow.astro";
-const { text } = Astro.props;
+const { id, text } = Astro.props;
 ---
 
-<div class="container">
+<div id={id} class="container">
   <h2>{text}</h2>
   <img class="pracical_arrow" src="/imgs/arrow.svg" alt="arrow" />
 </div>

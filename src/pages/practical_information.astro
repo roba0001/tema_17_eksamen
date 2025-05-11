@@ -2,30 +2,61 @@
 import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
 import Text_And_Arrow from "../components/Text_And_Arrow.astro";
+import PracticalInfo from "../components/Practical_info.astro";
 ---
 
 <Skelet>
-  <Gradient class="background" />
+  <Gradient gradient_class="practical1" />
+  <Gradient gradient_class="practical2" />
   <div class="practical_container">
     <div class="left_side">
       <h1>Practical Information</h1>
       <div class="tabs">
-        <Text_And_Arrow text="Cancellation Policy" />
-        <Text_And_Arrow text="Health and Safety Policy" />
-        <Text_And_Arrow text="Venues" />
-        <Text_And_Arrow text="Contact Information" />
+        <Text_And_Arrow id="cancellation" text="Cancellation Policy" />
+        <Text_And_Arrow id="health" text="Health and Safety Policy" />
+        <Text_And_Arrow id="venues" text="Festival Venues" />
+        <Text_And_Arrow id="contact" text="Contact Information" />
       </div>
     </div>
-    <div class="right_side"></div>
+    <div class="right_side">
+      <PracticalInfo
+        id="cancellation_text"
+        headline="Cancellation Policy"
+        p1="We understand that plans can change. If you're unable to attend Visual Impact, you can cancel your ticket up to 7 days before the festival for a full refund – no questions asked. Unfortunately, we cannot offer refunds for cancellations made within 7 days of the event’s start time. "
+        p2="However, tickets are fully transferable, so if you can't make it, feel free to pass your ticket on to a colleague or friend. For cancellations, transfers, or any questions, please reach out to us at contact@visualimpact.com "
+        p3="We're here to help ensure your experience is smooth and flexible."
+      />
+      <PracticalInfo
+        headline="Health and Safety Policy"
+        p1="At Visual Impact, we are committed to creating a safe, inclusive, and comfortable environment for all attendees. All venues follow up-to-date safety regulations and accessibility standards, with clear signage, trained staff, and first aid on-site throughout the festival."
+        p2="We encourage attendees to look after themselves and each other – whether that means taking breaks, staying hydrated, or speaking to a team member if something feels off. If you have specific health or accessibility needs, please let us know in advance at contact@visualimpact.dk, and we’ll do our best to accommodate. "
+        p3="Together, we can make Visual Impact a space that’s not just inspiring, but safe for everyone."
+      />
+      <PracticalInfo
+        headline="Festival Venues"
+        p1="Visual Impact takes place across three iconic venues in central Copenhagen: BLOX, Huset, and The Black Diamond. "
+        p2="All venues are within walking distance of each other, making it easy to explore the festival on foot. The nearest metro station is Gammel Strand, just minutes away from all locations."
+      />
+      <PracticalInfo
+        headline="Contact Information"
+        p1="Got questions, ideas, or need help? We’re here for you. "
+        p2="Reach out to the Visual Impact team anytime at contact@visualimpact.com or give us a call at +45 71 23 45 67. "
+        p3="We aim to respond within 1–2 business days."
+      />
+    </div>
   </div>
 </Skelet>
 
 <style>
+  .g {
+    width: 800px;
+    height: 800px;
+    top: 20%;
+  }
   .practical_container {
     display: grid;
     z-index: 100;
     grid-template-columns: 1fr 1fr;
-    border: 1px solid var(--Black, #060604);
   }
   .left_side {
     display: grid;
@@ -38,6 +69,11 @@ import Text_And_Arrow from "../components/Text_And_Arrow.astro";
   .right_side {
     border-left: 1px solid var(--Black, #060604);
     display: grid;
+    max-height: 100vh;
+    overflow-y: auto;
+    /* Hide scrollbar for Webkit (Chrome, Safari) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
   }
   h1 {
     margin-top: 120px;
@@ -45,3 +81,17 @@ import Text_And_Arrow from "../components/Text_And_Arrow.astro";
     margin-bottom: 20px;
   }
 </style>
+<script>
+  // lav konstanter for burger ikon, burger menu og kryds ikon
+  const cancellation = document.querySelector("#cancellation");
+
+  // kald funktionen burgermenu, når der klikkes på burger eller kryds
+  cancellation.addEventListener("click", accordion);
+
+  // toggle class: hide og change (svarer til add ved klik på burgerikon og remove ved klik på kryds)
+  // Hvis burgerikonet klikkes vises burgermenuen, og ligger sig ovenpå resten af indholdet
+  // Hvis burgerikonet klikkes erstattes burgerikonet med krydset
+  function accordion() {
+    console.log("accordion");
+  }
+</script>

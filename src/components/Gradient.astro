@@ -1,13 +1,16 @@
 ---
-import "../style/styles.css";
+const { gradient_class } = Astro.props;
 ---
 
-<div class="gradient"></div>
+<div id="gradient" class={gradient_class}></div>
 
 <style>
-  .gradient {
-    width: 800px;
-    height: 800px;
+  /*MANUAL TIL BRUG PÅ SIDE*/
+  /*Opret en ny klasse og tilføj følgende:*/
+  /*STØRRELSE: definer width og height*/
+  /*POSITION: definer postion med bottom og right*/
+  /*Tilføj samme klasse til gradient i din fil*/
+  #gradient {
     flex-shrink: 0;
     border-radius: 1263px;
     position: fixed;
@@ -17,5 +20,17 @@ import "../style/styles.css";
       var(--green) 0%,
       var(--off_white) 100%
     );
+  }
+  .practical1 {
+    width: 800px;
+    height: 800px;
+    bottom: 100px;
+    right: 1000px;
+  }
+  .practical2 {
+    width: 800px;
+    height: 800px;
+    bottom: -200px;
+    right: -100px;
   }
 </style>

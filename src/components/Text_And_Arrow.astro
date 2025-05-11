@@ -1,0 +1,26 @@
+---
+import "../style/styles.css";
+import Arrow from "./Arrow.astro";
+const { text } = Astro.props;
+---
+
+<div class="container">
+  <h2>{text}</h2>
+  <Arrow />
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  #arrow {
+    width: 33px;
+    height: 33px;
+  }
+</style>

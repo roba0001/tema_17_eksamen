@@ -2,18 +2,21 @@
 import Skelet from "../layouts/Skelet.astro";
 import Arrow from "../components/Arrow.astro";
 import Gradient from "../components/Gradient.astro";
+import Text_And_Arrow from "../components/Text_And_Arrow.astro";
 import "../style/styles.css";
 ---
 
 <Skelet>
-  <Arrow arrow_class="downleft" />
   <div class="practical_container">
     <div class="left_side">
       <h1>Practical Information</h1>
       <div>
-        <div class="h2"></div>
+        <Text_And_Arrow text="Cancellation Policy" />
+        <Text_And_Arrow text="Health and Safety Policy" />
+        <Text_And_Arrow text="Venues" />
+        <Text_And_Arrow text="Contact Information" />
+        <div class="right_side"></div>
       </div>
     </div>
-    <div class="right_side"></div>
-  </div>
-</Skelet>
+  </div></Skelet
+>

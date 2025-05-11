@@ -9,15 +9,22 @@ import Skelet from "../layouts/Skelet.astro";
     <div class="text_div">
       <div class="about_div">
         <h3>( About )</h3>
-        <p>
-          Visual Impact is a new digital design festival by Softworld, created to support live
-          learning and professional development for creatives. Over four days in central Copenhagen,
-          the festival hosts talks, workshops, exhibitions, and networking events within fields like
-          motion graphics, web design, branding, animation, AI, and digital marketing. The event is
-          designed for designers, marketers, students, and industry professionals who want to stay
-          up to date with new tools, workflows, and trends — without sitting through long courses.
-          Our format is fast, flexible, and relevant to today’s creative landscape.
-        </p>
+        <div class="about_txt_info_flex">
+          <p>
+            Visual Impact is a new digital design festival by Softworld, created to support live
+            learning and professional development for creatives. Over four days in central
+            Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
+            within fields like motion graphics, web design, branding, animation, AI, and digital
+            marketing.
+          </p>
+          <p>
+            Visual Impact is a new digital design festival by Softworld, created to support live
+            learning and professional development for creatives. Over four days in central
+            Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
+            within fields like motion graphics, web design, branding, animation, AI, and digital
+            marketing.
+          </p>
+        </div>
       </div>
       <div class="contact_div">
         <h3>( Contact )</h3>
@@ -49,6 +56,9 @@ import Skelet from "../layouts/Skelet.astro";
 </Skelet>
 
 <style>
+  h1 {
+    margin-bottom: 2.5rem;
+  }
   .about_grid {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
@@ -58,6 +68,7 @@ import Skelet from "../layouts/Skelet.astro";
   .text_div {
     display: flex;
     flex-direction: column;
+    gap: 4.3rem;
   }
   h3 {
     width: fit-content;
@@ -75,19 +86,34 @@ import Skelet from "../layouts/Skelet.astro";
     gap: 6rem;
     margin-bottom: 2rem; /* optional spacing between sections */
   }
-  .contact_info_flex {
+  .contact_info_flex,
+  .about_txt_info_flex {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
   }
 
   .big_img {
-    width: 400px;
+    width: 25rem;
+    height: 30rem;
   }
   .small_img {
+    width: 16rem;
+    height: 16rem;
     transform: translateY(-50%);
     z-index: 2;
     position: relative;
     left: 40%;
+  }
+
+  /* hover effekter */
+  .about_div:has(p:hover) h3 {
+    color: var(--green);
+  }
+  .contact_div:has(p:hover) h3 {
+    color: var(--green);
+  }
+  .mission_div:has(p:hover) h3 {
+    color: var(--green);
   }
 </style>

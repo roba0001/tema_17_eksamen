@@ -33,6 +33,18 @@ import Skelet from "../layouts/Skelet.astro";
           <p>+45 71 23 45 67</p>
         </div>
       </div>
+      <div class="about_img_div_mobile">
+        <img
+          class="small_img_mobile"
+          src="/public/imgs/about_img_s.png"
+          alt="Small image on the venue outside"
+        />
+        <img
+          class="big_img_mobile"
+          src="/public/imgs/about_img_l.png"
+          alt="Big image on the venue inside"
+        />
+      </div>
       <div class="mission_div">
         <h3>( Mission )</h3>
         <p>
@@ -59,61 +71,108 @@ import Skelet from "../layouts/Skelet.astro";
   h1 {
     margin-bottom: 2.5rem;
   }
-  .about_grid {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr;
-    grid-template-rows: auto;
-  }
 
-  .text_div {
-    display: flex;
-    flex-direction: column;
-    gap: 4.3rem;
-  }
   h3 {
-    width: fit-content;
+    margin-bottom: 1.6rem;
   }
 
-  p {
-    max-width: 30rem;
+  .big_img_mobile {
+    width: 15rem;
+    height: 18rem;
+  }
+  .small_img_mobile {
+    width: 10rem;
+    height: 10rem;
+    transform: translateY(50%);
+    z-index: 2;
+    position: relative;
+    left: 45%;
+  }
+
+  .about_img_div_mobile {
+    height: fit-content;
+  }
+
+  /* hide desktop images */
+  .about_img_div {
+    display: none;
   }
 
   .about_div,
-  .contact_div,
-  .mission_div {
-    display: grid;
-    grid-template-columns: 6rem 1fr;
-    gap: 6rem;
-    margin-bottom: 2rem; /* optional spacing between sections */
-  }
-  .contact_info_flex,
-  .about_txt_info_flex {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+  .mission_div,
+  .about_img_div_mobile {
+    margin-bottom: 3.12rem;
   }
 
-  .big_img {
-    width: 25rem;
-    height: 30rem;
-  }
-  .small_img {
-    width: 16rem;
-    height: 16rem;
-    transform: translateY(-50%);
-    z-index: 2;
-    position: relative;
-    left: 40%;
+  .contact_div {
+    margin-bottom: -4rem;
   }
 
-  /* hover effekter */
-  .about_div:has(p:hover) h3 {
-    color: var(--green);
-  }
-  .contact_div:has(p:hover) h3 {
-    color: var(--green);
-  }
-  .mission_div:has(p:hover) h3 {
-    color: var(--green);
+  /* DESKTOP */
+  @media (min-width: 800px) {
+    .about_grid {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr;
+      grid-template-rows: auto;
+    }
+
+    .text_div {
+      display: flex;
+      flex-direction: column;
+      gap: 4.3rem;
+    }
+    h3 {
+      width: fit-content;
+    }
+
+    p {
+      max-width: 30rem;
+    }
+
+    .about_div,
+    .contact_div,
+    .mission_div {
+      display: grid;
+      grid-template-columns: 6rem 1fr;
+      gap: 6rem;
+      margin-bottom: 2rem;
+    }
+    .contact_info_flex,
+    .about_txt_info_flex {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* hover effekter */
+    .about_div:has(p:hover) h3 {
+      font-style: italic;
+    }
+    .contact_div:has(p:hover) h3 {
+      font-style: italic;
+    }
+    .mission_div:has(p:hover) h3 {
+      font-style: italic;
+    }
+
+    .about_img_div_mobile {
+      display: none;
+    }
+    .about_img_div {
+      display: block;
+    }
+
+    .big_img {
+      width: 25rem;
+      height: 30rem;
+    }
+    .small_img {
+      width: 16rem;
+      height: 16rem;
+      transform: translateY(-50%);
+      z-index: 2;
+      position: relative;
+      left: 40%;
+    }
   }
 </style>

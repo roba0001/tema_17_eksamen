@@ -1,1 +1,61 @@
-ronja
+---
+import "../style/styles.css";
+import CardCategory from "./Card_Category.astro";
+const { data, link } = Astro.props;
+---
+
+<section>
+  <div class="img_and_eventtype_wrapper">
+    <CardCategory className="program" text={data.type} />
+    <img src={`/imgs/${data.main_img}`} alt="programimg" />
+  </div>
+  <div class="txt_wrapper">
+    <p class="small_p">( {data.topic} )</p>
+    <p>{data.title}</p>
+  </div>
+</section>
+
+<style>
+  img {
+    display: flex;
+    width: 11.5625rem;
+    height: 9.375rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.875rem;
+    object-fit: cover;
+  }
+
+  section {
+    width: 11.5625rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .txt_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  @media (min-width: 800px) {
+    img {
+      display: flex;
+      width: 14.0625rem;
+      height: 14.375rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      border-radius: 1.875rem;
+    }
+
+    section {
+      width: 14.0625rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.62rem;
+    }
+  }
+</style>

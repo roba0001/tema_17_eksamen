@@ -5,7 +5,9 @@
 <header class="class_header">
   <nav class="menubar">
     <div class="left_row">
-      <a href="/index.html"><img class="logo" src="/imgs/logo.png" alt="burger" /></a>
+      <a href="/index.html"
+        ><img class="logo" src="/imgs/logo.png" alt="burger" /></a
+      >
     </div>
     <div class="right_row">
       <a href="/news.html" class="visible_tab" id="news">News</a>
@@ -23,22 +25,59 @@
     <div class="burger">
       <div class="burger_tab">
         <a href="/news.html" id="news">News</a>
-        <img class="news_img" src="/imgs/logo.png" alt="burger" />
+        <img class="news_img_1" src="/imgs/burger/orange_1.png" alt="burger" />
+        <img class="news_img_2" src="/imgs/burger/orange_2.png" alt="burger" />
+        <img class="news_img_3" src="/imgs/burger/orange_3.png" alt="burger" />
       </div>
       <div class="burger_tab">
         <a href="/program.html" id="program">Program</a>
+        <img class="program_img_1" src="/imgs/burger/blue_1.png" alt="burger" />
+        <img class="program_img_2" src="/imgs/burger/blue_2.png" alt="burger" />
+        <img class="program_img_3" src="/imgs/burger/blue_3.png" alt="burger" />
       </div>
       <div class="burger_tab">
         <a href="/tickets.html" id="tickets">Tickets</a>
+        <img
+          class="tickets_img_1"
+          src="/imgs/burger/white_1.png"
+          alt="burger"
+        />
+        <img
+          class="tickets_img_2"
+          src="/imgs/burger/white_2.png"
+          alt="burger"
+        />
       </div>
       <div class="burger_tab">
         <a href="/map.html" id="map">Map</a>
+        <img class="map_img_1" src="/imgs/burger/red_1.png" alt="burger" />
+        <img class="map_img_2" src="/imgs/burger/red_2.png" alt="burger" />
+        <img class="map_img_3" src="/imgs/burger/red_3.png" alt="burger" />
       </div>
       <div class="burger_tab">
-        <a href="/practical_information.html" id="practical_information">Practical Information</a>
+        <a href="/practical_information.html" id="practical_information"
+          >Practical Information</a
+        >
+        <img
+          class="practical_img_1"
+          src="/imgs/burger/green_1.png"
+          alt="burger"
+        />
+        <img
+          class="practical_img_2"
+          src="/imgs/burger/green_2.png"
+          alt="burger"
+        />
+        <img
+          class="practical_img_3"
+          src="/imgs/burger/green_3.png"
+          alt="burger"
+        />
       </div>
       <div class="burger_tab">
         <a href="/about.html" id="about">About</a>
+        <img class="about_img_1" src="/imgs/burger/purple_1.png" alt="burger" />
+        <img class="about_img_2" src="/imgs/burger/purple_2.png" alt="burger" />
       </div>
     </div>
   </nav>
@@ -191,15 +230,91 @@
     transition: 0.4s;
   }
   /*Billeders positioner*/
-  .news_img {
+  .news_img_1 {
     position: fixed;
-    top: 90%;
-    left: 80%;
+    top: 15%;
+    left: 12%;
+  }
+  .news_img_2 {
+    position: fixed;
+    top: 24%;
+    left: 75%;
+  }
+  .news_img_3 {
+    position: fixed;
+    top: 44%;
+    left: 5%;
+  }
+  .program_img_1 {
+    position: fixed;
+    top: 15%;
+    left: 12%;
+  }
+  .program_img_2 {
+    position: fixed;
+    top: 54%;
+    left: 5%;
+  }
+  .program_img_3 {
+    position: fixed;
+    top: 24%;
+    left: 75%;
+  }
+  .tickets_img_1 {
+    position: fixed;
+    top: 31%;
+    left: 72%;
+  }
+  .tickets_img_2 {
+    position: fixed;
+    top: 19%;
+    left: 10%;
+  }
+  .map_img_1 {
+    position: fixed;
+    top: 14%;
+    left: 70%;
+  }
+  .map_img_2 {
+    position: fixed;
+    top: 32%;
+    left: 10%;
+  }
+  .map_img_3 {
+    position: fixed;
+    top: 67%;
+    left: 84%;
+  }
+  .practical_img_1 {
+    position: fixed;
+    top: 16%;
+    left: 14%;
+  }
+  .practical_img_2 {
+    position: fixed;
+    top: 24%;
+    left: 74%;
+  }
+  .practical_img_3 {
+    position: fixed;
+    top: 67%;
+    left: 2%;
+  }
+  .about_img_1 {
+    position: fixed;
+    top: 37%;
+    left: 2%;
+  }
+  .about_img_2 {
+    position: fixed;
+    top: 17%;
+    left: 74%;
   }
 
   /*Billeder vises og skrift bliver opacity ved hover*/
   .burger img {
-    display: none; /*sørg for billeder by default ikke vises*/
+    display: none;
+    z-index: 100;
   }
   .burger .burger_tab:hover img {
     display: block; /*sørg for at billeder i den div der bliver hoveret på vises*/

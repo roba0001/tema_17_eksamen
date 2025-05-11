@@ -2,7 +2,7 @@
 const { headline, address, about, more, image, venue_class } = Astro.props;
 ---
 
-<div class={venue_class}>
+<div id="container" class={venue_class}>
   <div>
     <h3>{headline}</h3>
     <p>( {address} )</p>
@@ -11,3 +11,11 @@ const { headline, address, about, more, image, venue_class } = Astro.props;
   </div>
   <img class={headline} src={image} alt="burger" />
 </div>
+
+<style>
+  #container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 40px;
+  }
+</style>

@@ -1,12 +1,13 @@
 ---
-const { headline, address, about, more, image} = Astro.props;
+const { headline, address, about, more, image, venue_class } = Astro.props;
 ---
-<div class={class}>
-<div>
-<h3>BLOX</h3>
-<p>(adresse)</p>
-<p>Known for its creative energy and cultural roots, Huset is ideal for intimate talks and hands-on workshops.</p>
-<p>For more information about this venue visit https://huset.dk </p>
-</div>
-<img class={headline} src={image} alt="burger" />
+
+<div class={venue_class}>
+  <div>
+    <h3>{headline}</h3>
+    <p>( {address} )</p>
+    <p>{about}</p>
+    <p>{more}</p>
+  </div>
+  <img class={headline} src={image} alt="burger" />
 </div>

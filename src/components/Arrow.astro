@@ -1,5 +1,25 @@
 ---
-
+const { class: customClass = "" } = Astro.props;
 ---
 
-<img class="arrow" src="/imgs/arrow.svg" alt="arrow" />
+<img class={`arrow ${customClass}`} src="/imgs/arrow.svg" alt="arrow" />
+
+<style>
+  /*If you add a class to the component on your page i.e. class="up", the arrow will be rotated correctly*/
+  .arrow.left {
+    transform: rotate(180deg);
+  }
+
+  .arrow.right {
+    transform: rotate(0deg);
+  }
+  .arrow.down {
+    transform: rotate(90deg);
+  }
+  .arrow.up {
+    transform: rotate(-90deg);
+  }
+  .arrow.downleft {
+    transform: rotate(45deg);
+  }
+</style>

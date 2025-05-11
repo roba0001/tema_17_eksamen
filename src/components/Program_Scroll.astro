@@ -1,6 +1,11 @@
 ---
 import "../style/styles.css";
+import Arrow from "./Arrow.astro";
 import ProgramCard from "./Program_Card.astro";
+import ProgramRow04 from "./Program_Row_04.astro";
+import ProgramRow05 from "./Program_Row_05.astro";
+import TextAndArrow from "./Text_And_Arrow.astro";
+import X from "./X.astro";
 const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events", {
   method: "GET",
   headers: {
@@ -12,10 +17,40 @@ const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/event
 console.log(data);
 ---
 
-<h1>fetch</h1>
-{
-  data.map((data) => {
-    return <ProgramCard data={data} />;
-  })
-}
-<div class="program_scroll"></div>
+<ProgramRow04 />
+<!-- <ProgramRow05 /> -->
+
+<style>
+  h1 {
+    height: fit-content;
+  }
+  section {
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-width: 1px;
+  }
+  .program_row_open {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+  }
+
+  .x_and_scroll_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .scroll_section {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .program_row_closed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7.6rem;
+    padding: 0 2.5rem;
+  }
+</style>

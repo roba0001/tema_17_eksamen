@@ -4,65 +4,71 @@ import Skelet from "../layouts/Skelet.astro";
 ---
 
 <Skelet>
-  <h1>About</h1>
-  <div class="about_grid">
-    <div class="text_div">
-      <div class="about_div">
-        <h3>( About )</h3>
-        <div class="about_txt_info_flex">
+  <div class="about_wrapper">
+    <h1>About</h1>
+    <div class="about_grid">
+      <div class="text_div">
+        <div class="about_div">
+          <h3>( About )</h3>
+          <div class="about_txt_info_flex">
+            <p>
+              Visual Impact is a new digital design festival by Softworld, created to support live
+              learning and professional development for creatives. Over four days in central
+              Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
+              within fields like motion graphics, web design, branding, animation, AI, and digital
+              marketing.
+            </p>
+            <p>
+              Visual Impact is a new digital design festival by Softworld, created to support live
+              learning and professional development for creatives. Over four days in central
+              Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
+              within fields like motion graphics, web design, branding, animation, AI, and digital
+              marketing.
+            </p>
+          </div>
+        </div>
+        <div class="contact_div">
+          <h3>( Contact )</h3>
+          <div class="contact_info_flex">
+            <p>contact@visualimpact.com</p>
+            <p>+45 71 23 45 67</p>
+          </div>
+        </div>
+        <div class="about_img_div_mobile">
+          <img
+            class="small_img_mobile"
+            src="/public/imgs/about_img_s.png"
+            alt="Small image on the venue outside"
+          />
+          <img
+            class="big_img_mobile"
+            src="/public/imgs/about_img_l.png"
+            alt="Big image on the venue inside"
+          />
+        </div>
+        <div class="mission_div">
+          <h3>( Mission )</h3>
           <p>
-            Visual Impact is a new digital design festival by Softworld, created to support live
-            learning and professional development for creatives. Over four days in central
-            Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
-            within fields like motion graphics, web design, branding, animation, AI, and digital
-            marketing.
-          </p>
-          <p>
-            Visual Impact is a new digital design festival by Softworld, created to support live
-            learning and professional development for creatives. Over four days in central
-            Copenhagen, the festival hosts talks, workshops, exhibitions, and networking events
-            within fields like motion graphics, web design, branding, animation, AI, and digital
-            marketing.
+            Visual Impact exists to empower creatives with future-ready skills and inspiration. We
+            believe learning should be dynamic, accessible, and in sync with the pace of the digital
+            world. Through hands-on events, expert talks, and real-world insights, we bring
+            designers, marketers, and creators together to explore what’s next in digital design —
+            and to grow, adapt, and thrive in a constantly evolving industry.
           </p>
         </div>
       </div>
-      <div class="contact_div">
-        <h3>( Contact )</h3>
-        <div class="contact_info_flex">
-          <p>contact@visualimpact.com</p>
-          <p>+45 71 23 45 67</p>
-        </div>
-      </div>
-      <div class="about_img_div_mobile">
+      <div class="about_img_div">
         <img
-          class="small_img_mobile"
-          src="/public/imgs/about_img_s.png"
-          alt="Small image on the venue outside"
-        />
-        <img
-          class="big_img_mobile"
+          class="big_img"
           src="/public/imgs/about_img_l.png"
           alt="Big image on the venue inside"
         />
+        <img
+          class="small_img"
+          src="/public/imgs/about_img_s.png"
+          alt="Small image on the venue outside"
+        />
       </div>
-      <div class="mission_div">
-        <h3>( Mission )</h3>
-        <p>
-          Visual Impact exists to empower creatives with future-ready skills and inspiration. We
-          believe learning should be dynamic, accessible, and in sync with the pace of the digital
-          world. Through hands-on events, expert talks, and real-world insights, we bring designers,
-          marketers, and creators together to explore what’s next in digital design — and to grow,
-          adapt, and thrive in a constantly evolving industry.
-        </p>
-      </div>
-    </div>
-    <div class="about_img_div">
-      <img class="big_img" src="/public/imgs/about_img_l.png" alt="Big image on the venue inside" />
-      <img
-        class="small_img"
-        src="/public/imgs/about_img_s.png"
-        alt="Small image on the venue outside"
-      />
     </div>
   </div>
 </Skelet>
@@ -116,6 +122,10 @@ import Skelet from "../layouts/Skelet.astro";
       grid-template-rows: auto;
     }
 
+    .about_wrapper {
+      margin: 2.5rem;
+    }
+
     .text_div {
       display: flex;
       flex-direction: column;
@@ -160,6 +170,7 @@ import Skelet from "../layouts/Skelet.astro";
     }
     .about_img_div {
       display: block;
+      /* centrer her */
     }
 
     .big_img {

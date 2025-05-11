@@ -1,0 +1,124 @@
+---
+import "../style/styles.css";
+import Arrow from "./Arrow.astro";
+import ProgramCard from "./Program_Card.astro";
+import TextAndArrow from "./Text_And_Arrow.astro";
+import X from "./X.astro";
+
+const data = await fetch(
+  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?date=eq.2025-09-05",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+    },
+  }
+).then((res) => res.json());
+
+console.log("data:", data);
+---
+
+<section class="program_row_wrapper">
+  <section class="program_row_closed visible">
+    <h1>05.09</h1>
+    <div class="arrow">
+      <Arrow />
+    </div>
+  </section>
+  <section class="program_row_open">
+    <img src="/public/imgs/Program/numbers/04.svg" alt="stretched 04" />
+    <div class="x_and_scroll_flex">
+      <div class="ex">
+        <X />
+      </div>
+      <div class="scroll_section">
+        {
+          data.map((data) => {
+            return <ProgramCard data={data} />;
+          })
+        }
+      </div>
+    </div>
+  </section>
+</section>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const rows = document.querySelectorAll(".program_row_wrapper");
+
+    rows.forEach((wrapper) => {
+      const arrow = wrapper.querySelector(".arrow");
+      const ex = wrapper.querySelector(".ex");
+      const openRow = wrapper.querySelector(".program_row_open");
+      const closedRow = wrapper.querySelector(".program_row_closed");
+
+      if (!arrow || !ex || !openRow || !closedRow) {
+        console.warn("Missing element in one ProgramRow");
+        return;
+      }
+
+      arrow.addEventListener("click", () => {
+        closedRow.classList.remove("visible");
+        openRow.classList.add("visible");
+      });
+
+      ex.addEventListener("click", () => {
+        openRow.classList.remove("visible");
+        closedRow.classList.add("visible");
+      });
+    });
+  });
+</script>
+
+<style>
+  h1 {
+    height: fit-content;
+  }
+  .program_row_closed,
+  .program_row_open {
+    border-top-style: solid;
+    border-width: 1px;
+  }
+  .program_row_open {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+  }
+
+  .x_and_scroll_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .scroll_section {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .program_row_closed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7.6rem;
+    padding: 0 2.5rem;
+  }
+
+  /* hidden */
+  .program_row_open,
+  .program_row_closed {
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition:
+      opacity 1s ease,
+      max-height 1s ease;
+  }
+
+  /* visible */
+  .visible {
+    opacity: 1;
+    max-height: fit-content;
+  }
+</style>

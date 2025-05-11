@@ -60,6 +60,7 @@
   .small_p {
     font-family: "Red Hat Display", sans-serif;
     font-size: 15px;
+    line-height: normal;
     font-weight: 400;
     font-style: normal;
     color: var(--black);
@@ -104,6 +105,7 @@ p {
 .small_p {
   font-family: "Red Hat Display", sans-serif;
   font-size: 12px;
+  line-height: normal;
   font-weight: 400;
   font-style: normal;
   color: var(--black);

@@ -10,25 +10,28 @@ import "../style/styles.css";
     <div class="left_side">
       <h1>Practical Information</h1>
       <div>
-        <Text_And_Arrow text="Cancellation Policy" />
+        <Text_And_Arrow
+          text_arrow_class="practical"
+          text="Cancellation Policy"
+        />
         <Text_And_Arrow text="Health and Safety Policy" />
         <Text_And_Arrow text="Venues" />
         <Text_And_Arrow text="Contact Information" />
-        <div class="right_side"></div>
       </div>
     </div>
-  </div></Skelet
->
+    <div class="right_side"></div>
+  </div>
+</Skelet>
 
 <style>
   .practical_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
-    height: 100%;
+    grid-column: full;
     border: 1px solid var(--Black, #060604);
   }
-  footer {
-    margin-top: 800px;
+  .right_side {
+    border-left: 1px solid var(--Black, #060604);
+    display: grid;
   }
 </style>

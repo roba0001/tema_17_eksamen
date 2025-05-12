@@ -1,9 +1,28 @@
 ---
 import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
+import NewsCards from "../components/News_Cards.astro";
 import "../style/styles.css";
 ---
 
 <Skelet>
-  <Gradient />
+  <main>
+    <Gradient />
+    <h1>News</h1>
+    <div class="news_grid">
+      <NewsCards />
+    </div>
+  </main>
 </Skelet>
+
+<style>
+  main {
+    margin: 120px 40px;
+  }
+  .news_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+</style>

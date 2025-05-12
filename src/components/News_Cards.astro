@@ -1,1 +1,70 @@
-amanda
+---
+import CardCategory from "./Card_Category.astro";
+import Button from "./Button.astro";
+---
+
+<div class="container">
+  <div class="top">
+    <img class="news_img" src="/imgs/img_1.jpg" alt="burger" />
+    <div class="top_overlay">
+      <CardCategory class="category" className="news" text="Motion Graphics" />
+      <p class="date">( 26.05.25 )</p>
+    </div>
+  </div>
+  <div class="bottom">
+    <p>Why Everyone’s Talking About Motion Again</p>
+    <Button button_class="outline" text="Read more" />
+  </div>
+</div>
+
+<style>
+  /**Lav klasser til de forskellige widths ved at bruge grid span */
+  .container {
+    background-color: var(--green);
+    border-radius: 30px;
+    width: 300px;
+    overflow: hidden;
+  }
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    height: 90px;
+  }
+  .top {
+    position: relative;
+    width: 300px;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Adjust ratio as needed */
+  }
+
+  .news_img {
+    object-fit: cover;
+    display: block;
+    width: 300px;
+    aspect-ratio: 4 / 3;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+  }
+  .top_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .date {
+    padding-left: 15px;
+    padding-bottom: 5px;
+    color: var(--green, #cfff5c);
+    /* Desktop/H3 */
+    font-family: "General Sans";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+  }
+</style>

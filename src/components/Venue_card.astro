@@ -1,5 +1,7 @@
 ---
-const { headline, address, about, more, image, venue_class } = Astro.props;
+const { headline, address, about, more, image, venue_class, maps_link } =
+  Astro.props;
+import Button from "./Button.astro";
 ---
 
 <div id="container" class={venue_class}>
@@ -8,6 +10,8 @@ const { headline, address, about, more, image, venue_class } = Astro.props;
     <p>( {address} )</p>
     <p>{about}</p>
     <p>{more}</p>
+    <a href={maps_link}><Button button_class="primary" text="Open in Maps" /></a
+    >
   </div>
   <div id="this">
     <img src={image} alt={headline} />
@@ -22,8 +26,9 @@ const { headline, address, about, more, image, venue_class } = Astro.props;
     gap: 20px;
     align-items: center;
   }
+  h3,
   p {
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .right .left {
     grid-column: 2;

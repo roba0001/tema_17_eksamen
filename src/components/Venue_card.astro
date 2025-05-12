@@ -3,13 +3,15 @@ const { headline, address, about, more, image, venue_class } = Astro.props;
 ---
 
 <div id="container" class={venue_class}>
-  <div>
+  <div class="left">
     <h3>{headline}</h3>
     <p>( {address} )</p>
     <p>{about}</p>
     <p>{more}</p>
   </div>
-  <img class={headline} src={image} alt="burger" />
+  <div id="this">
+    <img src={image} alt={headline} />
+  </div>
 </div>
 
 <style>
@@ -17,5 +19,18 @@ const { headline, address, about, more, image, venue_class } = Astro.props;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 40px;
+    gap: 20px;
+    align-items: center;
+  }
+  p {
+    margin-top: 20px;
+  }
+  .right .left {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .right #this img {
+    grid-column: 1;
+    grid-row: 1;
   }
 </style>

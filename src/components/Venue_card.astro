@@ -13,16 +13,16 @@ import Button from "./Button.astro";
     <a href={maps_link}><Button button_class="primary" text="Open in Maps" /></a
     >
   </div>
-  <div id="this">
+  <div id="picture">
     <img src={image} alt={headline} />
   </div>
 </div>
 
 <style>
   #container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
     gap: 20px;
     align-items: center;
   }
@@ -30,12 +30,27 @@ import Button from "./Button.astro";
   p {
     margin-bottom: 20px;
   }
-  .right .left {
-    grid-column: 2;
-    grid-row: 1;
+  .picture {
+    margin-top: 20px;
   }
-  .right #this img {
-    grid-column: 1;
-    grid-row: 1;
+  @media (min-width: 800px) {
+    #container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 40px;
+      gap: 20px;
+      align-items: center;
+    }
+    .right .left {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .right #this img {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .picture {
+      margin-top: 0px;
+    }
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 const { id, text } = Astro.props;
+import "../style/styles.css";
 ---
 
 <div id={id} class="container">
@@ -16,6 +17,7 @@ const { id, text } = Astro.props;
     align-items: center;
     flex-wrap: nowrap;
     border-top: 1px solid var(--Black, #060604);
+    height: 100px;
   }
   .container img {
     transform: rotate(45deg);

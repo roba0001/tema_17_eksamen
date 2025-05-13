@@ -95,6 +95,20 @@ import "../style/styles.css";
   .right_side > .active {
     display: block;
   }
+
+  @media (max-width: 1000px) {
+    .practical_container {
+      display: grid;
+      z-index: 100;
+      grid-template-columns: 1fr;
+      min-height: 100vh;
+    }
+
+    .right_side {
+      display: none;
+      grid-row: auto;
+    }
+  }
 </style>
 
 <script>

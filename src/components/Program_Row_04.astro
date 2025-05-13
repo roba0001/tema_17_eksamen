@@ -26,13 +26,16 @@ console.log("data:", data);
       <Arrow />
     </div>
   </section>
-  <section class="program_row_open visible">
+
+  <section class="program_row_open">
     <img
       class="stretched_number_svg"
       src="/public/imgs/Program/numbers/04.svg"
       alt="stretched 04"
     />
     <div class="x_and_scroll_flex">
+      <h1 class="mobile_date">04.09</h1>
+
       <X />
 
       <div class="scroll_section">
@@ -40,7 +43,6 @@ console.log("data:", data);
           data.map((data) => {
             return (
               <>
-                <ProgramCard data={data} />
                 <ProgramCard data={data} />
               </>
             );
@@ -52,26 +54,37 @@ console.log("data:", data);
 </section>
 
 <style>
+  .program_row_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   /* mobile */
+  .x_and_scroll_flex {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr;
+  }
+  .ex {
+    justify-self: flex-end;
+  }
   .program_row_closed {
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* width: auto; */
-    padding: 0 2.5rem;
+    padding: 0 20px;
     border-color: var(--black);
     border-width: 1px;
     border-bottom-style: solid;
     border-top-style: solid;
-    margin-bottom: 10rem;
   }
   .program_row_open {
-    padding: 2.5rem;
+    padding: 20px;
     border-color: var(--black);
     border-width: 1px;
     border-bottom-style: solid;
     border-top-style: solid;
-    margin-bottom: 10rem;
   }
 
   .stretched_number_svg {
@@ -79,6 +92,7 @@ console.log("data:", data);
   }
 
   .scroll_section {
+    grid-column: 1/-1;
     display: flex;
     align-items: center;
     gap: 0.9375rem;
@@ -88,6 +102,9 @@ console.log("data:", data);
 
   /* desktop */
   @media (min-width: 800px) {
+    .mobile_date {
+      display: none;
+    }
     .stretched_number_svg {
       display: block;
     }
@@ -137,15 +154,25 @@ console.log("data:", data);
     overflow: hidden;
     opacity: 0;
     max-height: 0;
+    transform: translateY(-2rem);
     transition:
-      opacity 1s ease,
-      max-height 1s ease;
+      opacity 0.4s ease,
+      max-height 0.6s ease,
+      transform 0.4s ease;
   }
 
-  /* visible */
+  /* open and visible */
   .visible {
     opacity: 1;
-    max-height: fit-content;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+
+  /* smoother closing animation */
+  .closing {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-2rem);
   }
 
   .program_row_wrapper {
@@ -163,19 +190,21 @@ console.log("data:", data);
       const openRow = wrapper.querySelector(".program_row_open");
       const closedRow = wrapper.querySelector(".program_row_closed");
 
-      if (!arrow || !ex || !openRow || !closedRow) {
-        console.warn("Missing element in one ProgramRow");
-        return;
-      }
-
       arrow.addEventListener("click", () => {
         closedRow.classList.remove("visible");
-        openRow.classList.add("visible");
+        openRow.classList.remove("closing");
+        requestAnimationFrame(() => {
+          openRow.classList.add("visible");
+        });
       });
 
       ex.addEventListener("click", () => {
-        openRow.classList.remove("visible");
-        closedRow.classList.add("visible");
+        openRow.classList.add("closing"); // trigger transition
+        setTimeout(() => {
+          openRow.classList.remove("visible");
+          openRow.classList.remove("closing");
+          closedRow.classList.add("visible");
+        }, 400); // match transition duration
       });
     });
   });

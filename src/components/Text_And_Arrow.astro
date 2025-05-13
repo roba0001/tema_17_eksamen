@@ -24,14 +24,27 @@ const { id, text } = Astro.props;
     transition: 1s;
   }
   .container:hover img {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
   }
 
   .container.active img {
-    transform: rotate(0deg);
+    transform: rotate(90deg);
   }
   h2 {
     padding-left: 40px;
+  }
+
+  /*WEB*/
+  @media (min-width: 800px) {
+    h2 {
+      padding-left: 20px;
+    }
+    .container.active img {
+      transform: rotate(0deg);
+    }
+    .container:hover img {
+      transform: rotate(0deg);
+    }
   }
 </style>
 

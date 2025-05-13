@@ -85,12 +85,20 @@
 <style>
   /*HEADER*/
 
+  /*STYLING AF LUKKET MENU*/
+  .burger {
+    display: none;
+  }
+  .visible_tab {
+    display: none;
+  }
+
   /*position og brede af header*/
   header {
     width: 100%;
     position: fixed;
-    transition: 0.4s;
-    animation: 0.4s opacity ease-in-out;
+    transition: 1s;
+    animation: 1s opacity ease-in-out;
     z-index: 1000;
     background-color: var(--off_white);
   }
@@ -105,27 +113,18 @@
     text-align: center;
     text-decoration: none;
   }
-  /*styling af lukket*/
-  .visible_tab {
-    font-size: 18px;
-    font-weight: 600;
-  }
+
   /*styling af åben burger*/
   .burger_tab {
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 500;
-  }
-
-  /*STYLING AF LUKKET MENU*/
-  .burger {
-    display: none;
   }
 
   /**** MENUBAR *****/
   .menubar {
     display: flex;
     height: 60px;
-    padding: 0px 40px;
+    padding: 0px 20px;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
@@ -135,8 +134,7 @@
   }
 
   .left_row {
-    border-right: 1px solid var(--Black, #060604);
-    padding-right: 40px;
+    padding-right: 20px;
     height: 100%;
     align-self: stretch;
     display: flex;
@@ -150,17 +148,6 @@
     flex-shrink: 0;
     height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
   }
-
-  /*styling af visible_tabs*/
-  .visible_tab {
-    padding: 0px 40px;
-    border-left: 1px solid var(--Black, #060604);
-    height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-  }
-
   /**** BURGER IKON OG KRYDS *****/
 
   /*Styling af ikon holder - primært layout*/
@@ -206,13 +193,10 @@
     border: none; /*fjern borders*/
     box-shadow: none; /*fjern shadow*/
   }
-  header.change .menubar .visible_tab {
-    display: none; /*fjern visible tabs*/
-  }
 
-  /****BURGER****/
+  /****BURGER MENU ÅBEN****/
 
-  /*Primært Layout*/
+  /*Layout*/
   .change .burger {
     display: flex;
     flex-direction: column;
@@ -231,96 +215,8 @@
     justify-content: center;
     align-items: center;
   }
-  /*Billeders positioner*/
-  .news_img_1 {
-    position: fixed;
-    top: 15%;
-    left: 12%;
-  }
-  .news_img_2 {
-    position: fixed;
-    top: 24%;
-    left: 75%;
-  }
-  .news_img_3 {
-    position: fixed;
-    top: 44%;
-    left: 5%;
-  }
-  .program_img_1 {
-    position: fixed;
-    top: 15%;
-    left: 12%;
-  }
-  .program_img_2 {
-    position: fixed;
-    top: 54%;
-    left: 5%;
-  }
-  .program_img_3 {
-    position: fixed;
-    top: 24%;
-    left: 75%;
-  }
-  .tickets_img_1 {
-    position: fixed;
-    top: 31%;
-    left: 72%;
-  }
-  .tickets_img_2 {
-    position: fixed;
-    top: 19%;
-    left: 10%;
-  }
-  .map_img_1 {
-    position: fixed;
-    top: 14%;
-    left: 70%;
-  }
-  .map_img_2 {
-    position: fixed;
-    top: 32%;
-    left: 10%;
-  }
-  .map_img_3 {
-    position: fixed;
-    top: 67%;
-    left: 84%;
-  }
-  .practical_img_1 {
-    position: fixed;
-    top: 16%;
-    left: 14%;
-  }
-  .practical_img_2 {
-    position: fixed;
-    top: 24%;
-    left: 74%;
-  }
-  .practical_img_3 {
-    position: fixed;
-    top: 67%;
-    left: 2%;
-  }
-  .about_img_1 {
-    position: fixed;
-    top: 37%;
-    left: 2%;
-  }
-  .about_img_2 {
-    position: fixed;
-    top: 17%;
-    left: 74%;
-  }
 
-  /*Billeder vises og skrift bliver opacity ved hover*/
-  .burger img {
-    display: none;
-    z-index: 100;
-  }
-  .burger .burger_tab:hover img {
-    display: block; /*sørg for at billeder i den div der bliver hoveret på vises*/
-  }
+  /*skrift opacity på hover*/
 
   .burger:hover .burger_tab {
     opacity: 0.5; /*sørg for at når man hover over burgeren får burger tabs 50% opacity */
@@ -328,7 +224,130 @@
   .burger .burger_tab:hover {
     opacity: 1; /*sørg for at hvis man hover over en burger tab bliver opacity 100% - Nu vil KUN en tab være helt sort */
   }
-  /**** BURGER MENU *****/
+  .burger img {
+    display: none;
+    z-index: 100;
+  }
+
+  /**** WEB *****/
+  @media (min-width: 800px) {
+    .menubar {
+      padding: 0px 40px;
+    }
+    .left_row {
+      padding-right: 40px;
+    }
+
+    /*styling af åben burger*/
+    .burger_tab {
+      font-size: 80px;
+    }
+
+    /*styling af visible_tabs*/
+    .visible_tab {
+      padding: 0px 40px;
+      border-left: 1px solid var(--Black, #060604);
+      height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .left_row {
+      border-right: 1px solid var(--Black, #060604);
+    }
+    /***BILLEDER***/
+    header.change .menubar .visible_tab {
+      display: none; /*fjern visible tabs*/
+    }
+    /*Billeder vises ved hover*/
+    .burger .burger_tab:hover img {
+      display: block; /*sørg for at billeder i den div der bliver hoveret på vises*/
+    }
+    /*Billeders positioner*/
+    .news_img_1 {
+      position: fixed;
+      top: 15%;
+      left: 12%;
+    }
+    .news_img_2 {
+      position: fixed;
+      top: 24%;
+      left: 75%;
+    }
+    .news_img_3 {
+      position: fixed;
+      top: 44%;
+      left: 5%;
+    }
+    .program_img_1 {
+      position: fixed;
+      top: 15%;
+      left: 12%;
+    }
+    .program_img_2 {
+      position: fixed;
+      top: 54%;
+      left: 5%;
+    }
+    .program_img_3 {
+      position: fixed;
+      top: 24%;
+      left: 75%;
+    }
+    .tickets_img_1 {
+      position: fixed;
+      top: 31%;
+      left: 72%;
+    }
+    .tickets_img_2 {
+      position: fixed;
+      top: 19%;
+      left: 10%;
+    }
+    .map_img_1 {
+      position: fixed;
+      top: 14%;
+      left: 70%;
+    }
+    .map_img_2 {
+      position: fixed;
+      top: 32%;
+      left: 10%;
+    }
+    .map_img_3 {
+      position: fixed;
+      top: 67%;
+      left: 84%;
+    }
+    .practical_img_1 {
+      position: fixed;
+      top: 16%;
+      left: 14%;
+    }
+    .practical_img_2 {
+      position: fixed;
+      top: 24%;
+      left: 74%;
+    }
+    .practical_img_3 {
+      position: fixed;
+      top: 67%;
+      left: 2%;
+    }
+    .about_img_1 {
+      position: fixed;
+      top: 37%;
+      left: 2%;
+    }
+    .about_img_2 {
+      position: fixed;
+      top: 17%;
+      left: 74%;
+    }
+  }
 </style>
 <script>
   // lav konstanter for burger ikon, burger menu og kryds ikon

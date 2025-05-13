@@ -13,7 +13,7 @@ import Button from "./Button.astro";
   </div>
   <div class="bottom">
     <p>Why Everyone’s Talking About Motion Again</p>
-    <Button button_class="outline" text="Read more" />
+    <div id="button"><Button button_class="outline" text="Read more" /></div>
   </div>
 </div>
 
@@ -22,28 +22,31 @@ import Button from "./Button.astro";
   .container {
     background-color: var(--green);
     border-radius: 30px;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / span 3;
     overflow: hidden;
   }
   .bottom {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 15px;
     padding: 15px;
-    height: 90px;
+    height: 80px;
   }
   .top {
     position: relative;
-    width: 300px;
+    width: 100%;
     position: relative;
-    aspect-ratio: 4 / 3; /* Adjust ratio as needed */
+    height: 190px; /* Adjust ratio as needed */
   }
 
   .news_img {
     object-fit: cover;
     display: block;
-    width: 300px;
-    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: 190px;
     border-top-right-radius: 30px;
     border-top-left-radius: 30px;
   }
@@ -66,5 +69,9 @@ import Button from "./Button.astro";
     font-size: 18px;
     font-weight: 600;
     line-height: normal;
+  }
+  #button {
+    display: flex;
+    justify-content: flex-end;
   }
 </style>

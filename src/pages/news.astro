@@ -17,13 +17,25 @@ import "../style/styles.css";
 
 <style>
   main {
-    margin: 120px 40px;
+    margin: 120px 20px;
   }
   .news_grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(14, 1fr);
     gap: 40px;
     margin-top: 40px;
+  }
+  @media (min-width: 800px) {
+    .news_grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    main {
+      margin: 120px 40px;
+    }
   }
 </style>

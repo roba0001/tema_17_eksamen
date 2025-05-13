@@ -1,20 +1,29 @@
 ---
 import CardCategory from "./Card_Category.astro";
 import Button from "./Button.astro";
+import Arrow from "./Arrow.astro";
 ---
 
 <div class="container">
-  <div class="top">
-    <img class="news_img" src="/imgs/img_1.jpg" alt="burger" />
-    <div class="top_overlay">
-      <CardCategory class="category" className="news" text="Motion Graphics" />
-      <p class="date">( 26.05.25 )</p>
+  <a href="/program_singleview.html">
+    <div class="top">
+      <img class="news_img" src="/imgs/img_1.jpg" alt="burger" />
+      <div class="top_overlay">
+        <CardCategory
+          class="category"
+          className="news"
+          text="Motion Graphics"
+        />
+        <p class="date">( 26.05.25 )</p>
+      </div>
     </div>
-  </div>
-  <div class="bottom">
-    <p>Why Everyone’s Talking About Motion Again</p>
-    <div id="button"><Button button_class="outline" text="Read more" /></div>
-  </div>
+    <div class="bottom">
+      <p>Why Everyone’s Talking About Motion Again</p>
+      <div id="button">
+        <img class="pracical_arrow" src="/imgs/arrow.svg" alt="arrow" />
+      </div>
+    </div>
+  </a>
 </div>
 
 <style>
@@ -31,9 +40,20 @@ import Button from "./Button.astro";
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
     padding: 15px;
     height: 80px;
+  }
+  #button img {
+    transform: rotate(45deg);
+    width: 80px;
+    transition: 1s;
+  }
+  #button:hover img {
+    transform: rotate(0deg);
+  }
+  #button {
+    display: flex;
+    justify-content: flex-end;
   }
   .top {
     position: relative;
@@ -70,8 +90,26 @@ import Button from "./Button.astro";
     font-weight: 600;
     line-height: normal;
   }
-  #button {
-    display: flex;
-    justify-content: flex-end;
+
+  @media (max-width: 800px) {
+    .container {
+      flex-direction: row;
+    }
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 15px;
+      padding-top: 15px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      height: auto;
+    }
+    .news_img {
+      border-top-right-radius: 0px;
+    }
+    .date {
+      padding-bottom: 15px;
+    }
   }
 </style>

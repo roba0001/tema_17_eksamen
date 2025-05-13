@@ -1,0 +1,122 @@
+---
+import Skelet from "../layouts/Skelet.astro";
+import Gradient from "../components/Gradient.astro";
+import CardCategory from "../components/Card_Category.astro";
+import "../style/styles.css";
+---
+
+<Skelet>
+  <main>
+    <section>
+      <Gradient />
+      <div class="image_section"></div>
+    </section>
+    <div class="headline_section">
+      <div class="categories">
+        <CardCategory className="program" text="Talk" />
+        <CardCategory className="program" text="Branding" />
+        <CardCategory />
+      </div>
+      <h1>Designing Brands in a Noisy World</h1>
+    </div>
+    <div class="details_grid">
+      <p>Date: 04.09.2025</p>
+      <p>Venue: BLOX</p>
+      <p>Time: 12:00-13:00</p>
+      <p>Speaker: Sara Coleman</p>
+    </div>
+    <div class="about_grid">
+      <div class="about_left">
+        <h3>( About )</h3>
+        <p>
+          In today’s crowded digital space, creating a brand that stands out is
+          more challenging than ever. In this talk, Sara Coleman, a creative
+          director at Coleman & Co. Branding (Berlin), delves into strategies
+          for cutting through the noise. Using real-world examples from global
+          campaigns, Sara will explore how to develop a strong visual identity
+          and a compelling narrative that resonates with audiences. Whether
+          you're working with a startup or a global brand, this session will
+          help you craft a brand identity that speaks clearly and powerfully.
+        </p>
+        <p>
+          Sara will also share insights from her recent collaborations with
+          leading sports apparel brands in the skiing and skateboarding scenes.
+          Known for building bold, youthful brand identities, she has crafted
+          campaigns that fuse high-energy photography with playful,
+          community-driven storytelling—think snapshots from après-ski parties,
+          dynamic quotes from pro snowboarders, and eye-catching imagery of
+          tricks on the slopes. These projects have resonated strongly with
+          younger audiences, gaining traction across social media and coming to
+          life at branded events like DJ-led pop-ups and interactive showcases.
+          It’s branding that feels alive, authentic, and unmistakably
+          of-the-moment.
+        </p>
+      </div>
+      <div>
+        <img />
+        <p class="image_text">
+          Sara Coleman, with 15+ years of experience in branding, has led
+          projects for clients such as Adidas, Volkswagen, and Carhart.
+        </p>
+      </div>
+    </div>
+    <h3>( Discover More from Sara Coleman )</h3>
+    <div class="socials_flexbox">
+      <div class="socials_flex">
+        <p>Instagram</p>
+        <a>@sara_colemancreative</a>
+      </div>
+      <div class="socials_flex">
+        <p>LinkedIn</p>
+        <a>Sara Coleman/LinkedIn</a>
+      </div>
+      <div class="socials_flex">
+        <p>Website</p>
+        <a>www.saracolemancreative.com</a>
+      </div>
+    </div>
+  </main>
+</Skelet>
+
+<style>
+  main {
+    margin: 60px 0px;
+  }
+  h3,
+  h1 {
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h3 {
+    margin-top: 50px;
+  }
+  p {
+    margin: 0px 20px;
+  }
+  .categories {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  .socials_flexbox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid var(--Black, #060604);
+  }
+  .socials_flex {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid var(--Black, #060604);
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .details_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .details_grid p {
+    padding: 15px 0px;
+  }
+</style>

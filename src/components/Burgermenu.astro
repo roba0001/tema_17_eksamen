@@ -54,6 +54,9 @@
         <img class="map_img_2" src="/imgs/burger/red_2.png" alt="burger" />
         <img class="map_img_3" src="/imgs/burger/red_3.png" alt="burger" />
       </div>
+      <div class="mobile_img_container">
+        <div class="mobile_img"></div>
+      </div>
       <div class="burger_tab">
         <a href="/practical_information.html" id="practical_information"
           >Practical Information</a
@@ -210,10 +213,31 @@
   .burger_tab {
     border-top: 1px solid var(--Black, #060604);
     width: 100%;
-    height: 16.6%;
+    height: 12.5%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .mobile_img_container {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid var(--Black, #060604);
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile_img {
+    height: 135px;
+    width: 255px;
+    color: red;
+    background-image: url(/imgs/burger/white_2.png);
+    background-repeat: no-repeat;
+    background-size: 105%;
+    background-position: center;
+    width: 255px;
+    height: 135px;
+    flex-shrink: 0;
+    border-radius: 35px;
   }
 
   /*skrift opacity på hover*/
@@ -231,6 +255,9 @@
 
   /**** WEB *****/
   @media (min-width: 800px) {
+    .mobile_img_container {
+      display: none;
+    }
     .menubar {
       padding: 0px 40px;
     }
@@ -241,6 +268,7 @@
     /*styling af åben burger*/
     .burger_tab {
       font-size: 80px;
+      height: 16.6%;
     }
 
     /*styling af visible_tabs*/
@@ -350,21 +378,44 @@
   }
 </style>
 <script>
-  // lav konstanter for burger ikon, burger menu og kryds ikon
+  // Constants
   const icon = document.querySelector(".menu_ikon");
   const header = document.querySelector("header");
-  const burger = document.querySelector("burger");
+  const burger = document.querySelector(".burger"); // fixed: should be ".burger" if it's a class
+  const imageHolder = document.querySelector(".mobile_img");
 
-  // kald funktionen burgermenu, når der klikkes på burger eller kryds
+  const imageUrls = [
+    "/imgs/burger/white_1.png",
+    "/imgs/burger/orange_3.png",
+    "/imgs/burger/green_3.png",
+    "/imgs/burger/purple_2.png",
+    "/imgs/burger/red_2.png",
+  ];
+
+  let currentIndex = 0;
+  let intervalId = null;
+
+  // Event listener
   icon.addEventListener("click", burgermenu);
 
-  // toggle class: hide og change (svarer til add ved klik på burgerikon og remove ved klik på kryds)
-  // Hvis burgerikonet klikkes vises burgermenuen, og ligger sig ovenpå resten af indholdet
-  // Hvis burgerikonet klikkes erstattes burgerikonet med krydset
   function burgermenu() {
     console.log("burger");
     icon.classList.toggle("change");
     header.classList.toggle("change");
     burger.classList.toggle("change");
+
+    const isOpen = burger.classList.contains("change");
+
+    if (isOpen && !intervalId) {
+      // Start rotating images
+      intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        imageHolder.style.backgroundImage = `url('${imageUrls[currentIndex]}')`;
+      }, 1000); // every 1 second
+    } else if (!isOpen && intervalId) {
+      // Stop rotating if menu is closed
+      clearInterval(intervalId);
+      intervalId = null;
+    }
   }
 </script>

@@ -2,7 +2,11 @@
 const { arrow_class } = Astro.props;
 ---
 
-<img class={arrow_class} src="/public/imgs/Program/numbers/arrow.svg" alt="arrow" />
+<img
+  class={arrow_class}
+  src="/public/imgs/Program/numbers/arrow.svg"
+  alt="arrow"
+/>
 
 <style>
   img {
@@ -10,7 +14,7 @@ const { arrow_class } = Astro.props;
   }
   /*Hvis du tilføjer en klasse til arrow fx. class="up", så vil arrow være roteret korrekt*/
   .left {
-    transform: rotate(180deg);
+    transform: rotate(135deg);
   }
 
   .right {

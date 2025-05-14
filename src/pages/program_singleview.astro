@@ -1,5 +1,6 @@
 ---
 import Skelet from "../layouts/Skelet.astro";
+import Arrow from "../components/Arrow.astro";
 import Gradient from "../components/Gradient.astro";
 import CardCategory from "../components/Card_Category.astro";
 import "../style/styles.css";
@@ -7,6 +8,9 @@ import "../style/styles.css";
 
 <Skelet>
   <main>
+    <a href="/program.html" id="back">
+      <Arrow arrow_class="left" />
+    </a>
     <Gradient gradient_class="program_sw" />
     <section>
       <div class="images_container">
@@ -104,6 +108,12 @@ import "../style/styles.css";
 </Skelet>
 
 <style>
+  #back {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+  }
+
   /* IMAGES */
 
   /* Layout og styling af funktionalitet */

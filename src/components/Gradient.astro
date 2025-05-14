@@ -13,7 +13,6 @@ const { gradient_class } = Astro.props;
   #gradient {
     flex-shrink: 0;
     border-radius: 1263px;
-    position: fixed;
     z-index: -1;
     background: radial-gradient(
       50.06% 50% at 50.06% 50%,
@@ -26,11 +25,30 @@ const { gradient_class } = Astro.props;
     height: 800px;
     bottom: 100px;
     right: 1000px;
+    z-index: -1;
+    position: fixed;
   }
   .practical2 {
     width: 800px;
     height: 800px;
     bottom: -200px;
     right: -100px;
+    z-index: -1;
+    position: fixed;
+  }
+  .program_sw {
+    position: absolute;
+    width: 1900px;
+    height: 1500px;
+    top: -700px;
+    right: -650px;
+  }
+  @media (min-width: 800px) {
+    .program_sw {
+      width: 1900px;
+      height: 1500px;
+      top: -700px;
+      right: -300px;
+    }
   }
 </style>

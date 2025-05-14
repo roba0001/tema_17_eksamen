@@ -26,22 +26,166 @@ console.log("data:", data);
       <Arrow />
     </div>
   </section>
+
   <section class="program_row_open">
-    <img src="/public/imgs/Program/numbers/04.svg" alt="stretched 04" />
+    <img
+      class="stretched_number_svg"
+      src="/public/imgs/Program/numbers/05.svg"
+      alt="stretched 04"
+    />
     <div class="x_and_scroll_flex">
-      <div class="ex">
-        <X />
-      </div>
+      <h1 class="mobile_date">05.09</h1>
+
+      <X />
+
       <div class="scroll_section">
         {
           data.map((data) => {
-            return <ProgramCard data={data} />;
+            return (
+              <>
+                <ProgramCard data={data} />
+              </>
+            );
           })
         }
       </div>
     </div>
   </section>
 </section>
+
+<style>
+  .program_row_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  /* mobile */
+
+  .program_row_closed.visible {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: auto; */
+    padding: 0 20px;
+    border-color: var(--black);
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-top-style: solid;
+  }
+  .program_row_open.visible {
+    padding: 20px;
+    border-color: var(--black);
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-top-style: solid;
+
+    & .x_and_scroll_flex {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto 1fr;
+
+      .ex {
+        justify-self: flex-end;
+      }
+    }
+  }
+
+  .stretched_number_svg {
+    display: none;
+  }
+
+  .scroll_section {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+
+  /* desktop */
+  @media (min-width: 800px) {
+    .mobile_date {
+      display: none;
+    }
+    .stretched_number_svg {
+      display: block;
+    }
+    h1 {
+      height: fit-content;
+    }
+    .program_row_closed,
+    .program_row_open {
+      border-top-style: solid;
+      border-width: 1px;
+    }
+    .program_row_open.visible {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+    }
+
+    .x_and_scroll_flex {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      overflow-x: scroll;
+    }
+
+    .ex {
+      align-self: flex-end;
+    }
+
+    .scroll_section {
+      display: flex;
+      gap: 2rem;
+      overflow: hidden;
+      overflow-x: scroll;
+    }
+
+    .program_row_closed {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 7.6rem;
+      padding: 0 2.5rem;
+    }
+  }
+  /* hidden */
+  .program_row_open,
+  .program_row_closed {
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-2rem);
+    transition:
+      opacity 0.4s ease,
+      max-height 0.6s ease,
+      transform 0.4s ease;
+    display: none; /* start with display none */
+  }
+
+  /* open and visible */
+  .visible {
+    display: block;
+
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+
+  /* smoother closing animation */
+  .closing {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-2rem);
+  }
+
+  .program_row_wrapper {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
 
 <script type="module">
   document.addEventListener("DOMContentLoaded", () => {
@@ -53,72 +197,22 @@ console.log("data:", data);
       const openRow = wrapper.querySelector(".program_row_open");
       const closedRow = wrapper.querySelector(".program_row_closed");
 
-      if (!arrow || !ex || !openRow || !closedRow) {
-        console.warn("Missing element in one ProgramRow");
-        return;
-      }
-
       arrow.addEventListener("click", () => {
         closedRow.classList.remove("visible");
-        openRow.classList.add("visible");
+        openRow.classList.remove("closing");
+        requestAnimationFrame(() => {
+          openRow.classList.add("visible");
+        });
       });
 
       ex.addEventListener("click", () => {
-        openRow.classList.remove("visible");
-        closedRow.classList.add("visible");
+        openRow.classList.add("closing"); // trigger transition
+        setTimeout(() => {
+          openRow.classList.remove("visible");
+          openRow.classList.remove("closing");
+          closedRow.classList.add("visible");
+        }, 400); // match transition duration
       });
     });
   });
 </script>
-
-<style>
-  h1 {
-    height: fit-content;
-  }
-  .program_row_closed,
-  .program_row_open {
-    border-top-style: solid;
-    border-width: 1px;
-  }
-  .program_row_open {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2.5rem;
-  }
-
-  .x_and_scroll_flex {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .scroll_section {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .program_row_closed {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 7.6rem;
-    padding: 0 2.5rem;
-  }
-
-  /* hidden */
-  .program_row_open,
-  .program_row_closed {
-    overflow: hidden;
-    opacity: 0;
-    max-height: 0;
-    transition:
-      opacity 1s ease,
-      max-height 1s ease;
-  }
-
-  /* visible */
-  .visible {
-    opacity: 1;
-    max-height: fit-content;
-  }
-</style>

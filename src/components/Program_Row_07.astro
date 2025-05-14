@@ -6,7 +6,7 @@ import TextAndArrow from "./Text_And_Arrow.astro";
 import X from "./X.astro";
 
 const data = await fetch(
-  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?date=eq.2025-09-04",
+  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?date=eq.2025-09-07",
   {
     method: "GET",
     headers: {
@@ -21,7 +21,7 @@ console.log("data:", data);
 
 <section class="program_row_wrapper">
   <section class="program_row_closed visible">
-    <h1>04.09</h1>
+    <h1>07.09</h1>
     <div class="arrow">
       <Arrow />
     </div>
@@ -30,11 +30,11 @@ console.log("data:", data);
   <section class="program_row_open">
     <img
       class="stretched_number_svg"
-      src="/public/imgs/Program/numbers/04.svg"
+      src="/public/imgs/Program/numbers/07.svg"
       alt="stretched 04"
     />
     <div class="x_and_scroll_flex">
-      <h1 class="mobile_date">04.09</h1>
+      <h1 class="mobile_date">07.09</h1>
 
       <X />
 

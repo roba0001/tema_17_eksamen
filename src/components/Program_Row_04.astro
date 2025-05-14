@@ -23,7 +23,7 @@ console.log("data:", data);
   <section class="program_row_closed visible">
     <h1>04.09</h1>
     <div class="arrow">
-      <Arrow />
+      <img src="/public/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </div>
   </section>
 
@@ -66,12 +66,17 @@ console.log("data:", data);
     justify-content: space-between;
     align-items: center;
     /* width: auto; */
-    padding: 0 20px;
+    padding: 20px;
     border-color: var(--black);
     border-width: 1px;
     border-bottom-style: solid;
     border-top-style: solid;
   }
+
+  .arrow img {
+    width: 25px;
+  }
+
   .program_row_open.visible {
     padding: 20px;
     border-color: var(--black);
@@ -105,6 +110,17 @@ console.log("data:", data);
 
   /* desktop */
   @media (min-width: 800px) {
+    .program_row_closed img {
+      transition: 1s;
+    }
+
+    .program_row_closed:hover img {
+      transform: rotate(45deg) !important;
+    }
+
+    .arrow img {
+      width: 35px;
+    }
     .mobile_date {
       display: none;
     }
@@ -124,16 +140,15 @@ console.log("data:", data);
       grid-template-columns: auto 1fr;
       gap: 4rem;
     }
+    .program_row_closed.visible {
+      padding: 0 20px;
+    }
 
     .x_and_scroll_flex {
       display: flex;
       flex-direction: column;
       overflow: hidden;
       overflow-x: scroll;
-    }
-
-    .ex {
-      align-self: flex-end;
     }
 
     .scroll_section {

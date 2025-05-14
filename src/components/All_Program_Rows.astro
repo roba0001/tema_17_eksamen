@@ -8,15 +8,6 @@ import ProgramRow06 from "./Program_Row_06.astro";
 import ProgramRow07 from "./Program_Row_07.astro";
 import TextAndArrow from "./Text_And_Arrow.astro";
 import X from "./X.astro";
-const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events", {
-  method: "GET",
-  headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
-  },
-}).then((res) => res.json());
-
-console.log(data);
 ---
 
 <section>

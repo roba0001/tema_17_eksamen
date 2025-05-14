@@ -7,7 +7,8 @@ const { data, link } = Astro.props;
 <section>
   <div class="img_and_eventtype_wrapper">
     <CardCategory className="program" text={data.type} />
-    <img src={`/imgs/${data.main_img}`} alt="Event image" />
+    <img src={`/public/imgs/Program/${data.main_img}`} alt="Event image" />
+    <img src="/public/imgs/Program/day-2/3D-modelling-for-product-imagery/" alt="" />
   </div>
   <div class="txt_wrapper">
     <p class="small_p">( {data.topic} )</p>

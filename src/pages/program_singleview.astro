@@ -20,57 +20,58 @@ import "../style/styles.css";
       <h1>Designing Brands in a Noisy World</h1>
     </div>
     <div class="details_grid">
-      <p>Date: 04.09.2025</p>
-      <p>Venue: BLOX</p>
-      <p>Time: 12:00-13:00</p>
-      <p>Speaker: Sara Coleman</p>
-    </div>
-    <div class="about_grid">
-      <div class="about_left">
-        <h3>( About )</h3>
-        <p>
-          In today’s crowded digital space, creating a brand that stands out is
-          more challenging than ever. In this talk, Sara Coleman, a creative
-          director at Coleman & Co. Branding (Berlin), delves into strategies
-          for cutting through the noise. Using real-world examples from global
-          campaigns, Sara will explore how to develop a strong visual identity
-          and a compelling narrative that resonates with audiences. Whether
-          you're working with a startup or a global brand, this session will
-          help you craft a brand identity that speaks clearly and powerfully.
-        </p>
-        <p>
-          Sara will also share insights from her recent collaborations with
-          leading sports apparel brands in the skiing and skateboarding scenes.
-          Known for building bold, youthful brand identities, she has crafted
-          campaigns that fuse high-energy photography with playful,
-          community-driven storytelling—think snapshots from après-ski parties,
-          dynamic quotes from pro snowboarders, and eye-catching imagery of
-          tricks on the slopes. These projects have resonated strongly with
-          younger audiences, gaining traction across social media and coming to
-          life at branded events like DJ-led pop-ups and interactive showcases.
-          It’s branding that feels alive, authentic, and unmistakably
-          of-the-moment.
-        </p>
+      <div>
+        <p>Date: 04.09.2025</p>
+        <p>Venue: BLOX</p>
       </div>
       <div>
-        <img />
+        <p>Time: 12:00-13:00</p>
+        <p>Speaker: Sara Coleman</p>
+      </div>
+    </div>
+    <h3>( About )</h3>
+    <div class="about_grid">
+      <p class="about_text_1">
+        In today’s crowded digital space, creating a brand that stands out is
+        more challenging than ever. In this talk, Sara Coleman, a creative
+        director at Coleman & Co. Branding (Berlin), delves into strategies for
+        cutting through the noise. Using real-world examples from global
+        campaigns, Sara will explore how to develop a strong visual identity and
+        a compelling narrative that resonates with audiences. Whether you're
+        working with a startup or a global brand, this session will help you
+        craft a brand identity that speaks clearly and powerfully.
+      </p>
+      <div class="left_side">
+        <img class="speaker_image" src="/imgs/speaker_image.png" alt="burger" />
         <p class="image_text">
-          Sara Coleman, with 15+ years of experience in branding, has led
-          projects for clients such as Adidas, Volkswagen, and Carhart.
+          Sara Coleman has 15+ years of experience in branding for clients such
+          as Adidas and Carhart.
         </p>
       </div>
+      <p class="about_text_2">
+        Sara will also share insights from her recent collaborations with
+        leading sports apparel brands in the skiing and skateboarding scenes.
+        Known for building bold, youthful brand identities, she has crafted
+        campaigns that fuse high-energy photography with playful,
+        community-driven storytelling—think snapshots from après-ski parties,
+        dynamic quotes from pro snowboarders, and eye-catching imagery of tricks
+        on the slopes. These projects have resonated strongly with younger
+        audiences, gaining traction across social media and coming to life at
+        branded events like DJ-led pop-ups and interactive showcases. It’s
+        branding that feels alive, authentic, and unmistakably of-the-moment.
+      </p>
     </div>
     <h3>( Discover More from Sara Coleman )</h3>
     <div class="socials_flexbox">
-      <div class="socials_flex">
+      <div class="socials_grid">
         <p>Instagram</p>
         <a>@sara_colemancreative</a>
       </div>
-      <div class="socials_flex">
+      <div class="socials_grid">
         <p>LinkedIn</p>
         <a>Sara Coleman/LinkedIn</a>
       </div>
-      <div class="socials_flex">
+      <div class="socials_grid">
         <p>Website</p>
         <a>www.saracolemancreative.com</a>
       </div>
@@ -92,11 +93,13 @@ import "../style/styles.css";
     margin-top: 50px;
   }
   p {
-    margin: 0px 20px;
+    padding: 0px 20px;
   }
   .categories {
     display: flex;
     margin-bottom: 40px;
+    gap: 10px;
+    padding-left: 10px;
   }
   .socials_flexbox {
     display: flex;
@@ -104,19 +107,56 @@ import "../style/styles.css";
     width: 100%;
     border-top: 1px solid var(--Black, #060604);
   }
-  .socials_flex {
-    display: flex;
-    flex-direction: row;
+  .socials_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     border-bottom: 1px solid var(--Black, #060604);
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .socials_grid a {
+    padding-left: 20px;
+  }
   .details_grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-top: 1px solid var(--Black, #060604);
   }
   .details_grid p {
     padding: 15px 0px;
+    width: 100%;
+    border-bottom: 1px solid var(--Black, #060604);
+    padding-left: 20px;
+    border-left: 1px solid var(--Black, #060604);
+  }
+
+  .about_grid {
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 30px;
+  }
+  .about_text_1 {
+    grid-row: 1;
+  }
+  .left_side {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 70px;
+  }
+  .about_text_2 {
+    grid-row: 3;
+  }
+  .speaker_image {
+    border-radius: 30px;
+    width: 63%;
+    height: auto;
+  }
+  .image_text {
+    width: 59%;
   }
 </style>

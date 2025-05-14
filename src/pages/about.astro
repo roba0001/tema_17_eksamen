@@ -74,6 +74,9 @@ import Skelet from "../layouts/Skelet.astro";
 </Skelet>
 
 <style>
+  .about_wrapper {
+    margin: 120px 20px;
+  }
   h1 {
     margin-bottom: 2.5rem;
   }
@@ -84,19 +87,23 @@ import Skelet from "../layouts/Skelet.astro";
 
   .big_img_mobile {
     width: 15rem;
-    height: 18rem;
+    height: auto;
+    position: relative;
+    left: 10%;
   }
   .small_img_mobile {
     width: 10rem;
-    height: 10rem;
+    height: auto;
     transform: translateY(50%);
     z-index: 2;
     position: relative;
-    left: 45%;
+    left: 50%;
   }
 
   .about_img_div_mobile {
-    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   /* hide desktop images */
@@ -130,7 +137,6 @@ import Skelet from "../layouts/Skelet.astro";
     .text_div {
       display: flex;
       flex-direction: column;
-      gap: 4.3rem;
     }
     h3 {
       width: fit-content;
@@ -170,21 +176,23 @@ import Skelet from "../layouts/Skelet.astro";
       display: none;
     }
     .about_img_div {
-      display: block;
-      /* centrer her */
+      display: flex;
+      justify-self: center;
+      flex-direction: column;
+      justify-content: flex-end;
     }
 
     .big_img {
-      width: 25rem;
-      height: 30rem;
+      width: 20rem;
+      height: auto;
     }
     .small_img {
-      width: 16rem;
-      height: 16rem;
+      width: 11rem;
+      height: auto;
       transform: translateY(-50%);
       z-index: 2;
       position: relative;
-      left: 40%;
+      left: 57%;
     }
   }
 </style>

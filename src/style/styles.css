@@ -20,6 +20,51 @@
 
 /* DESKTOP */
 
+/* MOBILE */
+/* general sans */
+h1 {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--black);
+}
+h2 {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}
+h3 {
+  font-family: "GeneralSans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--black);
+}
+
+/* red hat display*/
+
+p,
+.footer_p {
+  font-family: "Red Hat Display", sans-serif;
+  line-height: normal;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}
+
+.small_p {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 12px;
+  line-height: normal;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+}
+
 @media (min-width: 800px) {
   /* general sans */
   h1 {
@@ -65,51 +110,6 @@
     font-style: normal;
     color: var(--black);
   }
-}
-
-/* MOBILE */
-/* general sans */
-h1 {
-  font-family: "GeneralSans", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  font-style: normal;
-  color: var(--black);
-}
-h2 {
-  font-family: "GeneralSans", sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--black);
-}
-h3 {
-  font-family: "GeneralSans", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  font-style: normal;
-  color: var(--black);
-}
-
-/* red hat display*/
-
-p,
-.footer_p {
-  font-family: "Red Hat Display", sans-serif;
-  line-height: normal;
-  font-size: 15px;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--black);
-}
-
-.small_p {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 12px;
-  line-height: normal;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--black);
 }
 
 /* ------------------------CSS RESET---------------- */

@@ -13,9 +13,9 @@ import ProgramCard from "../components/Program_Card.astro";
 
     <section class="left_img_column">
       <img
-        id="changingImage"
+        id="changingImageDesktop"
         src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
-        alt="Article Left Column Image"
+        alt="Article Image"
       />
     </section>
 
@@ -39,10 +39,17 @@ import ProgramCard from "../components/Program_Card.astro";
           in a Noisy World", offering a deep dive into what it takes to cut through the clutter of
           today’s digital landscape.
           <br /><br />
-          Coleman, the driving force behind Berlin-based agency Coleman & Co. Branding, brings over 15
-          years of experience crafting brand identities that demand attention. Her client list reads
-          like a who’s who of global powerhouses—Adidas, Volkswagen, Coca-Cola—but it’s her work in the
-          youth-driven sports apparel scene that’s been making serious waves lately.
+          <img
+            id="changingImageMobile"
+            src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
+            alt="Article Image"
+          />
+          <br /><br />
+
+          Coleman, the driving force behind Berlin-based agency Coleman & Co. Branding, brings over
+          15 years of experience crafting brand identities that demand attention. Her client list
+          reads like a who’s who of global powerhouses—Adidas, Volkswagen, Coca-Cola—but it’s her
+          work in the youth-driven sports apparel scene that’s been making serious waves lately.
           <br /><br />
           In her talk, Coleman will explore how strong visual storytelling and strategic brand narratives
           can rise above the noise. She’ll share behind-the-scenes insights from recent campaigns developed
@@ -74,55 +81,36 @@ import ProgramCard from "../components/Program_Card.astro";
 </Skelet>
 
 <style>
-  .news_singleview_grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto 1fr;
-    margin-top: 120px;
+  /* MOBILE */
+
+  img {
+    width: 20rem;
   }
 
+  .news_singleview_grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+  }
   .back_arrow_section {
-    grid-column: 1/-1;
-    padding: 20px 40px;
+    padding: 20px;
     border-width: 1px;
     border-bottom-style: solid;
     img {
-      width: 35px;
+      width: 25px;
       transform: rotate(135deg);
     }
-  }
-  /* ----------------------------LEFT COLUMN---------------------------- */
-  .left_img_column {
-    display: flex;
-    justify-content: center;
-    border-width: 1px;
-    border-right-style: solid;
-    img {
-      height: 25rem;
-      margin: 2rem 0;
-      border-radius: 30px;
-      position: sticky;
-      top: 10%;
-    }
-  }
-
-  /* ----------------------------RIGHT COLUMN---------------------------- */
-  .porgramCard_placehoder {
-    width: 15rem;
-    height: auto;
-    border-radius: 30px;
   }
   .news_date_and_author_flex,
   .news_topics_flex {
     display: flex;
   }
-
   .news_date_and_author_flex {
     border-bottom-style: solid;
     border-width: 1px;
 
     p {
-      padding: 10px 40px;
+      padding: 10px 20px;
     }
     & > p:first-child {
       border-right-style: solid;
@@ -131,42 +119,133 @@ import ProgramCard from "../components/Program_Card.astro";
   }
 
   .news_topics_flex {
-    padding: 20px 40px 0px 40px;
+    padding: 20px;
+    padding-bottom: 0;
     gap: 15px;
   }
 
+  #changingImageDesktop {
+    display: none;
+  }
+
+  #changingImageMobile {
+    height: auto;
+    width: 11rem;
+    margin: 2rem 20px;
+    border-radius: 30px;
+    position: relative;
+    left: 40%;
+  }
+
   .news_txt {
-    padding: 2.5rem 40px 2.5rem 40px;
+    padding: 1.5rem 20px;
 
     h2 {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .news_event_details {
+    margin: 20px;
+    margin-top: 0;
+
+    img {
+      margin: 1rem 0;
     }
   }
 
-  .news_event_details {
-    margin: 0 40px 20px 40px;
+  /* DESKTOP */
+  @media (min-width: 800px) {
+    #changingImageMobile {
+      display: none;
+    }
+    #changingImageDesktop {
+      display: block;
+    }
+    .back_arrow_section {
+      grid-column: 1/-1;
+      padding: 20px 40px;
 
-    img {
-      margin: 1.5rem 0;
+      img {
+        width: 35px;
+        transform: rotate(135deg);
+      }
+    }
+    .news_singleview_grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ----------------------------LEFT COLUMN---------------------------- */
+    .left_img_column {
+      display: flex;
+      justify-content: center;
+      border-width: 1px;
+      border-right-style: solid;
+      img {
+        height: 25rem;
+        margin: 2rem 0;
+        border-radius: 30px;
+        position: sticky;
+        top: 10%;
+      }
+    }
+
+    /* ----------------------------RIGHT COLUMN---------------------------- */
+    .news_date_and_author_flex {
+      p {
+        padding: 10px 40px;
+      }
+    }
+    .porgramCard_placehoder {
+      width: 15rem;
+      height: auto;
+      border-radius: 30px;
+    }
+
+    .news_topics_flex {
+      padding: 20px 40px 0px 40px;
+    }
+
+    .news_txt {
+      padding: 2.5rem 40px 2.5rem 40px;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .news_event_details {
+      margin: 0 40px 20px 40px;
+
+      img {
+        margin: 1.5rem 0;
+      }
     }
   }
 </style>
 
 <script>
   window.addEventListener("scroll", () => {
-    const img = document.getElementById("changingImage");
+    const imgDesktop = document.getElementById("changingImageDesktop");
+    const imgMobile = document.getElementById("changingImageMobile");
     const scrollY = window.scrollY;
 
     if (scrollY > 500) {
-      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
     } else if (scrollY > 400) {
-      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
     } else if (scrollY > 300) {
-      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
     } else if (scrollY > 200) {
-      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
     } else {
-      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
     }
   });
 </script>

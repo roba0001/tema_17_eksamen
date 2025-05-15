@@ -1,0 +1,264 @@
+---
+import Skelet from "../layouts/Skelet.astro";
+import CardCategory from "../components/Card_Category.astro";
+import "../style/styles.css";
+import ProgramCard from "../components/Program_Card.astro";
+import Gradient from "../components/Gradient.astro";
+---
+
+<Skelet>
+  <section class="news_singleview_grid">
+    <a href="news.html" class="back_arrow_section">
+      <img src="/public/imgs/Program/numbers/arrow.svg" alt="arrow" />
+    </a>
+
+    <section class="left_img_column">
+      <img
+        id="changingImageDesktop"
+        src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
+        alt="Article Image"
+      />
+    </section>
+
+    <section class="right_txt_column">
+      <div class="news_date_and_author_flex">
+        <p>Date: 22.05.25</p>
+        <p>Author: Lena Hartmann</p>
+      </div>
+      <div class="news_topics_flex">
+        <CardCategory className="newsNoMargin" text="Recommendation" />
+        <CardCategory className="newsNoMargin" text="Branding" />
+      </div>
+      <div class="news_txt">
+        <h2>
+          Sara Coleman Brings Bold Branding Energy to the Stage at This Year’s Design Festival
+        </h2>
+        <p>
+          One of the most anticipated talks at this year’s Design Festival is set to energize the
+          crowd with insight, color, and creative fire. On September 4, 2025, acclaimed creative
+          director Sara Coleman will take the stage for a special session titled "Designing Brands
+          in a Noisy World", offering a deep dive into what it takes to cut through the clutter of
+          today’s digital landscape.
+        </p>
+        <Gradient gradient_class="news_sw" />
+        <img
+          id="changingImageMobile"
+          src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
+          alt="Article Image"
+        />
+        <p>
+          Coleman, the driving force behind Berlin-based agency Coleman & Co. Branding, brings over
+          15 years of experience crafting brand identities that demand attention. Her client list
+          reads like a who’s who of global powerhouses—Adidas, Volkswagen, Coca-Cola—but it’s her
+          work in the youth-driven sports apparel scene that’s been making serious waves lately.
+        </p>
+        <p>
+          In her talk, Coleman will explore how strong visual storytelling and strategic brand
+          narratives can rise above the noise. She’ll share behind-the-scenes insights from recent
+          campaigns developed for ski and skate brands, where she helped shape a vibrant aesthetic
+          geared toward younger audiences. Known for her use of striking photography, cheeky quotes,
+          and community-driven content (think snowboard stunts, après-ski moments, and branded DJ
+          nights), Coleman has successfully blended cultural relevance with visual impact—making
+          brands not just seen, but felt.
+        </p>
+        <p>
+          With a reputation for building brands that are bold, fun, and socially magnetic, Coleman's
+          session promises to be as inspiring as it is practical. Whether you're a startup founder,
+          a design student, or a veteran creative looking to refresh your approach, this is one talk
+          you won’t want to miss.
+        </p>
+      </div>
+      <div class="news_event_details">
+        <h3>( Event Details )</h3>
+        <img
+          class="porgramCard_placehoder"
+          src="/public/imgs/Program/day-3/ Beyond Engagement Marketing with Purpose/img3.webp"
+          alt=""
+        />
+        <p>
+          Stay tuned for more updates and behind-the-scenes highlights from this year's Design
+          Festival.
+        </p>
+        <Gradient gradient_class="news_sw2" />
+      </div>
+    </section>
+  </section>
+</Skelet>
+
+<style>
+  /* MOBILE */
+
+  img {
+    width: 20rem;
+  }
+
+  .news_singleview_grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+  }
+  .back_arrow_section {
+    padding: 20px;
+    border-width: 1px;
+    border-bottom-style: solid;
+    img {
+      width: 25px;
+      transform: rotate(135deg);
+    }
+  }
+  .news_date_and_author_flex,
+  .news_topics_flex {
+    display: flex;
+  }
+  .news_date_and_author_flex {
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    p {
+      padding: 10px 20px;
+    }
+    & > p:first-child {
+      border-right-style: solid;
+      border-width: 1px;
+    }
+  }
+
+  .news_topics_flex {
+    padding: 20px;
+    padding-bottom: 0;
+    gap: 15px;
+  }
+
+  #changingImageDesktop,
+  .news_sw2 {
+    display: none;
+  }
+
+  #changingImageMobile {
+    height: 17rem;
+    width: auto;
+    margin: 2rem 20px;
+    border-radius: 30px;
+    position: relative;
+    left: 40%;
+  }
+
+  .news_txt {
+    padding: 1.5rem 20px;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1.5rem;
+    }
+    p:last-of-type {
+      margin-bottom: 0rem;
+    }
+  }
+  .news_event_details {
+    margin: 20px;
+    margin-top: 0;
+
+    img {
+      margin: 1rem 0;
+    }
+  }
+
+  /* DESKTOP */
+  @media (min-width: 800px) {
+    #changingImageMobile {
+      display: none;
+    }
+    #changingImageDesktop {
+      display: block;
+    }
+    .back_arrow_section {
+      grid-column: 1/-1;
+      padding: 20px 40px;
+
+      img {
+        width: 35px;
+        transform: rotate(135deg);
+      }
+    }
+    .news_singleview_grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ----------------------------LEFT COLUMN---------------------------- */
+    .left_img_column {
+      display: flex;
+      justify-content: center;
+      border-width: 1px;
+      border-right-style: solid;
+      img {
+        height: 25rem;
+        width: auto;
+        margin: 2rem 0;
+        border-radius: 30px;
+        position: sticky;
+        top: 10%;
+      }
+    }
+
+    /* ----------------------------RIGHT COLUMN---------------------------- */
+    .news_date_and_author_flex {
+      p {
+        padding: 10px 40px;
+      }
+    }
+    .porgramCard_placehoder {
+      width: 15rem;
+      height: auto;
+      border-radius: 30px;
+    }
+
+    .news_topics_flex {
+      padding: 20px 40px 0px 40px;
+    }
+
+    .news_txt {
+      padding: 2.5rem 40px 2.5rem 40px;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .news_event_details {
+      margin: 0 40px 20px 40px;
+
+      img {
+        margin: 1.5rem 0;
+      }
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const imgDesktop = document.getElementById("changingImageDesktop");
+    const imgMobile = document.getElementById("changingImageMobile");
+    const scrollY = window.scrollY;
+
+    if (scrollY > 500) {
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+    } else if (scrollY > 400) {
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+    } else if (scrollY > 300) {
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+    } else if (scrollY > 200) {
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+    } else {
+      imgDesktop.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+      imgMobile.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+    }
+  });
+</script>

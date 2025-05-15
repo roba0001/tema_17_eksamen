@@ -55,6 +55,13 @@ p,
   font-style: normal;
   color: var(--black);
 }
+.button_text {
+  font-family: "Red Hat Display", sans-serif;
+  line-height: normal;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .small_p {
   font-family: "Red Hat Display", sans-serif;

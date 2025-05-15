@@ -3,6 +3,7 @@ import Skelet from "../layouts/Skelet.astro";
 import CardCategory from "../components/Card_Category.astro";
 import "../style/styles.css";
 import ProgramCard from "../components/Program_Card.astro";
+import Gradient from "../components/Gradient.astro";
 ---
 
 <Skelet>
@@ -38,30 +39,33 @@ import ProgramCard from "../components/Program_Card.astro";
           director Sara Coleman will take the stage for a special session titled "Designing Brands
           in a Noisy World", offering a deep dive into what it takes to cut through the clutter of
           today’s digital landscape.
-          <br /><br />
-          <img
-            id="changingImageMobile"
-            src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
-            alt="Article Image"
-          />
-          <br /><br />
-
+        </p>
+        <Gradient gradient_class="news_sw" />
+        <img
+          id="changingImageMobile"
+          src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
+          alt="Article Image"
+        />
+        <p>
           Coleman, the driving force behind Berlin-based agency Coleman & Co. Branding, brings over
           15 years of experience crafting brand identities that demand attention. Her client list
           reads like a who’s who of global powerhouses—Adidas, Volkswagen, Coca-Cola—but it’s her
           work in the youth-driven sports apparel scene that’s been making serious waves lately.
-          <br /><br />
-          In her talk, Coleman will explore how strong visual storytelling and strategic brand narratives
-          can rise above the noise. She’ll share behind-the-scenes insights from recent campaigns developed
-          for ski and skate brands, where she helped shape a vibrant aesthetic geared toward younger
-          audiences. Known for her use of striking photography, cheeky quotes, and community-driven content
-          (think snowboard stunts, après-ski moments, and branded DJ nights), Coleman has successfully
-          blended cultural relevance with visual impact—making brands not just seen, but felt.
-          <br /><br />
+        </p>
+        <p>
+          In her talk, Coleman will explore how strong visual storytelling and strategic brand
+          narratives can rise above the noise. She’ll share behind-the-scenes insights from recent
+          campaigns developed for ski and skate brands, where she helped shape a vibrant aesthetic
+          geared toward younger audiences. Known for her use of striking photography, cheeky quotes,
+          and community-driven content (think snowboard stunts, après-ski moments, and branded DJ
+          nights), Coleman has successfully blended cultural relevance with visual impact—making
+          brands not just seen, but felt.
+        </p>
+        <p>
           With a reputation for building brands that are bold, fun, and socially magnetic, Coleman's
-          session promises to be as inspiring as it is practical. Whether you're a startup founder, a
-          design student, or a veteran creative looking to refresh your approach, this is one talk you
-          won’t want to miss.
+          session promises to be as inspiring as it is practical. Whether you're a startup founder,
+          a design student, or a veteran creative looking to refresh your approach, this is one talk
+          you won’t want to miss.
         </p>
       </div>
       <div class="news_event_details">
@@ -75,6 +79,7 @@ import ProgramCard from "../components/Program_Card.astro";
           Stay tuned for more updates and behind-the-scenes highlights from this year's Design
           Festival.
         </p>
+        <Gradient gradient_class="news_sw2" />
       </div>
     </section>
   </section>
@@ -124,7 +129,8 @@ import ProgramCard from "../components/Program_Card.astro";
     gap: 15px;
   }
 
-  #changingImageDesktop {
+  #changingImageDesktop,
+  .news_sw2 {
     display: none;
   }
 
@@ -142,6 +148,12 @@ import ProgramCard from "../components/Program_Card.astro";
 
     h2 {
       margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1.5rem;
+    }
+    p:last-of-type {
+      margin-bottom: 0rem;
     }
   }
   .news_event_details {

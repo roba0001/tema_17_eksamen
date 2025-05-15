@@ -1,0 +1,172 @@
+---
+import Skelet from "../layouts/Skelet.astro";
+import CardCategory from "../components/Card_Category.astro";
+import "../style/styles.css";
+import ProgramCard from "../components/Program_Card.astro";
+---
+
+<Skelet>
+  <section class="news_singleview_grid">
+    <a href="news.html" class="back_arrow_section">
+      <img src="/public/imgs/Program/numbers/arrow.svg" alt="arrow" />
+    </a>
+
+    <section class="left_img_column">
+      <img
+        id="changingImage"
+        src="/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
+        alt="Article Left Column Image"
+      />
+    </section>
+
+    <section class="right_txt_column">
+      <div class="news_date_and_author_flex">
+        <p>Date: 22.05.25</p>
+        <p>Author: Lena Hartmann</p>
+      </div>
+      <div class="news_topics_flex">
+        <CardCategory className="newsNoMargin" text="Recommendation" />
+        <CardCategory className="newsNoMargin" text="Branding" />
+      </div>
+      <div class="news_txt">
+        <h2>
+          Sara Coleman Brings Bold Branding Energy to the Stage at This Year’s Design Festival
+        </h2>
+        <p>
+          One of the most anticipated talks at this year’s Design Festival is set to energize the
+          crowd with insight, color, and creative fire. On September 4, 2025, acclaimed creative
+          director Sara Coleman will take the stage for a special session titled "Designing Brands
+          in a Noisy World", offering a deep dive into what it takes to cut through the clutter of
+          today’s digital landscape.
+          <br /><br />
+          Coleman, the driving force behind Berlin-based agency Coleman & Co. Branding, brings over 15
+          years of experience crafting brand identities that demand attention. Her client list reads
+          like a who’s who of global powerhouses—Adidas, Volkswagen, Coca-Cola—but it’s her work in the
+          youth-driven sports apparel scene that’s been making serious waves lately.
+          <br /><br />
+          In her talk, Coleman will explore how strong visual storytelling and strategic brand narratives
+          can rise above the noise. She’ll share behind-the-scenes insights from recent campaigns developed
+          for ski and skate brands, where she helped shape a vibrant aesthetic geared toward younger
+          audiences. Known for her use of striking photography, cheeky quotes, and community-driven content
+          (think snowboard stunts, après-ski moments, and branded DJ nights), Coleman has successfully
+          blended cultural relevance with visual impact—making brands not just seen, but felt.
+          <br /><br />
+          With a reputation for building brands that are bold, fun, and socially magnetic, Coleman's
+          session promises to be as inspiring as it is practical. Whether you're a startup founder, a
+          design student, or a veteran creative looking to refresh your approach, this is one talk you
+          won’t want to miss.
+        </p>
+      </div>
+      <div class="news_event_details">
+        <h3>( Event Details )</h3>
+        <img
+          class="porgramCard_placehoder"
+          src="/public/imgs/Program/day-3/ Beyond Engagement Marketing with Purpose/img3.webp"
+          alt=""
+        />
+        <p>
+          Stay tuned for more updates and behind-the-scenes highlights from this year's Design
+          Festival.
+        </p>
+      </div>
+    </section>
+  </section>
+</Skelet>
+
+<style>
+  .news_singleview_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr;
+    margin-top: 120px;
+  }
+
+  .back_arrow_section {
+    grid-column: 1/-1;
+    padding: 20px 40px;
+    border-width: 1px;
+    border-bottom-style: solid;
+    img {
+      width: 35px;
+      transform: rotate(135deg);
+    }
+  }
+  /* ----------------------------LEFT COLUMN---------------------------- */
+  .left_img_column {
+    display: flex;
+    justify-content: center;
+    border-width: 1px;
+    border-right-style: solid;
+    img {
+      height: 25rem;
+      margin: 2rem 0;
+      border-radius: 30px;
+      position: sticky;
+      top: 10%;
+    }
+  }
+
+  /* ----------------------------RIGHT COLUMN---------------------------- */
+  .porgramCard_placehoder {
+    width: 15rem;
+    height: auto;
+    border-radius: 30px;
+  }
+  .news_date_and_author_flex,
+  .news_topics_flex {
+    display: flex;
+  }
+
+  .news_date_and_author_flex {
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    p {
+      padding: 10px 40px;
+    }
+    & > p:first-child {
+      border-right-style: solid;
+      border-width: 1px;
+    }
+  }
+
+  .news_topics_flex {
+    padding: 20px 40px 0px 40px;
+    gap: 15px;
+  }
+
+  .news_txt {
+    padding: 2.5rem 40px 2.5rem 40px;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .news_event_details {
+    margin: 0 40px 20px 40px;
+
+    img {
+      margin: 1.5rem 0;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const img = document.getElementById("changingImage");
+    const scrollY = window.scrollY;
+
+    if (scrollY > 500) {
+      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+    } else if (scrollY > 400) {
+      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+    } else if (scrollY > 300) {
+      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+    } else if (scrollY > 200) {
+      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+    } else {
+      img.src = "/public/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+    }
+  });
+</script>

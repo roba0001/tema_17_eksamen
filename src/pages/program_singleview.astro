@@ -8,17 +8,12 @@ import "../style/styles.css";
 
 <Skelet>
   <main>
-    <a href="/program.html">
-      <div id="back"><Arrow arrow_class="left" /></div></a
-    >
+    <a href="/program.html"> <div id="back"><Arrow arrow_class="left" /></div></a>
     <Gradient gradient_class="program_sw" />
     <section>
       <div class="images_container">
         <div class="resizable draggabl image_1">
-          <img
-            src="/imgs/program_singleview/image_1.png"
-            alt="Draggable Resizable"
-          />
+          <img src="/imgs/program_singleview/image_1.png" alt="Draggable Resizable" />
           <div class="resize-handle bottom-right">
             <Arrow arrow_class="resizer" />
           </div>
@@ -70,33 +65,29 @@ import "../style/styles.css";
     <h3>( About )</h3>
     <div class="about_grid">
       <p class="about_text_1">
-        In today’s crowded digital space, creating a brand that stands out is
-        more challenging than ever. In this talk, Sara Coleman, a creative
-        director at Coleman & Co. Branding (Berlin), delves into strategies for
-        cutting through the noise. Using real-world examples from global
-        campaigns, Sara will explore how to develop a strong visual identity and
-        a compelling narrative that resonates with audiences. Whether you're
-        working with a startup or a global brand, this session will help you
-        craft a brand identity that speaks clearly and powerfully.
+        In today’s crowded digital space, creating a brand that stands out is more challenging than
+        ever. In this talk, Sara Coleman, a creative director at Coleman & Co. Branding (Berlin),
+        delves into strategies for cutting through the noise. Using real-world examples from global
+        campaigns, Sara will explore how to develop a strong visual identity and a compelling
+        narrative that resonates with audiences. Whether you're working with a startup or a global
+        brand, this session will help you craft a brand identity that speaks clearly and powerfully.
       </p>
       <div class="left_side">
         <img class="speaker_image" src="/imgs/speaker_image.png" alt="burger" />
         <p class="image_text">
-          Sara Coleman has 15+ years of experience in branding for clients such
-          as Adidas and Carhart.
+          Sara Coleman has 15+ years of experience in branding for clients such as Adidas and
+          Carhart.
         </p>
       </div>
       <p class="about_text_2">
-        Sara will also share insights from her recent collaborations with
-        leading sports apparel brands in the skiing and skateboarding scenes.
-        Known for building bold, youthful brand identities, she has crafted
-        campaigns that fuse high-energy photography with playful,
-        community-driven storytelling—think snapshots from après-ski parties,
-        dynamic quotes from pro snowboarders, and eye-catching imagery of tricks
-        on the slopes. These projects have resonated strongly with younger
-        audiences, gaining traction across social media and coming to life at
-        branded events like DJ-led pop-ups and interactive showcases. It’s
-        branding that feels alive, authentic, and unmistakably of-the-moment.
+        Sara will also share insights from her recent collaborations with leading sports apparel
+        brands in the skiing and skateboarding scenes. Known for building bold, youthful brand
+        identities, she has crafted campaigns that fuse high-energy photography with playful,
+        community-driven storytelling—think snapshots from après-ski parties, dynamic quotes from
+        pro snowboarders, and eye-catching imagery of tricks on the slopes. These projects have
+        resonated strongly with younger audiences, gaining traction across social media and coming
+        to life at branded events like DJ-led pop-ups and interactive showcases. It’s branding that
+        feels alive, authentic, and unmistakably of-the-moment.
       </p>
     </div>
     <h3>( Discover More from Sara Coleman )</h3>
@@ -415,14 +406,8 @@ import "../style/styles.css";
       isResizing = true;
       startX = e.clientX;
       startY = e.clientY;
-      startWidth = parseInt(
-        document.defaultView.getComputedStyle(resizable).width,
-        10
-      );
-      startHeight = parseInt(
-        document.defaultView.getComputedStyle(resizable).height,
-        10
-      );
+      startWidth = parseInt(document.defaultView.getComputedStyle(resizable).width, 10);
+      startHeight = parseInt(document.defaultView.getComputedStyle(resizable).height, 10);
 
       const onMouseMove = (e) => {
         if (isResizing) {
@@ -458,14 +443,8 @@ import "../style/styles.css";
           const containerRect = container.getBoundingClientRect();
           const elemRect = resizable.getBoundingClientRect();
 
-          let left = Math.max(
-            0,
-            Math.min(newX, container.clientWidth - elemRect.width)
-          );
-          let top = Math.max(
-            0,
-            Math.min(newY, container.clientHeight - elemRect.height)
-          );
+          let left = Math.max(0, Math.min(newX, container.clientWidth - elemRect.width));
+          let top = Math.max(0, Math.min(newY, container.clientHeight - elemRect.height));
 
           resizable.style.left = `${left}px`;
           resizable.style.top = `${top}px`;

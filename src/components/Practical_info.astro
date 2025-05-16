@@ -17,9 +17,10 @@ const { id, p1, p2, p3, headline } = Astro.props;
     padding-top: 20px;
   }
   h2 {
-    margin-top: 120px;
-    padding: 0px 20px;
-    margin-bottom: 20px;
+    display: none;
+  }
+  .holder {
+    margin-bottom: 50px;
   }
   @media (min-width: 1000px) {
     p {
@@ -29,6 +30,10 @@ const { id, p1, p2, p3, headline } = Astro.props;
       margin-top: 120px;
       padding: 0px 40px;
       margin-bottom: 40px;
+      display: block;
+    }
+    .holder {
+      margin-bottom: 0px;
     }
   }
 </style>

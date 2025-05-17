@@ -12,7 +12,7 @@
 /* general sans */
 @font-face {
   font-family: "GeneralSans";
-  src: url("/public/fonts/general_sans/GeneralSans-Regular.woff") format("woff");
+  src: url("/fonts/general_sans/GeneralSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

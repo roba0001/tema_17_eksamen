@@ -20,7 +20,7 @@ import "../style/styles.css";
         title="Why Everyone’s Talking About Motion Again"
       />
       <NewsCards
-        size_class="column_1"
+        size_class="column_1 flip"
         image="14/img_1.webp"
         type="Festival Tips"
         date="01.03.04"
@@ -34,7 +34,7 @@ import "../style/styles.css";
         title="Video That Moves: Jamal Rivers on Creating Impact with Style"
       />
       <NewsCards
-        size_class="column_1"
+        size_class="column_1 flip"
         image="12/img_1.webp"
         type="Spotlight"
         date="01.03.04"
@@ -48,7 +48,7 @@ import "../style/styles.css";
         title="Why Copenhagen Is Europe’s Quiet Creative Powerhouse"
       />
       <NewsCards
-        size_class="column_2"
+        size_class="column_2 flip"
         image="10/img_1.webp"
         type="Trends & Insights"
         date="01.03.04"
@@ -62,7 +62,7 @@ import "../style/styles.css";
         title="Visual Impact Festival is Redefining How Creatives Connect"
       />
       <NewsCards
-        size_class="column_1"
+        size_class="column_1 flip"
         image="4/vid_1.gif"
         type="Trends & Insights"
         date="01.03.04"
@@ -76,7 +76,7 @@ import "../style/styles.css";
         title="Sara Coleman Brings Bold Branding Energy to the Stage"
       />
       <NewsCards
-        size_class="row_2"
+        size_class="row_2 flip"
         image="7/vid_1.gif"
         type="Spotlight"
         date="01.03.04"
@@ -90,7 +90,7 @@ import "../style/styles.css";
         title="3D in Motion: How Elena Motta Brings Objects to Life"
       />
       <NewsCards
-        size_class="column_1"
+        size_class="column_1 flip"
         image="6/img_1.webp"
         type="Industry News"
         date="01.03.04"
@@ -117,17 +117,15 @@ import "../style/styles.css";
   .news_grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(14, 300px); /* <-- fixed row height */
+    grid-auto-rows: 10px; /* <-- fixed row height */
     grid-auto-flow: row;
-    gap: 40px;
+    gap: 20px;
     margin-top: 40px;
   }
   @media (min-width: 800px) {
     .news_grid {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(5, 250px); /* <-- fixed row height */
-      gap: 20px;
-      margin-top: 40px;
     }
     main {
       margin: 120px 40px;

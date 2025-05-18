@@ -46,7 +46,6 @@ const { size_class, type, date, title, image } = Astro.props;
     gap: 5px;
     flex-direction: column;
     flex-shrink: 0; /* prevent shrinking */
-    width: 150px;
   }
   #button img {
     transform: rotate(45deg);
@@ -109,6 +108,9 @@ const { size_class, type, date, title, image } = Astro.props;
   }
 
   @media (max-width: 800px) {
+    .bottom {
+      width: 150px;
+    }
     #container {
       grid-column: span 2;
     }

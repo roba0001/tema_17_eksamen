@@ -5,24 +5,28 @@ import MapRowHuset from "../components/MapRow_Huset.astro";
 ---
 
 <Skelet>
-  <div class="map_container">
-    <!-- tilføj lokationspins her -->
-    <img src="/imgs/map/mobile_map.webp" alt="Google streetmap over the venue areas" />
-  </div>
-  <div class="text_container">
-    <h1>Festival Maps</h1>
-    <p>
-      Our three festival venues are centrally located in Copenhagen and within walking distance of
-      each other. They're easily accessible by train, bus, or metro. For directions and venue maps,
-      use the sidebar or select a location on the map below.
-    </p>
-  </div>
-  <div class="map_accordion_wrapper">
-    <MapRowHuset />
+  <div class="map_desktop_grid">
+    <div class="map_container">
+      <!-- tilføj lokationspins her -->
+      <img src="/imgs/map/mobile_map.webp" alt="Google streetmap over the venue areas" />
+    </div>
+    <div class="text_container">
+      <h1>Festival Maps</h1>
+      <p>
+        Our three festival venues are centrally located in Copenhagen and within walking distance of
+        each other. They're easily accessible by train, bus, or metro. For directions and venue
+        maps, use the sidebar or select a location on the map below.
+      </p>
+    </div>
+    <div class="map_accordion_wrapper">
+      <MapRowHuset />
+    </div>
   </div>
 </Skelet>
 
 <style>
+  /* ------------------MOBILE------------------ */
+
   .map_container {
     width: 100%;
     margin-top: 60px;
@@ -41,5 +45,79 @@ import MapRowHuset from "../components/MapRow_Huset.astro";
 
   .map_accordion_wrapper {
     margin: 10rem 0;
+  }
+
+  /* ------------------DESKTOP------------------ */
+
+  @media (min-width: 800px) {
+    .map_desktop_grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 185px 3fr;
+      gap: 0;
+    }
+
+    .text_container {
+      grid-row: 1;
+      grid-column: 1/-1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      margin: 0;
+
+      border-width: 1px;
+      border-bottom-style: solid;
+
+      > * {
+        height: 100%;
+        align-items: flex-end;
+      }
+      > *:not(:first-child) {
+        border-right: 1px solid black;
+      }
+
+      h1 {
+        display: grid;
+        grid-column: 2;
+        grid-row: 1;
+        padding: 1rem 40px;
+        margin: 0;
+      }
+      p {
+        grid-column: 1;
+        grid-row: 1;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+        margin: 0;
+        padding: 1rem 40px;
+
+        /* border-width: 1px;
+        border-right-style: solid; */
+
+        &::before {
+          content: "( Directions )";
+          width: auto;
+        }
+      }
+    }
+
+    .map_container {
+      margin: 0;
+      border-right-style: solid;
+      border-width: 1px;
+      img {
+        height: 100%;
+      }
+    }
+
+    .map_accordion_wrapper {
+      margin: 0;
+      max-height: 557px;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
   }
 </style>

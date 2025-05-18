@@ -1,7 +1,9 @@
 ---
 import "../style/styles.css";
 import Button from "./Button.astro";
+import LinkButton from "./LinkButton.astro";
 import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
+import X from "./X.astro";
 ---
 
 <section class="map_row_wrapper">
@@ -12,7 +14,11 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
     </div>
   </section>
 
-  <section class="map_row_open">
+  <section class="map_row_open hidden">
+    <div class="venue_and_x_flex">
+      <h1>Huset</h1>
+      <X />
+    </div>
     <div class="address_and_direction_btn_flex">
       <div class="map_row_open_address_flex">
         <svg
@@ -30,7 +36,11 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
         </svg>
         <p>Rådhusstræde 13, 1466 København K</p>
       </div>
-      <Button button_class="primary" text="Open in Google Maps" />
+      <LinkButton
+        buttonClass="primary"
+        buttonText="Open in Google Maps"
+        buttonLink="https://www.google.com/maps/dir/55.7075863,12.5438471/Huset-KBH,+R%C3%A5dhusstr%C3%A6de+13,+1466+K%C3%B8benhavn/@55.7034119,12.523757,13z/data=!3m2!4b1!5s0x4652531164c3af43:0x4d4efd44d8eb3be2!4m13!1m2!2m1!1shuset!4m9!1m1!4e1!1m5!1m1!1s0x4652531164a3fb89:0xdb78617809263eb5!2m2!1d12.5747148!2d55.6763715!3e3?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3Dhttps://www.google.com/maps/search/huset/@55.686516,12.4929667,13z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+      />
     </div>
     <!-- brug til BLOX -->
     <!-- <div class="map_row_open_choose_floor_flex">
@@ -46,6 +56,7 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
 
 <style>
   /* ------------------MOBILE------------------ */
+
   .map_row_wrapper {
     border-color: var(--black);
     border-width: 1px;
@@ -71,7 +82,13 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 5.25rem;
+    gap: 1rem;
+
+    .venue_and_x_flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .address_and_direction_btn_flex {
       display: flex;
@@ -84,10 +101,15 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
     }
 
     .img_and_symbolgrid_flex {
+      margin-top: 2rem;
+
       display: flex;
       flex-direction: column;
       gap: 2.5rem;
     }
+  }
+  .hidden {
+    display: none;
   }
 
   /* ------------------DESKTOP------------------ */
@@ -95,3 +117,26 @@ import MapVenueSymbolsGrid from "./Map_VenueSymbols_Grid.astro";
   @media (min-width: 800px) {
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const allMapRows = document.querySelectorAll(".map_row_wrapper");
+
+    allMapRows.forEach((mapRowWrapper) => {
+      const arrow = mapRowWrapper.querySelector(".arrow");
+      const ex = mapRowWrapper.querySelector(".ex");
+      const openMapRow = mapRowWrapper.querySelector(".map_row_open");
+      const closedMapRow = mapRowWrapper.querySelector(".map_row_closed");
+
+      arrow.addEventListener("click", () => {
+        closedMapRow.classList.add("hidden");
+        openMapRow.classList.remove("hidden");
+      });
+
+      ex.addEventListener("click", () => {
+        openMapRow.classList.add("hidden");
+        closedMapRow.classList.remove("hidden");
+      });
+    });
+  });
+</script>

@@ -45,21 +45,27 @@ import X from "./X.astro";
     </div>
 
     <div class="img_and_symbolgrid">
-      <img
-        src="/imgs/map/venue_blox_1st_floor.svg"
-        alt="Map over the Blox 1st floor Venue"
-        data-floor="1"
-        class="chosenFloorVenueMap"
-      />
-      <img
-        class="chosenFloorVenueMap hidden"
-        src="/imgs/map/venue_blox_2nd_floor.svg"
-        alt="Map over the Blox 2nd floor Venue"
-        data-floor="2"
-      />
-      <div class="map_row_open_choose_floor_flex">
-        <FloorButton button_class="outline chooseFloorBtn active" data-floor="1" text="1st floor" />
-        <FloorButton button_class="outline chooseFloorBtn" data-floor="2" text="2nd floor" />
+      <div class="img_and_floorButtons">
+        <img
+          src="/imgs/map/venue_blox_1st_floor.svg"
+          alt="Map over the Blox 1st floor Venue"
+          data-floor="1"
+          class="chosenFloorVenueMap"
+        />
+        <img
+          class="chosenFloorVenueMap hidden"
+          src="/imgs/map/venue_blox_2nd_floor.svg"
+          alt="Map over the Blox 2nd floor Venue"
+          data-floor="2"
+        />
+        <div class="map_row_open_choose_floor_flex">
+          <FloorButton
+            button_class="outline chooseFloorBtn active"
+            data-floor="1"
+            text="1st floor"
+          />
+          <FloorButton button_class="outline chooseFloorBtn" data-floor="2" text="2nd floor" />
+        </div>
       </div>
 
       <div class="mapVenueSymbolsGrid_wrapper" data-floor="1">
@@ -135,9 +141,16 @@ import X from "./X.astro";
         align-self: center;
       }
     }
+    .img_and_floorButtons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
     .map_row_open_choose_floor_flex {
       display: flex;
       justify-content: space-around;
+      width: 100%;
     }
   }
 
@@ -173,22 +186,26 @@ import X from "./X.astro";
       display: grid !important;
       grid-template-columns: 1fr 1fr;
       .map_venue_symbol_grid {
-        grid-column: 1;
-        grid-row: 1;
-
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+
+      .img_and_floorButtons {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .mapVenueSymbolsGrid_wrapper {
+        grid-column: 1;
+        grid-row: 1;
+
+        align-items: center;
       }
       img {
         grid-column: 2;
         grid-row: 1;
       }
     }
-  }
-
-  .hidden {
-    display: none;
   }
 
   .active {
@@ -199,11 +216,12 @@ import X from "./X.astro";
       stroke: var(--off_white);
     }
   }
+  .hidden {
+    display: none;
+  }
 </style>
 
 <script>
-  import { imageConfig } from "astro:assets";
-
   // åbne og luk accordions
   document.addEventListener("DOMContentLoaded", () => {
     const allMapRows = document.querySelectorAll(".map_row_wrapper");
@@ -244,6 +262,7 @@ import X from "./X.astro";
           });
 
           allVenueSymbolGrids.forEach((venueSymbolGrid) => {
+            console.log(venueSymbolGrid.dataset.floor);
             venueSymbolGrid.classList.toggle(
               "hidden",
               venueSymbolGrid.dataset.floor !== selectedFloor

@@ -2,6 +2,8 @@
 import Skelet from "../layouts/Skelet.astro";
 import "../style/styles.css";
 import MapRowHuset from "../components/MapRow_Huset.astro";
+import MapRowBLOX from "../components/MapRow_BLOX.astro";
+import MapRowDiamond from "../components/MapRow_Diamond.astro";
 ---
 
 <Skelet>
@@ -20,6 +22,8 @@ import MapRowHuset from "../components/MapRow_Huset.astro";
     </div>
     <div class="map_accordion_wrapper">
       <MapRowHuset />
+      <MapRowBLOX />
+      <MapRowDiamond />
     </div>
   </div>
 </Skelet>
@@ -41,10 +45,6 @@ import MapRowHuset from "../components/MapRow_Huset.astro";
     h1 {
       margin-bottom: 1.62rem;
     }
-  }
-
-  .map_accordion_wrapper {
-    margin: 10rem 0;
   }
 
   /* ------------------DESKTOP------------------ */

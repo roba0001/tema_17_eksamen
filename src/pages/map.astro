@@ -9,8 +9,53 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
 <Skelet>
   <div class="map_desktop_grid">
     <div class="map_container">
-      <!-- tilføj lokationspins her -->
       <img src="/imgs/map/mobile_map.webp" alt="Google streetmap over the venue areas" />
+      <!--  lokationspins  -->
+      <button class="map_pin" data-venue="huset">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="20"
+          viewBox="0 0 15 20"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
+            fill="#060604"></path>
+        </svg>
+      </button>
+      <button class="map_pin" data-venue="blox">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="20"
+          viewBox="0 0 15 20"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
+            fill="#060604"></path>
+        </svg>
+      </button>
+      <button class="map_pin" data-venue="black_diamond">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="20"
+          viewBox="0 0 15 20"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
+            fill="#060604"></path>
+        </svg>
+      </button>
     </div>
     <div class="text_container">
       <h1>Festival Maps</h1>
@@ -34,9 +79,31 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
   .map_container {
     width: 100%;
     margin-top: 60px;
+    position: relative;
     img {
       width: 100%;
       height: auto;
+    }
+
+    button {
+      position: absolute;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    button[data-venue="huset"] {
+      top: 26%;
+      left: 12.5%;
+    }
+    button[data-venue="blox"] {
+      top: 81%;
+      left: 40%;
+    }
+    button[data-venue="black_diamond"] {
+      top: 66%;
+      left: 62%;
     }
   }
 
@@ -45,6 +112,11 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
     h1 {
       margin-bottom: 1.62rem;
     }
+  }
+
+  .map_pin.active svg path {
+    fill: var(--green);
+    stroke: black;
   }
 
   /* ------------------DESKTOP------------------ */
@@ -106,10 +178,32 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
 
     .map_container {
       margin: 0;
+
       border-right-style: solid;
       border-width: 1px;
+      /* aspect-ratio: 1;
+      overflow: hidden; */
+
       img {
         height: 100%;
+        /* object-fit: contain; 
+        display: block; */
+      }
+      svg {
+        width: 20px;
+        height: 25px;
+      }
+      button[data-venue="huset"] {
+        top: 27%;
+        left: 13%;
+      }
+      button[data-venue="blox"] {
+        top: 82%;
+        left: 41%;
+      }
+      button[data-venue="black_diamond"] {
+        top: 69%;
+        left: 61%;
       }
     }
 
@@ -121,3 +215,37 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pins = document.querySelectorAll(".map_pin");
+    const mapRowWrappers = document.querySelectorAll(".map_row_wrapper");
+
+    pins.forEach((pin) => {
+      pin.addEventListener("click", () => {
+        const venue = pin.dataset.venue;
+
+        // Toggle accordions
+        mapRowWrappers.forEach((wrapper) => {
+          const isTarget = wrapper.dataset.venue === venue;
+          const closed = wrapper.querySelector(".map_row_closed");
+          const open = wrapper.querySelector(".map_row_open");
+
+          if (isTarget) {
+            closed.classList.add("hidden");
+            open.classList.remove("hidden");
+
+            // wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            closed.classList.remove("hidden");
+            open.classList.add("hidden");
+          }
+        });
+
+        // Handle active pin styling
+        pins.forEach((p) => p.classList.remove("active")); // remove active from all
+        pin.classList.add("active"); // add active to clicked
+      });
+    });
+  });
+</script>

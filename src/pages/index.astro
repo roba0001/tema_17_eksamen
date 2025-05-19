@@ -6,8 +6,19 @@ import "../style/styles.css";
 import TopicsHome from "../components/Topics_home.astro";
 import Button from "../components/Button.astro";
 import Burgermenu from "../components/Burgermenu.astro";
+import Cursor from "../components/Cursor.astro";
 ---
 
 <Skelet>
-  <TopicsHome>/ </TopicsHome>
+  <div data-cursor="fill" class="hoverme"></div>
+  <div data-cursor="text" data-cursor-text="Drag Me" class="hoverme"></div>
+  <TopicsHome />
 </Skelet>
+
+<style>
+  .hoverme {
+    background-color: red;
+    height: 400px;
+    width: 400px;
+  }
+</style>

@@ -22,6 +22,8 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
+    <div class="inner_cursor"></div>
+    <div class="outer_cursor"><p></p></div>
     <Burgermenu />
     <main>
       <slot />
@@ -45,5 +47,158 @@ import Footer from "../components/Footer.astro";
     main {
       z-index: 0;
     }
+
+    .inner_cursor {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      height: 10px;
+      width: 10px;
+      transform: translate(-50%, -50%) scale(1);
+      background-color: black;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: 0.1s;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+      z-index: 4000;
+      opacity: 1;
+    }
+    .outer_cursor {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      height: 25px;
+      width: 25px;
+      transform: translate(-50%, -50%);
+      border: 1px solid black;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: border-color 0.3s ease;
+      transition:
+        left 0.15s ease-out,
+        top 0.15s ease-out;
+
+      z-index: 4000;
+    }
+
+    .inner_cursor.cursor-fill {
+      background-color: var(--green);
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 1;
+    }
+
+    .outer_cursor.cursor-fill {
+      /* tilføj border hvis man ikke kan se cursor */
+      /* border-color: black; */
+      border-style: none;
+      transition: none;
+    }
+
+    .outer_cursor.cursor-text {
+      transform: translate(10px, -50%);
+      position: fixed;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      height: 30px;
+      width: fit-content;
+      padding: 0 0.625rem;
+
+      /* border: 1px solid black; */
+      border-style: none;
+      border-radius: 3.75rem;
+      background-color: var(--green);
+      pointer-events: none;
+      transition: border-color 0.3s ease;
+      transition:
+        left 0.15s ease-out,
+        top 0.15s ease-out;
+
+      z-index: 4000;
+    }
+
+    .outer_cursor.cursor-text p {
+      color: var(--black);
+      font-family: "Red Hat Display", sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .hide {
+      display: none;
+    }
   </style>
+  <script>
+    const innerCursor = document.querySelector(".inner_cursor");
+    const outerCursor = document.querySelector(".outer_cursor");
+
+    // placer inner og outer cursor efter musbevægelse
+    document.addEventListener("mousemove", (e) => {
+      const { clientX: x, clientY: y } = e;
+      innerCursor.style.left = `${x}px`;
+      innerCursor.style.top = `${y}px`;
+      outerCursor.style.left = `${x}px`;
+      outerCursor.style.top = `${y}px`;
+    });
+
+    document.addEventListener("mouseover", (e) => {
+      const target = e.target.closest("[data-cursor]");
+      if (target) {
+        const type = target.dataset.cursor;
+        // tilføj klasse .cursor-fill når mus hover over element med data-fill
+        if (type === "fill") {
+          innerCursor.classList.add("cursor-fill");
+          outerCursor.classList.add("cursor-fill");
+        }
+        // gem data-cursor-text indhold i en const (text)
+        // kør funktion showCursorText med text som parameter når mus hover over element med data-text
+        else if (type === "text") {
+          const text = target.dataset.cursorText || "";
+          showCursorText(text);
+        }
+      }
+    });
+
+    // sæt textContent på p til at være text og tilføj display block hvis den er hidden
+    function showCursorText(text) {
+      const innerText = outerCursor.querySelector("p");
+      if (innerText) {
+        innerText.textContent = text;
+        innerText.style.display = "block";
+        outerCursor.classList.add("cursor-text");
+        innerCursor.classList.add("");
+      }
+    }
+
+    //sæt textContent på p til at være ingenting
+    function hideCursorText() {
+      const innerText = outerCursor.querySelector("p");
+      if (innerText) {
+        innerText.textContent = "";
+      }
+    }
+
+    // fjern klassen cursor-fill og cursor-text og kør funktion hideCursorText når mouse leaves et data element
+    document.addEventListener("mouseout", (e) => {
+      const target = e.target.closest("[data-cursor]");
+      if (target) {
+        console.log("mouseout, alt fjernes  ");
+        outerCursor.classList.remove("hide");
+        innerCursor.classList.remove("hide");
+        innerCursor.classList.remove("cursor-fill");
+        outerCursor.classList.remove("cursor-fill");
+        innerCursor.classList.remove("cursor-text");
+        outerCursor.classList.remove("cursor-text");
+        hideCursorText();
+      }
+    });
+  </script>
 </html>

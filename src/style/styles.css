@@ -93,7 +93,7 @@ p,
   h3 {
     font-family: "GeneralSans", sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     font-style: normal;
     color: var(--black);
   }
@@ -124,11 +124,11 @@ p,
    v2.0 | 20110126
    License: none (public domain)
 */
-*,
+/* *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
+} */
 
 html,
 body,

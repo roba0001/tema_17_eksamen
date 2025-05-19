@@ -25,6 +25,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
             d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
             fill="#060604"></path>
         </svg>
+        <p>Huset</p>
       </button>
       <button class="map_pin" data-venue="blox">
         <svg
@@ -40,6 +41,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
             d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
             fill="#060604"></path>
         </svg>
+        <p>BLOX</p>
       </button>
       <button class="map_pin" data-venue="black_diamond">
         <svg
@@ -55,6 +57,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
             d="M10.8921 17.2982C10.0034 18.2959 8.96838 19.1895 7.80618 19.9121C7.66309 20.0196 7.46913 20.0326 7.31014 19.9284C5.59309 18.8103 4.15107 17.4675 3.0175 16.0075C1.45306 13.9991 0.468936 11.7726 0.131884 9.62739C-0.211528 7.45293 0.109626 5.35985 1.16689 3.65902C1.58343 2.98682 2.11604 2.37485 2.76471 1.84588C4.256 0.630072 5.95876 -0.0128268 7.65674 0.000193938C9.29112 0.0132147 10.9048 0.636582 12.2992 1.94028C12.7888 2.39601 13.2006 2.91846 13.5377 3.48487C14.6744 5.40217 14.9193 7.84681 14.42 10.324C13.9272 12.7719 12.703 15.2589 10.8921 17.2933V17.2982ZM7.3324 3.86735C9.34836 3.86735 10.9812 5.54051 10.9812 7.60267C10.9812 9.66645 9.34677 11.338 7.3324 11.338C5.31645 11.338 3.68365 9.66645 3.68365 7.60267C3.68206 5.53888 5.31645 3.86735 7.3324 3.86735Z"
             fill="#060604"></path>
         </svg>
+        <p>The Black Diamond</p>
       </button>
     </div>
     <div class="text_container">
@@ -80,6 +83,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
     width: 100%;
     margin-top: 60px;
     position: relative;
+    overflow: hidden;
     img {
       width: 100%;
       height: auto;
@@ -113,9 +117,14 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
       margin-bottom: 1.62rem;
     }
   }
-
+  .map_pin.active {
+    background-color: var(--green);
+    p {
+      color: var(--black);
+    }
+  }
   .map_pin.active svg path {
-    fill: var(--green);
+    fill: var(--black);
     stroke: black;
   }
 
@@ -126,8 +135,9 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
       margin-top: 60px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 185px 3fr;
       gap: 0;
+      grid-template-rows: 185px 1fr; /* Adjust this */
+      height: 100vh;
     }
 
     .text_container {
@@ -142,7 +152,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
       border-bottom-style: solid;
 
       > * {
-        height: 100%;
+        margin: 1rem 40px;
         align-items: flex-end;
       }
       > *:not(:first-child) {
@@ -153,8 +163,6 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
         display: grid;
         grid-column: 2;
         grid-row: 1;
-        padding: 1rem 40px;
-        margin: 0;
       }
       p {
         grid-column: 1;
@@ -166,12 +174,15 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
         margin: 0;
         padding: 1rem 40px;
 
-        /* border-width: 1px;
-        border-right-style: solid; */
-
         &::before {
           content: "( Directions )";
           width: auto;
+          white-space: nowrap;
+          font-family: "GeneralSans", sans-serif;
+          font-size: 18px;
+          font-weight: 600;
+          font-style: normal;
+          color: var(--black);
         }
       }
     }
@@ -181,17 +192,34 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
 
       border-right-style: solid;
       border-width: 1px;
-      /* aspect-ratio: 1;
-      overflow: hidden; */
 
       img {
+        width: 100%;
         height: 100%;
-        /* object-fit: contain; 
-        display: block; */
+        object-fit: cover;
       }
       svg {
-        width: 20px;
-        height: 25px;
+        width: 15px;
+        height: 20px;
+        path {
+          fill: var(--off_white);
+        }
+      }
+
+      button {
+        display: flex;
+        height: 1.5rem;
+        padding: 1rem 0.625rem;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.25rem;
+        align-self: stretch;
+        border-radius: 3.75rem;
+        width: fit-content;
+        background-color: var(--black);
+        p {
+          color: var(--off_white);
+        }
       }
       button[data-venue="huset"] {
         top: 27%;
@@ -209,7 +237,6 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
 
     .map_accordion_wrapper {
       margin: 0;
-      max-height: 557px;
       overflow: hidden;
       overflow-y: scroll;
     }
@@ -234,8 +261,6 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
           if (isTarget) {
             closed.classList.add("hidden");
             open.classList.remove("hidden");
-
-            // wrapper.scrollIntoView({ behavior: "smooth", block: "start" });
           } else {
             closed.classList.remove("hidden");
             open.classList.add("hidden");
@@ -243,8 +268,39 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
         });
 
         // Handle active pin styling
-        pins.forEach((p) => p.classList.remove("active")); // remove active from all
-        pin.classList.add("active"); // add active to clicked
+        pins.forEach((p) => p.classList.remove("active"));
+        pin.classList.add("active");
+      });
+    });
+
+    mapRowWrappers.forEach((wrapper) => {
+      const closed = wrapper.querySelector(".map_row_closed");
+
+      closed.addEventListener("click", () => {
+        const venue = wrapper.dataset.venue;
+
+        mapRowWrappers.forEach((w) => {
+          const isTarget = w.dataset.venue === venue;
+          const wClosed = w.querySelector(".map_row_closed");
+          const wOpen = w.querySelector(".map_row_open");
+
+          if (isTarget) {
+            wClosed.classList.add("hidden");
+            wOpen.classList.remove("hidden");
+          } else {
+            wClosed.classList.remove("hidden");
+            wOpen.classList.add("hidden");
+          }
+        });
+
+        // matcher active pin til den åbne accoridions venue
+        pins.forEach((pin) => {
+          if (pin.dataset.venue === venue) {
+            pin.classList.add("active");
+          } else {
+            pin.classList.remove("active");
+          }
+        });
       });
     });
   });

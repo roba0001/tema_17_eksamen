@@ -3,6 +3,16 @@ import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
 import NewsCards from "../components/News_Cards.astro";
 import "../style/styles.css";
+const data = await fetch(
+  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/News?order=date.asc",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+    },
+  }
+).then((res) => res.json());
 ---
 
 <Skelet>
@@ -12,97 +22,11 @@ import "../style/styles.css";
     <Gradient gradient_class="news_3" />
     <h1>News</h1>
     <div class="news_grid">
-      <NewsCards
-        size_class="column_2_row_2"
-        image="1/vid_1.gif"
-        type="Trends & Insights"
-        date="01.02.04"
-        title="Why Everyone’s Talking About Motion Again"
-      />
-      <NewsCards
-        size_class="column_1 flip"
-        image="14/img_1.webp"
-        type="Festival Tips"
-        date="01.03.04"
-        title="What to See on Day 1: Talks, Tours, and Tips"
-      />
-      <NewsCards
-        size_class="row_2"
-        image="3/img_1.webp"
-        type="Interview"
-        date="13.02.04"
-        title="Video That Moves: Jamal Rivers on Creating Impact with Style"
-      />
-      <NewsCards
-        size_class="column_1 flip"
-        image="12/img_1.webp"
-        type="Spotlight"
-        date="01.03.04"
-        title="Branding with Purpose: Behind the Message-Driven Campaigns"
-      />
-      <NewsCards
-        size_class="row_2"
-        image="5/img_1.webp"
-        type="Spotlight"
-        date="01.03.04"
-        title="Why Copenhagen Is Europe’s Quiet Creative Powerhouse"
-      />
-      <NewsCards
-        size_class="column_2 flip"
-        image="10/img_1.webp"
-        type="Trends & Insights"
-        date="01.03.04"
-        title="Why Responsive Web Design Still Matters"
-      />
-      <NewsCards
-        size_class="column_1"
-        image="9/img_1.webp"
-        type="Festival Tips"
-        date="01.03.04"
-        title="Visual Impact Festival is Redefining How Creatives Connect"
-      />
-      <NewsCards
-        size_class="column_1 flip"
-        image="4/vid_1.gif"
-        type="Trends & Insights"
-        date="01.03.04"
-        title="Animation That Sells: How Stylized Movement Drives Engagement"
-      />
-      <NewsCards
-        size_class="column_1"
-        image="2/img_1.webp"
-        type="Interview"
-        date="01.03.04"
-        title="Sara Coleman Brings Bold Branding Energy to the Stage"
-      />
-      <NewsCards
-        size_class="row_2 flip"
-        image="7/vid_1.gif"
-        type="Spotlight"
-        date="01.03.04"
-        title="A Future in Motion: Designing a Greener Tomorrow"
-      />
-      <NewsCards
-        size_class="column_1"
-        image="13/img_1.webp"
-        type="Interview"
-        date="01.03.04"
-        title="3D in Motion: How Elena Motta Brings Objects to Life"
-      />
-      <NewsCards
-        size_class="column_1 flip"
-        image="6/img_1.webp"
-        type="Industry News"
-        date="01.03.04"
-        title="How AI is Revolutionizing the Creative Process"
-      />
-      <NewsCards
-        size_class="column_1"
-        image="11/img_1.webp"
-        type="Festival Tips"
-        date="01.03.04"
-        title="Sketch Café: Where Designers Start Their Day with Coffee and Ideas"
-      />
+      {
+        data.map((data) => {
+          return <NewsCards data={data} />;
+        })
+      }
     </div>
   </main>
 </Skelet>

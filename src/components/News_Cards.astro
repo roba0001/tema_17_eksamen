@@ -1,19 +1,23 @@
 ---
 import CardCategory from "./Card_Category.astro";
 import "../style/styles.css";
-const { size_class, type, date, title, image } = Astro.props;
+const { size_class, data } = Astro.props;
 ---
 
 <a class={size_class} id="container" href="/program_singleview.html">
   <div class="top">
-    <img class="news_img" src={`/public/imgs/news/${image}`} alt="news_image" />
+    <img
+      class="news_img"
+      src={`/public/imgs/news${data.image_1}`}
+      alt="news_image"
+    />
     <div class="top_overlay">
-      <CardCategory class="category" className="news" text={type} />
+      <CardCategory class="category" className="news" text={data.type} />
     </div>
   </div>
   <div class="bottom">
-    <p class="small_p">( {date} )</p>
-    <p>{title}</p>
+    <p class="small_p">( {data.date} )</p>
+    <p>{data.title}</p>
   </div>
 </a>
 

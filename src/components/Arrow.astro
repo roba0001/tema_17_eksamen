@@ -16,8 +16,11 @@ const { arrow_class } = Astro.props;
     width: 35px;
   }
   .down {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
     width: 35px;
+    color: red; /* This changes the fill to red because of `fill="currentColor"` */
+    fill: red;
+    border-color: blue;
   }
   .up {
     transform: rotate(-90deg);

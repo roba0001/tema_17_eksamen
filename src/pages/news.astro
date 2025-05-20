@@ -4,7 +4,7 @@ import Gradient from "../components/Gradient.astro";
 import NewsCards from "../components/News_Cards.astro";
 import "../style/styles.css";
 const data = await fetch(
-  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/News?order=date.asc",
+  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/News?order=created_at.asc",
   {
     method: "GET",
     headers: {

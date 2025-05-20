@@ -14,70 +14,25 @@ import "../style/styles.css";
     <Gradient gradient_class="program_sw" />
     <section>
       <div class="images_container">
-        <div
-          data-cursor="text"
-          data-cursor-text="Click / Drag"
-          class="resizable draggabl image_1"
-        >
+        <div data-cursor="text" data-cursor-text="Click / Drag" class="resizable draggabl image_1">
           <img src={`/imgs/Program/${data.gallery_1}`} alt="event_image" />
-          <div
-            data-cursor="text"
-            data-cursor-text="Drag"
-            class="resize-handle bottom-right"
-          >
-          </div>
+          <div data-cursor="text" data-cursor-text="Drag" class="resize-handle bottom-right"></div>
         </div>
-        <div
-          data-cursor="text"
-          data-cursor-text="Click / Drag"
-          class="resizable draggable image_2"
-        >
+        <div data-cursor="text" data-cursor-text="Click / Drag" class="resizable draggable image_2">
           <img src={`/imgs/Program/${data.gallery_2}`} alt="event_image" />
-          <div
-            data-cursor="text"
-            data-cursor-text="Drag"
-            class="resize-handle bottom-right"
-          >
-          </div>
+          <div data-cursor="text" data-cursor-text="Drag" class="resize-handle bottom-right"></div>
         </div>
-        <div
-          data-cursor="text"
-          data-cursor-text="Click / Drag"
-          class="resizable draggable image_3"
-        >
+        <div data-cursor="text" data-cursor-text="Click / Drag" class="resizable draggable image_3">
           <img src={`/imgs/Program/${data.gallery_3}`} alt="event_image" />
-          <div
-            data-cursor="text"
-            data-cursor-text="Drag"
-            class="resize-handle bottom-right"
-          >
-          </div>
+          <div data-cursor="text" data-cursor-text="Drag" class="resize-handle bottom-right"></div>
         </div>
-        <div
-          data-cursor="text"
-          data-cursor-text="Click / Drag"
-          class="resizable draggable image_4"
-        >
+        <div data-cursor="text" data-cursor-text="Click / Drag" class="resizable draggable image_4">
           <img src={`/imgs/Program/${data.gallery_4}`} alt="event_image" />
-          <div
-            data-cursor="text"
-            data-cursor-text="Drag"
-            class="resize-handle bottom-right"
-          >
-          </div>
+          <div data-cursor="text" data-cursor-text="Drag" class="resize-handle bottom-right"></div>
         </div>
-        <div
-          data-cursor="text"
-          data-cursor-text="Click / Drag"
-          class="resizable draggable image_5"
-        >
+        <div data-cursor="text" data-cursor-text="Click / Drag" class="resizable draggable image_5">
           <img src={`/imgs/Program/${data.gallery_5}`} alt="event_image" />
-          <div
-            data-cursor="text"
-            data-cursor-text="Drag"
-            class="resize-handle bottom-right"
-          >
-          </div>
+          <div data-cursor="text" data-cursor-text="Drag" class="resize-handle bottom-right"></div>
         </div>
       </div>
     </section>
@@ -430,14 +385,8 @@ import "../style/styles.css";
       isResizing = true;
       startX = e.clientX;
       startY = e.clientY;
-      startWidth = parseInt(
-        document.defaultView.getComputedStyle(resizable).width,
-        10
-      );
-      startHeight = parseInt(
-        document.defaultView.getComputedStyle(resizable).height,
-        10
-      );
+      startWidth = parseInt(document.defaultView.getComputedStyle(resizable).width, 10);
+      startHeight = parseInt(document.defaultView.getComputedStyle(resizable).height, 10);
 
       const onMouseMove = (e) => {
         if (isResizing) {
@@ -473,14 +422,8 @@ import "../style/styles.css";
           const containerRect = container.getBoundingClientRect();
           const elemRect = resizable.getBoundingClientRect();
 
-          let left = Math.max(
-            0,
-            Math.min(newX, container.clientWidth - elemRect.width)
-          );
-          let top = Math.max(
-            0,
-            Math.min(newY, container.clientHeight - elemRect.height)
-          );
+          let left = Math.max(0, Math.min(newX, container.clientWidth - elemRect.width));
+          let top = Math.max(0, Math.min(newY, container.clientHeight - elemRect.height));
 
           resizable.style.left = `${left}px`;
           resizable.style.top = `${top}px`;

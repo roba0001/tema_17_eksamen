@@ -5,7 +5,7 @@ const { data, link } = Astro.props;
 console.log("data i card:", data);
 ---
 
-<section>
+<section class="program_card" data-type={data.type} data-topic={data.topic} data-venue={data.venue}>
   <a href={link}>
     <div class="img_and_eventtype_wrapper">
       <CardCategory className="program" text={data.type} />

@@ -1,9 +1,9 @@
 ---
-import Skelet from "../layouts/Skelet.astro";
-import Arrow from "../components/Arrow.astro";
-import Gradient from "../components/Gradient.astro";
-import CardCategory from "../components/Card_Category.astro";
-import "../style/styles.css";
+import Skelet from "../../layouts/Skelet.astro";
+import Arrow from "../../components/Arrow.astro";
+import Gradient from "../../components/Gradient.astro";
+import CardCategory from "../../components/Card_Category.astro";
+import "../../style/styles.css";
 
 export async function getStaticPaths() {
   const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events", {

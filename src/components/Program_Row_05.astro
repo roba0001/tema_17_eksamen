@@ -6,7 +6,7 @@ import TextAndArrow from "./Text_And_Arrow.astro";
 import X from "./X.astro";
 
 const data = await fetch(
-  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?date=eq.2025-09-05",
+  'https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?dates=cs.["05.09.2025"]',
   {
     method: "GET",
     headers: {

@@ -39,7 +39,7 @@ console.log("her er data:", data);
           data.map((data) => {
             return (
               <>
-                <ProgramCard data={data} />
+                <ProgramCard data={data} link={`program/${data.slug_program}.html`} />
               </>
             );
           })

@@ -4,12 +4,37 @@ import CardCategory from "../components/Card_Category.astro";
 import "../style/styles.css";
 import ProgramCard from "../components/Program_Card.astro";
 import Gradient from "../components/Gradient.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/News",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+      },
+    }
+  ).then((response) => response.json());
+  return data.map((news) => {
+    return {
+      // laver en url for hver side med et unikt slug
+      params: { slug_program: news.slug_program },
+      //   sender props med ned til undersiden, hvor myData har værdien af post
+      props: { myData: news },
+    };
+  });
+}
 ---
 
 <Skelet>
   <section class="news_singleview_grid">
     <a href="news.html" class="back_arrow_section">
-      <img data-cursor="fill" src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
+      <img
+        data-cursor="fill"
+        src="/imgs/Program/numbers/arrow.svg"
+        alt="arrow"
+      />
     </a>
 
     <section class="left_img_column">
@@ -22,7 +47,7 @@ import Gradient from "../components/Gradient.astro";
 
     <section class="right_txt_column">
       <div class="news_date_and_author_flex">
-        <p>Date: {data.date}</p>
+        <p>Date: {myData.date}</p>
         <p>Author: {data.author}</p>
       </div>
       <div class="news_topics_flex">
@@ -37,13 +62,17 @@ import Gradient from "../components/Gradient.astro";
           {data.text}
         </p>
         <Gradient gradient_class="news_sw" />
-        <img id="changingImageMobile" src={`/imgs/news${data.image_1}`} alt="Article Image" />
+        <img
+          id="changingImageMobile"
+          src={`/imgs/news${data.image_1}`}
+          alt="Article Image"
+        />
         {data.text_2}
       </div>
       <div class="news_event_details">
         <p>
-          Stay tuned for more updates and behind-the-scenes highlights from this year's Design
-          Festival by signing up for our newsletter.
+          Stay tuned for more updates and behind-the-scenes highlights from this
+          year's Design Festival by signing up for our newsletter.
         </p>
         <Gradient gradient_class="news_sw2" />
       </div>
@@ -211,20 +240,30 @@ import Gradient from "../components/Gradient.astro";
     const scrollY = window.scrollY;
 
     if (scrollY > 500) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+      imgDesktop.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
+      imgMobile.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
     } else if (scrollY > 400) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+      imgDesktop.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
+      imgMobile.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
     } else if (scrollY > 300) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+      imgDesktop.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
+      imgMobile.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
     } else if (scrollY > 200) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+      imgDesktop.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
+      imgMobile.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
     } else {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+      imgDesktop.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
+      imgMobile.src =
+        "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
     }
   });
 </script>

@@ -28,7 +28,11 @@ console.log("her er data:", data);
   </section>
 
   <section class="program_row_open">
-    <img class="stretched_number_svg" src="/imgs/Program/numbers/04.svg" alt="stretched 04" />
+    <img
+      class="stretched_number_svg"
+      src="/imgs/Program/numbers/04.svg"
+      alt="stretched 04"
+    />
     <div class="x_and_scroll_flex">
       <h1 class="mobile_date">04.09</h1>
 
@@ -39,7 +43,7 @@ console.log("her er data:", data);
           data.map((data) => {
             return (
               <>
-                <ProgramCard data={data} link={`program/${data.slug_program}.html`} />
+                <ProgramCard data={data} link={`/${data.slug_program}.html`} />
               </>
             );
           })

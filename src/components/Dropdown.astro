@@ -1,1 +1,46 @@
-ronja
+---
+import "../style/styles.css";
+---
+
+<select name="topic" id="topicselector">
+  <option value="allTopics" class="allTopicsOption">All Topics</option>
+  <option value="webDesign" class="webDesignOption">Web Design</option>
+  <option value="branding" class="brandingOption">Branding</option>
+  <option value="aiDesign" class="aiDesignOption">AI Design</option>
+  <option value="motionGraphics" class="motionGraphicsOption">Motion Graphics</option>
+  <option value="animation" class="animationOption">Animation</option>
+  <option value="video" class="videoOption">Video</option>
+  <option value="marketing" class="marketingOption">Marketing</option>
+</select>
+
+<style>
+  select {
+    margin: 10rem 0;
+    border-radius: 3.75rem;
+    border: 1px solid var(--Dark-green, #21221a);
+    background: var(--Dark-green, #21221a);
+    color: white;
+    display: flex;
+    height: 1.5rem;
+    padding: 0.1875rem 0rem;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+</style>
+
+<script>
+  const topicSelector = document.getElementById("topicselector");
+
+  topicSelector.addEventListener("change", function () {
+    const selectedValue = this.value;
+    filterTopics(selectedValue);
+  });
+
+  function filterTopics(topic) {
+    console.log("Selected topic:", topic);
+    if (topic === "branding") {
+      console.log("test");
+    }
+  }
+</script>

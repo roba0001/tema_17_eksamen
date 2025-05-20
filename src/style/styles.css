@@ -120,13 +120,6 @@ p,
 }
 
 /* ------------------------Custom Cursor Styles---------------- */
-html,
-body,
-a,
-button,
-input {
-  cursor: none;
-}
 
 /* ------------------------CSS RESET---------------- */
 /* http://meyerweb.com/eric/tools/css/reset/ 

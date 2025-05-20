@@ -6,7 +6,7 @@ import TextAndArrow from "./Text_And_Arrow.astro";
 import X from "./X.astro";
 
 const data = await fetch(
-  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events.Dates=eq.2025-09-04",
+  'https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?Dates=cs.["04.09.2025"]',
   {
     method: "GET",
     headers: {
@@ -36,13 +36,14 @@ console.log("data:", data);
 
       <div class="scroll_section">
         {
-          data.map((data) => {
-            return (
-              <>
-                <ProgramCard data={data} />
-              </>
-            );
-          })
+          Array.isArray(data) &&
+            data.map((item) => {
+              return (
+                <>
+                  <ProgramCard data={data} />
+                </>
+              );
+            })
         }
       </div>
     </div>

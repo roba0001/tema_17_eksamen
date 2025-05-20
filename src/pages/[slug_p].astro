@@ -82,7 +82,11 @@ console.log("myData", myData);
     <div class="about_grid">
       <p class="about_text_1">{myData.about_1}</p>
       <div class="left_side">
-        <img class="speaker_image" src="/imgs/speaker_image.png" alt="Speaker Image" />
+        <img
+          class="speaker_image"
+          src={`/imgs/speakers/${myData.speaker_img}`}
+          alt="Speaker Image"
+        />
         <p class="image_text">{myData.img_text}</p>
       </div>
       <p class="about_text_2">{myData.about_2}</p>

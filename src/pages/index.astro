@@ -21,30 +21,44 @@ import Dropdown from "../components/Dropdown.astro";
     <img class="arrow" src="/imgs/green_arrow.svg" alt="arrow_scroll_down" />
   </div>
   <div class="second_section">
-    <h2>Design with Purpose. Create with fart.</h2>
+    <h2>Design with Purpose. Create with impact.</h2>
     <div class="section_flex">
       <div class="left_side">
         <p>
-          Join us in Copenhagen, one of the world’s most exciting cities for design and innovation,
-          from September 4 to 7 for four days filled with talks, workshops, exhibitions, and
-          networking.
+          Join us in Copenhagen, one of the world’s most exciting cities for
+          design and innovation, from September 4 to 7 for four days filled with
+          talks, workshops, exhibitions, and networking.
         </p>
         <p>
-          Set in a city where creativity is part of the culture, the festival brings together voices
-          from across the globe to explore the latest in digital design, AI, branding, motion
-          graphics, web, and video. Whether you’re a designer, technologist, strategist, or student,
-          you’ll find fresh ideas, practical insights, and new tools to inspire your work.
+          Set in a city where creativity is part of the culture, the festival
+          brings together voices from across the globe to explore the latest in
+          digital design, AI, branding, motion graphics, web, and video. Whether
+          you’re a designer, technologist, strategist, or student, you’ll find
+          fresh ideas, practical insights, and new tools to inspire your work.
         </p>
         <p class="last">
-          This is more than an event — it’s a chance to connect with a creative community in a place
-          where design thinking shapes everything from architecture to everyday life. Discover
-          what’s next in digital creativity, right in the heart of Copenhagen.
+          This is more than an event — it’s a chance to connect with a creative
+          community in a place where design thinking shapes everything from
+          architecture to everyday life. Discover what’s next in digital
+          creativity, right in the heart of Copenhagen.
         </p>
-        <Button class="button" text="View festival program" button_class="primary" />
+        <Button
+          class="button"
+          text="View festival program"
+          button_class="primary"
+        />
       </div>
-      <div>
-        <img class="image1" src="/imgs/frontpage_1.webp" alt="festival images" />
-        <img class="image2" src="/imgs/frontpage_2.webp" alt="festival images" />
+      <div class="right_side">
+        <img
+          class="image1"
+          src="/imgs/frontpage_1.webp"
+          alt="festival images"
+        />
+        <img
+          class="image2"
+          src="/imgs/frontpage_2.webp"
+          alt="festival images"
+        />
         <Gradient gradient_class="home1" />
         <Gradient gradient_class="home2" />
       </div>
@@ -74,12 +88,11 @@ import Dropdown from "../components/Dropdown.astro";
   }
   .second_section {
     margin: 40px;
-    height: 100vh;
+    height: 85vh;
   }
   .section_flex {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    position: relative;
   }
   .second_section h2 {
     margin-bottom: 80px;
@@ -93,10 +106,13 @@ import Dropdown from "../components/Dropdown.astro";
   p.last {
     margin-bottom: 20px;
   }
-  .image1 {
+  .right_side {
     position: relative;
-    bottom: 20px;
-    right: -200px;
+  }
+  .image1 {
+    position: absolute;
+    bottom: -100px;
+    right: 300px;
     border-radius: 30px;
     height: 210px;
     width: 210px;
@@ -104,9 +120,9 @@ import Dropdown from "../components/Dropdown.astro";
     z-index: 3;
   }
   .image2 {
-    position: relative;
-    bottom: 50px;
-    right: -100px;
+    position: absolute;
+    bottom: -40px;
+    right: 50px;
     border-radius: 30px;
     width: 300px;
     height: 450px;

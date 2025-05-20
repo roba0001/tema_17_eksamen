@@ -22,7 +22,7 @@ console.log("data:", data);
 <section class="program_row_wrapper">
   <section class="program_row_closed visible">
     <h1>06.09</h1>
-    <div class="arrow">
+    <div data-cursor="fill" class="arrow">
       <img src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </div>
   </section>
@@ -39,7 +39,7 @@ console.log("data:", data);
           data.map((data) => {
             return (
               <>
-                <ProgramCard data={data} link={`program/${data.slug_program}.html`} />
+                <ProgramCard data={data} link={`/${data.slug_program}.html`} />
               </>
             );
           })

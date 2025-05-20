@@ -3,19 +3,31 @@ import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
 
 import "../style/styles.css";
-import AllProgramRows from "../components/All_Program_Rows.astro";
 import ProgramRow04 from "../components/Program_Row_04.astro";
+import ProgramRow05 from "../components/Program_Row_05.astro";
+import ProgramRow06 from "../components/Program_Row_06.astro";
+import ProgramRow07 from "../components/Program_Row_07.astro";
 ---
 
 <Skelet>
   <div class="program_wrapper">
     <h1>Program</h1>
-    <AllProgramRows />
+    <section>
+      <ProgramRow04 />
+      <ProgramRow05 />
+      <ProgramRow06 />
+      <ProgramRow07 />
+    </section>
   </div>
 </Skelet>
 
 <style>
   h1 {
     margin: 120px 2.5rem 2.5rem 2.5rem;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 </style>

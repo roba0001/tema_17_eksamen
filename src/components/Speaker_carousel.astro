@@ -1,7 +1,7 @@
 ---
 import { useState, useEffect } from "react";
 const speakers = [
-  { name: "Arjun Malik", image: "/arjun_malik.png" },
+  { name: "Arjun Malik", image: "/arjun_malik.webp" },
   { name: "Elena Motta", image: "/elena_motta.webp" },
   { name: "Jules Renner", image: "/jules_renner.webp" },
   { name: "Lena Alvarez", image: "/lena_alvarez.webp" },
@@ -51,11 +51,13 @@ const speakers = [
   }
 
   .carousel-item img {
-    border-radius: 10px;
-    transition: all 0.4s ease;
+    height: 400px;
+    width: auto;
+    object-fit: cover;
+    display: block;
   }
 
-  .carousel-item.center img {
+  /* .carousel-item.center img {
     opacity: 1;
     transform: scale(1);
     z-index: 3;
@@ -65,7 +67,7 @@ const speakers = [
     opacity: 0.5;
     transform: scale(0.75);
     z-index: 1;
-  }
+  } */
 
   .arrow {
     background: none;
@@ -75,10 +77,15 @@ const speakers = [
     padding: 1rem;
     user-select: none;
   }
-
   img {
-    width: 200px !important;
+    height: 400px;
+    width: auto;
+    object-fit: cover;
   }
+
+  /* img {
+    height: 200px !important;
+  } */
 </style>
 
 <script type="module" client:load>

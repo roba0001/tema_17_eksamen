@@ -8,7 +8,7 @@ import X from "./X.astro";
 ---
 
 <section class="map_row_wrapper" data-venue="blox">
-  <section class="map_row_closed">
+  <section data-cursor="fill" class="map_row_closed">
     <h2>BLOX</h2>
     <div class="arrow">
       <img src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
@@ -60,11 +60,17 @@ import X from "./X.astro";
         />
         <div class="map_row_open_choose_floor_flex">
           <FloorButton
+            data-cursor="fill"
             button_class="outline chooseFloorBtn active"
             data-floor="1"
             text="1st floor"
           />
-          <FloorButton button_class="outline chooseFloorBtn" data-floor="2" text="2nd floor" />
+          <FloorButton
+            data-cursor="fill"
+            button_class="outline chooseFloorBtn"
+            data-floor="2"
+            text="2nd floor"
+          />
         </div>
       </div>
 
@@ -77,8 +83,10 @@ import X from "./X.astro";
     </div>
 
     <p>
-      For more information about this venue visit <a class="linktext" href="https://www.blox.dk/"
-        >their website</a
+      For more information about this venue visit <a
+        data-cursor="fill"
+        class="linktext"
+        href="https://www.blox.dk/">their website</a
       >
     </p>
   </section>

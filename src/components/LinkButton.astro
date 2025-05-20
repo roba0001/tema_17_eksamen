@@ -3,7 +3,7 @@ import "../style/styles.css";
 const { buttonText, buttonLink, buttonClass } = Astro.props;
 ---
 
-<a class={buttonClass} href={buttonLink}
+<a data-cursor="fill" class={buttonClass} href={buttonLink}
   ><span class="button_text">{buttonText}</span>
   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
     <path

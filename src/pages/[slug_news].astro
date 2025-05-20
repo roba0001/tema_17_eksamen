@@ -19,12 +19,14 @@ export async function getStaticPaths() {
   return data.map((news) => {
     return {
       // laver en url for hver side med et unikt slug
-      params: { slug_program: news.slug_program },
+      params: { slug_news: news.slug_news },
       //   sender props med ned til undersiden, hvor myData har værdien af post
       props: { myData: news },
     };
   });
 }
+// laver en constant med den data der er fra den unikke slug, her samles myData op
+const { myData } = Astro.props;
 ---
 
 <Skelet>
@@ -48,26 +50,26 @@ export async function getStaticPaths() {
     <section class="right_txt_column">
       <div class="news_date_and_author_flex">
         <p>Date: {myData.date}</p>
-        <p>Author: {data.author}</p>
+        <p>Author: {myData.author}</p>
       </div>
       <div class="news_topics_flex">
-        <CardCategory className="newsNoMargin" text={data.topic} />
-        <CardCategory className="newsNoMargin" text={data.type} />
+        <CardCategory className="newsNoMargin" text={myData.topic} />
+        <CardCategory className="newsNoMargin" text={myData.type} />
       </div>
       <div class="news_txt">
         <h2>
-          {data.title}
+          {myData.title}
         </h2>
         <p>
-          {data.text}
+          {myData.text}
         </p>
         <Gradient gradient_class="news_sw" />
         <img
           id="changingImageMobile"
-          src={`/imgs/news${data.image_1}`}
+          src={`/imgs/news${myData.image_1}`}
           alt="Article Image"
         />
-        {data.text_2}
+        {myData.text_2}
       </div>
       <div class="news_event_details">
         <p>

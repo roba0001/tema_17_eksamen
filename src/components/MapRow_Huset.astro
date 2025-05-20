@@ -7,7 +7,7 @@ import X from "./X.astro";
 ---
 
 <section class="map_row_wrapper" data-venue="huset">
-  <section class="map_row_closed">
+  <section data-cursor="fill" class="map_row_closed">
     <h2>Huset</h2>
     <div class="arrow">
       <img src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
@@ -48,8 +48,10 @@ import X from "./X.astro";
       <MapVenueSymbolsGrid venue="huset" />
     </div>
     <p>
-      For more information about this venue visit <a class="linktext" href="https://huset.dk"
-        >their website</a
+      For more information about this venue visit <a
+        data-cursor="fill"
+        class="linktext"
+        href="https://huset.dk">their website</a
       >
     </p>
   </section>

@@ -7,12 +7,12 @@ import X from "./X.astro";
 ---
 
 <section class="map_row_wrapper" data-venue="black_diamond">
-  <section class="map_row_closed">
+  <sectio data-cursor="fill" class="map_row_closed">
     <h2>The Black Diamond</h2>
     <div class="arrow">
       <img src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </div>
-  </section>
+  </sectio>
 
   <section class="map_row_open hidden">
     <div class="venue_and_x_flex">
@@ -48,8 +48,10 @@ import X from "./X.astro";
       <MapVenueSymbolsGrid venue="black_diamond" />
     </div>
     <p>
-      For more information about this venue visit <a class="linktext" href="https://www.kb.dk/"
-        >their website</a
+      For more information about this venue visit <a
+        data-cursor="fill"
+        class="linktext"
+        href="https://www.kb.dk/">their website</a
       >
     </p>
   </section>

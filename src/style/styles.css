@@ -120,7 +120,10 @@ p,
 }
 
 /* ------------------------Custom Cursor Styles---------------- */
-body {
+body,
+a,
+button,
+input {
   cursor: none;
 }
 

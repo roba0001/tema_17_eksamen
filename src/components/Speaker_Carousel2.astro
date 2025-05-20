@@ -1,0 +1,89 @@
+---
+import "../style/styles.css";
+---
+
+<div class="container swiper">
+  <div class="speaker_wrapper">
+    <ul class="speaker_list swiper-wrapper">
+      <li class="speaker_item swiper-slide">
+        <a href="#" class="speaker_link">
+          <img
+            src="/imgs/speakers/caroussel/elena_motta.webp"
+            alt="speaker img"
+            class="speaker_img"
+          />
+          <h2 class="speaker_name">Elena Motta</h2>
+        </a>
+      </li>
+
+      <li class="speaker_item swiper-slide">
+        <a href="#" class="speaker_link">
+          <img
+            src="/imgs/speakers/caroussel/arjun_malik.webp"
+            alt="speaker img"
+            class="speaker_img"
+          />
+          <h2 class="speaker_name">Arjun Malik</h2>
+        </a>
+      </li>
+
+      <li class="speaker_item swiper-slide">
+        <a href="#" class="speaker_link">
+          <img
+            src="/imgs/speakers/caroussel/sam_taylor.webp"
+            alt="speaker img"
+            class="speaker_img"
+          />
+          <h2 class="speaker_name">Sam Taylor</h2>
+        </a>
+      </li>
+
+      <li class="speaker_item swiper-slide">
+        <a href="#" class="speaker_link">
+          <img
+            src="/imgs/speakers/caroussel/nico_delgado.webp"
+            alt="speaker img"
+            class="speaker_img"
+          />
+          <h2 class="speaker_name">Nico Delgado</h2>
+        </a>
+      </li>
+    </ul>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+
+<style>
+  img {
+    height: 400px;
+  }
+  .speaker_list,
+  .speaker_item,
+  .speaker_link {
+    width: fit-content;
+    display: block;
+  }
+  .speaker_list,
+  .speaker_link {
+    width: 100%;
+  }
+
+  .container {
+    margin: 10rem 0;
+  }
+</style>
+
+<script>
+  new Swiper(".speaker_wrapper", {
+    // Optional parameters
+
+    loop: true,
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

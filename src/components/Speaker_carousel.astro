@@ -1,1 +1,138 @@
-ronja
+---
+import { useState, useEffect } from "react";
+const speakers = [
+  { name: "Arjun Malik", image: "/arjun_malik.png" },
+  { name: "Elena Motta", image: "/elena_motta.webp" },
+  { name: "Jules Renner", image: "/jules_renner.webp" },
+  { name: "Lena Alvarez", image: "/lena_alvarez.webp" },
+  { name: "Nico Delgado", image: "/nico_delgado.webp" },
+  { name: "Sam Taylor", image: "/sam_taylor.webp" },
+  { name: "Takumi Hara", image: "/takumi_hara.webp" },
+];
+---
+
+<div class="carousel-container">
+  <ul id="carousel" class="carousel">
+    <!-- Speaker items will be rendered by JS -->
+  </ul>
+  <div class="arrows">
+    <button id="prevBtn" class="arrow left">‹</button>
+    <button id="nextBtn" class="arrow right">›</button>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .carousel-item {
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+
+  .carousel-item img {
+    border-radius: 10px;
+    transition: all 0.4s ease;
+  }
+
+  .carousel-item.center img {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 3;
+  }
+
+  .carousel-item.side img {
+    opacity: 0.5;
+    transform: scale(0.75);
+    z-index: 1;
+  }
+
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+    user-select: none;
+  }
+
+  img {
+    width: 200px !important;
+  }
+</style>
+
+<script type="module" client:load>
+  const speakers = [
+    { name: "Arjun Malik", image: "/arjun_malik.png" },
+    { name: "Elena Motta", image: "/elena_motta.webp" },
+    { name: "Jules Renner", image: "/jules_renner.webp" },
+    { name: "Lena Alvarez", image: "/lena_alvarez.webp" },
+    { name: "Nico Delgado", image: "/nico_delgado.webp" },
+    { name: "Sam Taylor", image: "/sam_taylor.webp" },
+    { name: "Takumi Hara", image: "/takumi_hara.webp" },
+  ];
+
+  const carousel = document.getElementById("carousel");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentIndex = 0;
+
+  function renderCarousel() {
+    carousel.innerHTML = ""; // Clear old content
+
+    const prev = (currentIndex - 1 + speakers.length) % speakers.length;
+    const next = (currentIndex + 1) % speakers.length;
+
+    const visibleIndexes = [prev, currentIndex, next];
+
+    visibleIndexes.forEach((i, index) => {
+      const item = document.createElement("li");
+      item.classList.add("carousel-item");
+
+      if (i === currentIndex) {
+        item.classList.add("center");
+      } else {
+        item.classList.add("side");
+      }
+
+      item.innerHTML = `
+        <img src="/imgs/speakers/caroussel${speakers[i].image}" alt="${speakers[i].name}" />
+        <p>${speakers[i].name}</p>
+      `;
+      carousel.appendChild(item);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + speakers.length) % speakers.length;
+    renderCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % speakers.length;
+    renderCarousel();
+  });
+
+  renderCarousel(); // Initial load
+</script>

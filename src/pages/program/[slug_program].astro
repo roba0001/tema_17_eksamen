@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
   return data.map((event) => {
     return {
-      params: { slug_p: event.slug_program },
+      params: { slug_program: event.slug_program },
       props: { myData: event },
     };
   });

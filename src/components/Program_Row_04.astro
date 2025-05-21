@@ -37,11 +37,9 @@ console.log("her er data:", data);
       <div class="scroll_section">
         {
           data.map((data) => {
-            return (
-              <>
-                <ProgramCard data={data} link={`/program/${data.slug_program}.html`} />
-              </>
-            );
+            if (data.id === 5) {
+              return <ProgramCard data={data} link={`/program/${data.slug_program}.html`} />;
+            }
           })
         }
       </div>

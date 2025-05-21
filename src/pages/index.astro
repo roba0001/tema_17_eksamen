@@ -18,7 +18,13 @@ import Dropdown from "../components/Dropdown.astro";
       <source src="/imgs/poster_motion_web.mp4" type="video/mp4" />
     </video>
     <img class="title" src="/imgs/title.svg" alt="visual impact festival" />
-    <img class="arrow" src="/imgs/green_arrow.svg" alt="arrow_scroll_down" />
+    <img
+      data-cursor="fill"
+      id="scrollArrow"
+      class="arrow"
+      src="/imgs/green_arrow.svg"
+      alt="arrow_scroll_down"
+    />
   </div>
   <div class="second_section">
     <h2>Design with Purpose. Create with impact.</h2>
@@ -108,26 +114,27 @@ import Dropdown from "../components/Dropdown.astro";
     position: relative;
     min-height: 450px;
   }
-  .image1 {
-    position: absolute;
-    bottom: 40px;
-    right: 215px;
-    border-radius: 30px;
-    height: 150px;
-    width: 130px;
-    object-fit: cover;
-    z-index: 3;
+  @media (max-width: 800px) {
+    .image1 {
+      position: absolute;
+      bottom: 40px;
+      right: 215px;
+      border-radius: 30px;
+      height: 150px;
+      width: 130px;
+      object-fit: cover;
+      z-index: 3;
+    }
+    .image2 {
+      position: absolute;
+      bottom: 85px;
+      right: 100px;
+      border-radius: 30px;
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+    }
   }
-  .image2 {
-    position: absolute;
-    bottom: 85px;
-    right: 100px;
-    border-radius: 30px;
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-  }
-
   @media (min-width: 800px) {
     .title {
       width: 23%;
@@ -163,7 +170,7 @@ import Dropdown from "../components/Dropdown.astro";
     }
     .image1 {
       position: absolute;
-      bottom: -100px;
+      bottom: -30px;
       right: 300px;
       border-radius: 30px;
       height: 210px;
@@ -173,7 +180,7 @@ import Dropdown from "../components/Dropdown.astro";
     }
     .image2 {
       position: absolute;
-      bottom: -40px;
+      bottom: 40px;
       right: 50px;
       border-radius: 30px;
       width: 300px;
@@ -182,3 +189,16 @@ import Dropdown from "../components/Dropdown.astro";
     }
   }
 </style>
+
+<script>
+  document.getElementById("scrollArrow").onclick = function () {
+    const pageHeight = document.body.scrollHeight; // Konstant for den fulde længde af siden
+    const scrollAmount = pageHeight * 0.25; // ScrollAmount er 25% af den fulde side
+
+    window.scrollBy({
+      top: scrollAmount, // scroll ned ScrollAmount
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+</script>

@@ -1,0 +1,25 @@
+---
+import "../style/styles.css";
+const { selectName, selectId } = Astro.props;
+---
+
+<select data-cursor="fill" name={selectName} id={selectId}>
+  <slot />
+</select>
+
+<style>
+  select {
+    border-radius: 3.75rem;
+    border: 1px solid var(--Dark-green, #21221a);
+    background: var(--Dark-green, #21221a);
+    color: white;
+    display: flex;
+    height: 1.5rem;
+    padding: 0.1875rem 5px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+</style>
+
+<script></script>

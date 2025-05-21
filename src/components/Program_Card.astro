@@ -4,7 +4,13 @@ import CardCategory from "./Card_Category.astro";
 const { data, link } = Astro.props;
 ---
 
-<section class="program_card" data-type={data.type} data-topic={data.topic} data-venue={data.venue}>
+<section
+  class="program_card"
+  data-title={data.title.toLowerCase()}
+  data-type={data.type}
+  data-topic={data.topic}
+  data-venue={data.venue}
+>
   <a href={link}>
     <div class="img_and_eventtype_wrapper">
       <CardCategory className="program" text={data.type} />

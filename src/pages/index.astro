@@ -1,19 +1,14 @@
 ---
 import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
-import ProgramCard from "../components/Program_Card.astro";
 import "../style/styles.css";
 import TopicsHome from "../components/Topics_home.astro";
 import Button from "../components/Button.astro";
-import Burgermenu from "../components/Burgermenu.astro";
-import Cursor from "../components/Cursor.astro";
-// import SpeakerCarousel2 from "../components/Speaker_Carousel2.astro";
-// import SpeakerCarousel from "../components/Speaker_Carousel.astro";
-import Dropdown from "../components/Dropdown.astro";
+import Carrusel from "../components/Carrusel.astro";
 ---
 
 <Skelet>
-  <div class="hero_section">
+  <div data-cursor="text" data-cursor-text="Scroll Down" class="hero_section">
     <video autoplay muted loop playsinline>
       <source src="/imgs/poster_motion_web.mp4" type="video/mp4" />
     </video>
@@ -27,7 +22,7 @@ import Dropdown from "../components/Dropdown.astro";
     />
   </div>
   <div class="second_section">
-    <h2>Design with Purpose. Create with impact.</h2>
+    <h2>Test Design with Purpose. Create with Impact.</h2>
     <div class="section_flex">
       <div class="left_side">
         <p>
@@ -58,6 +53,7 @@ import Dropdown from "../components/Dropdown.astro";
           />
         </a>
       </div>
+
       <div class="right_side">
         <img
           class="image1"
@@ -76,7 +72,7 @@ import Dropdown from "../components/Dropdown.astro";
   </div>
   <TopicsHome />
 
-  <!-- <SpeakerCarousel /> -->
+  <Carrusel />
 </Skelet>
 
 <style>

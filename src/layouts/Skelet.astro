@@ -38,7 +38,7 @@ import Footer from "../components/Footer.astro";
       margin: 0rem;
       width: 100%;
       background-color: var(--off_white);
-
+      cursor: none;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -136,14 +136,6 @@ import Footer from "../components/Footer.astro";
     .hide {
       display: none;
     }
-
-    html,
-    body,
-    a,
-    button,
-    input {
-      cursor: none;
-    }
   </style>
   <script>
     const innerCursor = document.querySelector(".inner_cursor");
@@ -199,7 +191,6 @@ import Footer from "../components/Footer.astro";
     document.addEventListener("mouseout", (e) => {
       const target = e.target.closest("[data-cursor]");
       if (target) {
-        console.log("mouseout, alt fjernes  ");
         outerCursor.classList.remove("hide");
         innerCursor.classList.remove("hide");
         innerCursor.classList.remove("cursor-fill");

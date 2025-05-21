@@ -258,7 +258,6 @@ import X from "./X.astro";
       allChooseFloorBtns.forEach((floorBtn) => {
         floorBtn.addEventListener("click", () => {
           const selectedFloor = (floorBtn as HTMLElement).dataset.floor || "";
-          console.log(selectedFloor);
 
           // fjern active klasse fra alle btns
           allChooseFloorBtns.forEach((btn) => btn.classList.remove("active"));

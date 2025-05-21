@@ -28,7 +28,7 @@ const { myData } = Astro.props;
 
 <Skelet>
   <section class="news_singleview_grid">
-    <a href="news.html" class="back_arrow_section">
+    <a href="../news" class="back_arrow_section">
       <img data-cursor="fill" src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </a>
 
@@ -57,7 +57,7 @@ const { myData } = Astro.props;
           {myData.text}
         </p>
         <Gradient gradient_class="news_sw" />
-        <img id="changingImageMobile" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+        <img id="changingImageMobile" src={`/imgs/News${myData.image_1}`} alt="Article Image" />
         {myData.text_2}
       </div>
       <div class="news_event_details">

@@ -2,7 +2,6 @@
 import "../style/styles.css";
 import CardCategory from "./Card_Category.astro";
 const { data, link } = Astro.props;
-console.log("data i card:", data);
 ---
 
 <section class="program_card" data-type={data.type} data-topic={data.topic} data-venue={data.venue}>

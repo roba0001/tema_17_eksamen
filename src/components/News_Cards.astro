@@ -6,11 +6,7 @@ const { data, link } = Astro.props;
 
 <a class={data.size_class} id="container" href={link} data-cursor="fill">
   <div class="top">
-    <img
-      class="news_img"
-      src={`/public/imgs/news${data.image_1}`}
-      alt="news_image"
-    />
+    <img class="news_img" src={`/imgs/news${data.image_1}`} alt="news_image" />
     <div class="top_overlay">
       <CardCategory class="category" className="news" text={data.type} />
     </div>

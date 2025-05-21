@@ -1,1 +1,36 @@
-ronja
+---
+const data = await fetch(
+  'https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events?dates=cs.["04.09.2025"]',
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+    },
+  }
+).then((res) => res.json());
+
+const events = data.title;
+console.log(events);
+---
+
+<input type="search" placeholder="Search projects..." id="searchInput" class="search" />
+
+<ul id="results">
+  {events.map((event) => <li>{event.title}</li>)}
+</ul>
+
+<script type="module">
+  const input = document.getElementById("searchInput");
+  const list = document.getElementById("results");
+  const allItems = [...list.children];
+
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+
+    allItems.forEach((li) => {
+      const text = li.textContent.toLowerCase();
+      li.style.display = text.includes(query) ? "block" : "none";
+    });
+  });
+</script>

@@ -7,23 +7,32 @@ import ProgramRow04 from "../components/Program_Row_04.astro";
 import ProgramRow05 from "../components/Program_Row_05.astro";
 import ProgramRow06 from "../components/Program_Row_06.astro";
 import ProgramRow07 from "../components/Program_Row_07.astro";
-import Dropdown from "../components/Dropdown.astro";
+import DropdownTopic from "../components/Dropdown_Topic.astro";
+import DropdownVenue from "../components/Dropdown_Venue.astro";
+import DropdownEventType from "../components/Dropdown_EventType.astro";
 ---
 
 <Skelet>
   <div class="program_wrapper">
     <h1>Program</h1>
-
-    <Dropdown />
+    <div class="flex">
+      <DropdownTopic />
+      <DropdownEventType />
+      <DropdownVenue />
+    </div>
     <ProgramRow04 />
     <ProgramRow05 />
     <ProgramRow06 />
     <ProgramRow07 />
   </div>
 </Skelet>
-<script src="/scripts/filter.js" defer></script>
 
 <style>
+  .flex {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 40px;
+  }
   #topicselector {
     margin: 10rem 0;
     border-radius: 3.75rem;

@@ -73,6 +73,7 @@ p,
 .small_p {
   font-family: "Red Hat Display", sans-serif;
   font-size: 12px;
+  font-size: 10px;
   line-height: normal;
   font-weight: 400;
   font-style: normal;
@@ -118,7 +119,7 @@ p,
 
   .small_p {
     font-family: "Red Hat Display", sans-serif;
-    font-size: 15px;
+    font-size: 13.5px;
     line-height: normal;
     font-weight: 400;
     font-style: normal;

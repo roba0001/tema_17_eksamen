@@ -12,13 +12,27 @@ console.log("data i card:", data);
       <img src={`/imgs/Program/${data.gallery_1}`} alt="Event image" />
     </div>
     <div class="txt_wrapper">
-      <p class="small_p">( {data.topic} )</p>
-      <p>{data.title}</p>
+      <div class="topic_wrapper">
+        {
+          data.topic.map((topic) => {
+            return <p class="small_p">( {topic} )</p>;
+          })
+        }
+      </div>
+
+      <p class="card_title">{data.title}</p>
     </div>
   </a>
 </section>
 
 <style>
+  a {
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
   img {
     display: flex;
     width: 11.5625rem;
@@ -39,6 +53,12 @@ console.log("data i card:", data);
   .txt_wrapper {
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
+    padding: 0 5px;
+  }
+
+  .topic_wrapper {
+    display: flex;
     gap: 0.3rem;
   }
 

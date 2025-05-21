@@ -59,14 +59,18 @@ console.log("myData", myData);
     <div class="headline_section">
       <div class="categories">
         <CardCategory className="program" text={myData.type} />
-        <CardCategory className="program" text={myData.topic} />
-        <CardCategory className="program" text={myData.topic} />
+
+        {
+          myData.topic.map((topic) => {
+            return <CardCategory className="program" text={topic} />;
+          })
+        }
       </div>
       <h1>{myData.title}</h1>
     </div>
     <div class="details_grid">
       <div>
-        <p>Date: {myData.dates}</p>
+        <p>Date: {myData.dates.length > 1 ? "04-07.09.2025" : myData.dates[0]}</p>
         <p>Time: {myData.time}</p>
       </div>
       <div>

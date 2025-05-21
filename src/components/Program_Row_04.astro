@@ -21,7 +21,7 @@ console.log("her er data:", data);
 
 <section class="program_row_wrapper">
   <section class="program_row_closed visible">
-    <h1>04.09</h1>
+    <h1 data-cursor="fill">04.09</h1>
     <div data-cursor="fill" class="arrow">
       <img src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </div>
@@ -37,9 +37,7 @@ console.log("her er data:", data);
       <div class="scroll_section">
         {
           data.map((data) => {
-            if (data.id === 5) {
-              return <ProgramCard data={data} link={`/program/${data.slug_program}.html`} />;
-            }
+            return <ProgramCard data={data} link={`/program/${data.slug_program}.html`} />;
           })
         }
       </div>
@@ -215,7 +213,7 @@ console.log("her er data:", data);
       const openRow = wrapper.querySelector(".program_row_open");
       const closedRow = wrapper.querySelector(".program_row_closed");
 
-      arrow.addEventListener("click", () => {
+      wrapper.addEventListener("click", () => {
         closedRow.classList.remove("visible");
         openRow.classList.remove("closing");
         requestAnimationFrame(() => {

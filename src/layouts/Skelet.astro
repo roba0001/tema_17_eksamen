@@ -191,7 +191,6 @@ import Footer from "../components/Footer.astro";
     document.addEventListener("mouseout", (e) => {
       const target = e.target.closest("[data-cursor]");
       if (target) {
-        console.log("mouseout, alt fjernes  ");
         outerCursor.classList.remove("hide");
         innerCursor.classList.remove("hide");
         innerCursor.classList.remove("cursor-fill");

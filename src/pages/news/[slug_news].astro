@@ -247,22 +247,26 @@ const { myData } = Astro.props;
     const img2 = document.getElementById("changingImageDesktop2");
     const img3 = document.getElementById("changingImageDesktop3");
 
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
+    const images = [img1, img2, img3];
+    let currentIndex = 0;
 
-      if (scrollY < 100) {
-        img1.classList.remove("hidden");
-        img2.classList.add("hidden");
-        img3.classList.add("hidden");
-      } else if (scrollY < 200) {
-        img1.classList.add("hidden");
-        img2.classList.remove("hidden");
-        img3.classList.add("hidden");
-      } else {
-        img1.classList.add("hidden");
-        img2.classList.add("hidden");
-        img3.classList.remove("hidden");
-      }
-    });
+    function showImage(index) {
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.remove("hidden");
+        } else {
+          img.classList.add("hidden");
+        }
+      });
+    }
+
+    // Initially show the first image
+    showImage(currentIndex);
+
+    // Change image every 3 seconds (3000 milliseconds)
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }, 2000);
   </script>
 </Skelet>

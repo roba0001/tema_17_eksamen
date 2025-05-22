@@ -9,7 +9,12 @@ import Searchbar from "../components/Searchbar.astro";
 ---
 
 <Skelet>
-  <div data-cursor="text" data-cursor-text="Scroll Down" class="hero_section">
+  <div
+    id="scrollDiv"
+    data-cursor="text"
+    data-cursor-text="Scroll Down"
+    class="hero_section"
+  >
     <video autoplay muted loop playsinline>
       <source src="/imgs/poster_motion_web.mp4" type="video/mp4" />
     </video>
@@ -73,8 +78,8 @@ import Searchbar from "../components/Searchbar.astro";
   </div>
   <TopicsHome />
 
-  <Carrusel />
-  <Searchbar />
+  <!-- <Carrusel />
+  <Searchbar /> -->
 </Skelet>
 
 <style>
@@ -192,7 +197,7 @@ import Searchbar from "../components/Searchbar.astro";
 </style>
 
 <script>
-  document.getElementById("scrollArrow").onclick = function () {
+  document.getElementById("scrollDiv").onclick = function () {
     const pageHeight = document.body.scrollHeight; // Konstant for den fulde længde af siden
     const scrollAmount = pageHeight * 0.25; // ScrollAmount er 25% af den fulde side
 

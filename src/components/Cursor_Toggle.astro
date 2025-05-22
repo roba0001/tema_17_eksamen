@@ -1,0 +1,50 @@
+---
+import "../style/styles.css";
+---
+
+<button
+  id="cursor-toggle"
+  aria-pressed="true"
+  style="position: fixed; top: 10rem; right: 1rem; z-index: 3999;"
+>
+  Disable Custom Cursor
+</button>
+
+<script client:load>
+  const toggleBtn = document.getElementById("cursor-toggle");
+
+  function enableCustomCursor() {
+    document.body.classList.add("custom-cursor-enabled");
+    document.body.classList.remove("custom-cursor-disabled");
+    toggleBtn.textContent = "Disable Custom Cursor";
+    toggleBtn.setAttribute("aria-pressed", "true");
+  }
+
+  function disableCustomCursor() {
+    document.body.classList.remove("custom-cursor-enabled");
+    document.body.classList.add("custom-cursor-disabled");
+    toggleBtn.textContent = "Enable Custom Cursor";
+    toggleBtn.setAttribute("aria-pressed", "false");
+  }
+
+  // On load, read saved preference
+  let isEnabled = localStorage.getItem("customCursorEnabled");
+  if (isEnabled === null) {
+    isEnabled = "true";
+  }
+  if (isEnabled === "true") {
+    enableCustomCursor();
+  } else {
+    disableCustomCursor();
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    if (document.body.classList.contains("custom-cursor-enabled")) {
+      disableCustomCursor();
+      localStorage.setItem("customCursorEnabled", "false");
+    } else {
+      enableCustomCursor();
+      localStorage.setItem("customCursorEnabled", "true");
+    }
+  });
+</script>

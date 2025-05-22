@@ -5,12 +5,26 @@
 <header class="class_header">
   <nav class="menubar">
     <div data-cursor="text" data-cursor-text="Home" class="left_row">
-      <a href="/index.html"><img class="logo" src="/imgs/logo.png" alt="burger" /></a>
+      <a href="/index.html"
+        ><img class="logo" src="/imgs/logo.png" alt="burger" /></a
+      >
     </div>
     <div class="right_row">
-      <a data-cursor="fill" href="/news.html" class="visible_tab" id="news">News</a>
-      <a data-cursor="fill" href="/program.html" class="visible_tab" id="program">Program</a>
-      <a data-cursor="fill" href="/tickets.html" class="visible_tab" id="tickets">Tickets</a>
+      <a data-cursor="fill" href="/news.html" class="visible_tab" id="news"
+        >News</a
+      >
+      <a
+        data-cursor="fill"
+        href="/program.html"
+        class="visible_tab"
+        id="program">Program</a
+      >
+      <a
+        data-cursor="fill"
+        href="/tickets.html"
+        class="visible_tab"
+        id="tickets">Tickets</a
+      >
       <div class="ikon_holder">
         <div data-cursor="text" data-cursor-text="Menu" class="menu_ikon">
           <div class="line1"></div>
@@ -35,8 +49,16 @@
       </div>
       <div class="burger_tab">
         <a data-cursor="fill" href="/tickets.html" id="tickets">Tickets</a>
-        <img class="tickets_img_1" src="/imgs/burger/white_1.png" alt="burger" />
-        <img class="tickets_img_2" src="/imgs/burger/white_2.png" alt="burger" />
+        <img
+          class="tickets_img_1"
+          src="/imgs/burger/white_1.png"
+          alt="burger"
+        />
+        <img
+          class="tickets_img_2"
+          src="/imgs/burger/white_2.png"
+          alt="burger"
+        />
       </div>
       <div class="burger_tab">
         <a data-cursor="fill" href="/map.html" id="map">Map</a>
@@ -48,12 +70,26 @@
         <div class="mobile_img"></div>
       </div>
       <div class="burger_tab">
-        <a data-cursor="fill" href="/practical_information.html" id="practical_information"
-          >Practical Information</a
+        <a
+          data-cursor="fill"
+          href="/practical_information.html"
+          id="practical_information">Practical Information</a
         >
-        <img class="practical_img_1" src="/imgs/burger/green_1.png" alt="burger" />
-        <img class="practical_img_2" src="/imgs/burger/green_2.png" alt="burger" />
-        <img class="practical_img_3" src="/imgs/burger/green_3.png" alt="burger" />
+        <img
+          class="practical_img_1"
+          src="/imgs/burger/green_1.png"
+          alt="burger"
+        />
+        <img
+          class="practical_img_2"
+          src="/imgs/burger/green_2.png"
+          alt="burger"
+        />
+        <img
+          class="practical_img_3"
+          src="/imgs/burger/green_3.png"
+          alt="burger"
+        />
       </div>
       <div class="burger_tab">
         <a data-cursor="fill" href="/about.html" id="about">About</a>
@@ -115,7 +151,6 @@
   }
 
   .left_row {
-    padding-right: 20px;
     height: 100%;
     align-self: stretch;
     display: flex;
@@ -132,13 +167,15 @@
   /**** BURGER IKON OG KRYDS *****/
 
   /*Styling af ikon holder - primært layout*/
+
+  .menu_ikon {
+    width: 40px;
+  }
   .ikon_holder {
     height: 100%; /*sørger for at linjerne er 100% højde - ved at gøre hele objekted 100% høj*/
     align-self: stretch;
     display: flex;
     align-items: center;
-    padding-left: 40px;
-    width: 40px;
     border-left: 1px solid var(--Black, #060604);
   }
   /*Styling af burgerikon*/
@@ -230,9 +267,15 @@
     display: none;
     z-index: 100;
   }
+  .ikon_holder {
+    padding-left: 20px !important;
+  }
 
   /**** WEB *****/
   @media (min-width: 1000px) {
+    .ikon_holder {
+      padding-left: 40px !important;
+    }
     .mobile_img_container {
       display: none;
     }

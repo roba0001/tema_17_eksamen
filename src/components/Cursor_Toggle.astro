@@ -3,12 +3,37 @@ import "../style/styles.css";
 ---
 
 <button
+  data-cursor="fill"
   id="cursor-toggle"
   aria-pressed="true"
   style="position: fixed; top: 10rem; right: 1rem; z-index: 3999;"
 >
-  Disable Custom Cursor
+  Disable Cursor
 </button>
+
+<style>
+  button {
+    height: 1.5rem;
+    padding: 0.1875rem 0.625rem;
+
+    border-radius: 3.75rem;
+    width: fit-content;
+
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: var(--black);
+    position: fixed;
+    top: 10rem;
+    right: 1rem;
+    z-index: 3999;
+
+    &:hover {
+      background-color: var(--dark_green);
+      color: var(--off_white);
+      border-color: var(--dark_green);
+    }
+  }
+</style>
 
 <script client:load>
   const toggleBtn = document.getElementById("cursor-toggle");
@@ -16,14 +41,14 @@ import "../style/styles.css";
   function enableCustomCursor() {
     document.body.classList.add("custom-cursor-enabled");
     document.body.classList.remove("custom-cursor-disabled");
-    toggleBtn.textContent = "Disable Custom Cursor";
+    toggleBtn.textContent = "Disable Cursor";
     toggleBtn.setAttribute("aria-pressed", "true");
   }
 
   function disableCustomCursor() {
     document.body.classList.remove("custom-cursor-enabled");
     document.body.classList.add("custom-cursor-disabled");
-    toggleBtn.textContent = "Enable Custom Cursor";
+    toggleBtn.textContent = "Enable Cursor";
     toggleBtn.setAttribute("aria-pressed", "false");
   }
 

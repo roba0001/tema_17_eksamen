@@ -5,13 +5,16 @@ import Dropdown from "../components/Dropdown.astro";
 
 import Skelet from "../layouts/Skelet.astro";
 
-const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events", {
-  method: "GET",
-  headers: {
-    apikey:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
-  },
-}).then((res) => res.json());
+const data = await fetch(
+  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+    },
+  }
+).then((res) => res.json());
 
 // trækker alle .type ud af event objekterne inde i data arrayet
 const allEventTypes = data.flatMap((event) => event.type);
@@ -32,6 +35,26 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
 <Skelet>
   <div class="program_wrapper">
     <h1>Program</h1>
+    <h3>
+      Over four days, the festival unfolds across three iconic Copenhagen
+      venues: BLOX, HUSET, and The Black Diamond.
+    </h3>
+    <p>
+      Each location hosts a vibrant mix of talks, workshops, exhibitions, and
+      experiences focused on the festival’s core topics — video production,
+      motion graphics, marketing, branding, AI design, animation, and web
+      design.
+    </p>
+    <p class="p_last">
+      Explore the schedule below and start planning your journey through the
+      future of digital creativity. For directions and more information view <a
+        href="/map.html"
+        data-cursor="fill"><u>Map</u></a
+      >
+      or <a href="/practical_information.html" data-cursor="fill"
+        ><u>Practical Information</u></a
+      >
+    </p>
     <div class="flex">
       <div class="dropdown_filtrering">
         <Dropdown selectName="eventTopic" selectId="eventTopicSelector">
@@ -92,7 +115,12 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("04.09.2025")) {
-              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
+              return (
+                <ProgramCard
+                  data={event}
+                  link={`/program/${event.slug_program}`}
+                />
+              );
             }
             return null;
           })
@@ -102,7 +130,12 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("05.09.2025")) {
-              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
+              return (
+                <ProgramCard
+                  data={event}
+                  link={`/program/${event.slug_program}`}
+                />
+              );
             }
             return null;
           })
@@ -112,7 +145,12 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("06.09.2025")) {
-              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
+              return (
+                <ProgramCard
+                  data={event}
+                  link={`/program/${event.slug_program}`}
+                />
+              );
             }
             return null;
           })
@@ -122,7 +160,12 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("07.09.2025")) {
-              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
+              return (
+                <ProgramCard
+                  data={event}
+                  link={`/program/${event.slug_program}`}
+                />
+              );
             }
             return null;
           })
@@ -133,6 +176,17 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
 </Skelet>
 
 <style>
+  p {
+    margin: 0 20px;
+  }
+  p.p_last {
+    margin-bottom: 40px;
+    margin-top: 10px;
+  }
+  h3 {
+    margin: 0 20px;
+    margin-bottom: 10px;
+  }
   h1 {
     margin: 120px 2.5rem 2.5rem 2.5rem;
   }
@@ -178,6 +232,18 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     margin: 0;
 
     color: inherit;
+  }
+  @media (min-width: 800px) {
+    p {
+      margin: 0 40px;
+    }
+    p.p_last {
+      margin-top: 10px;
+    }
+    h3 {
+      margin: 0 40px;
+      margin-bottom: 10px;
+    }
   }
 </style>
 
@@ -236,7 +302,8 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
       if (selectedEventType === "allEventTypes") {
         card.style.display = "block";
       } else {
-        card.style.display = selectedEventType === cardEventType ? "block" : "none";
+        card.style.display =
+          selectedEventType === cardEventType ? "block" : "none";
       }
     });
   }

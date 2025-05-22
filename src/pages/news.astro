@@ -104,9 +104,9 @@ const uniqueNewsTypes = [...new Set(allNewsTypes)];
     cards.forEach((card) => {
       const cardTopic = card.dataset.type;
       if (selectedNewsTopic === "allNewsTypes") {
-        card.style.display = "block";
+        card.style.display = "flex";
       } else {
-        card.style.display = selectedNewsTopic === cardTopic ? "block" : "none";
+        card.style.display = selectedNewsTopic === cardTopic ? "flex" : "none";
       }
     });
   }

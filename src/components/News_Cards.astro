@@ -4,7 +4,13 @@ import "../style/styles.css";
 const { data, link } = Astro.props;
 ---
 
-<a class={data.size_class} id="container" href={link} data-cursor="fill">
+<a
+  data-type={data.type}
+  class=`news_card ${data.size_class}`
+  id="container"
+  href={link}
+  data-cursor="fill"
+>
   <div class="top">
     <img class="news_img" src={`/imgs/news${data.image_1}`} alt="news_image" />
     <div class="top_overlay">

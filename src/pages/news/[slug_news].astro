@@ -33,11 +33,7 @@ const { myData } = Astro.props;
     </a>
 
     <section class="left_img_column">
-      <img
-        id="changingImageDesktop"
-        src="/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp"
-        alt="Article Image"
-      />
+      <img id="changingImageDesktop" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
     </section>
 
     <section class="right_txt_column">
@@ -226,25 +222,20 @@ const { myData } = Astro.props;
 
 <script>
   window.addEventListener("scroll", () => {
+    console.log("myData fra js img slu", myData);
     const imgDesktop = document.getElementById("changingImageDesktop");
     const imgMobile = document.getElementById("changingImageMobile");
     const scrollY = window.scrollY;
 
-    if (scrollY > 500) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img1.webp";
-    } else if (scrollY > 400) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img2.webp";
-    } else if (scrollY > 300) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img3.webp";
-    } else if (scrollY > 200) {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img4.webp";
-    } else {
-      imgDesktop.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
-      imgMobile.src = "/imgs/Program/day-1/Designing-Brands-in-a-Noisy-World/img5.webp";
-    }
+    // if (scrollY > 100) {
+    //   imgDesktop.src = `/imgs/news${myData.image_1}`;
+    //   imgMobile.src = `/imgs/news${myData.image_1}`;
+    // } else if (scrollY > 50) {
+    //   imgDesktop.src = `/imgs/news${myData.image_2}`;
+    //   imgMobile.src = `/imgs/news${myData.image_2}`;
+    // } else {
+    //   imgDesktop.src = `/imgs/news${myData.image_3}`;
+    //   imgMobile.src = `/imgs/news${myData.image_3}`;
+    // }
   });
 </script>

@@ -3,6 +3,7 @@ import Skelet from "../layouts/Skelet.astro";
 import Gradient from "../components/Gradient.astro";
 import NewsCards from "../components/News_Cards.astro";
 import "../style/styles.css";
+import Dropdown from "../components/Dropdown.astro";
 const data = await fetch(
   "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/News?order=created_at.asc",
   {
@@ -13,6 +14,11 @@ const data = await fetch(
     },
   }
 ).then((res) => res.json());
+
+// trækker alle .topic ud af news objekterne inde i data arrayet
+const allNewsTypes = data.flatMap((article) => article.type);
+// fjerner alle duplikater af topics
+const uniqueNewsTypes = [...new Set(allNewsTypes)];
 ---
 
 <Skelet>
@@ -21,6 +27,14 @@ const data = await fetch(
     <Gradient gradient_class="news_2" />
     <Gradient gradient_class="news_3" />
     <h1>News</h1>
+    <Dropdown selectName="newsType" selectId="newsTypeSelector">
+      <option value="allNewsTypes">All Types</option>
+      {
+        uniqueNewsTypes.map((newsType) => {
+          return <option value={newsType}>{newsType}</option>;
+        })
+      }
+    </Dropdown>
 
     <div class="news_grid">
       {
@@ -57,3 +71,26 @@ const data = await fetch(
     }
   }
 </style>
+
+<script>
+  // news type filter
+  const newsTypeSelector = document.getElementById("newsTypeSelector");
+  const cards = document.querySelectorAll(".news_card");
+
+  newsTypeSelector.addEventListener("change", function () {
+    const selectedNewsTopic = this.value;
+
+    filterEventType(selectedNewsTopic);
+  });
+
+  function filterEventType(selectedNewsTopic) {
+    cards.forEach((card) => {
+      const cardTopic = card.dataset.type;
+      if (selectedNewsTopic === "allNewsTypes") {
+        card.style.display = "block";
+      } else {
+        card.style.display = selectedNewsTopic === cardTopic ? "block" : "none";
+      }
+    });
+  }
+</script>

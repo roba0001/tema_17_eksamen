@@ -33,7 +33,19 @@ const { myData } = Astro.props;
     </a>
 
     <section class="left_img_column">
-      <img id="changingImageDesktop" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+      <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+      <img
+        class="hidden"
+        id="changingImageDesktop2"
+        src={`/imgs/news${myData.image_2}`}
+        alt="Article Image"
+      />
+      <img
+        class="hidden"
+        id="changingImageDesktop3"
+        src={`/imgs/news${myData.image_3}`}
+        alt="Article Image"
+      />
     </section>
 
     <section class="right_txt_column">
@@ -49,14 +61,19 @@ const { myData } = Astro.props;
         <h2>
           {myData.title}
         </h2>
-        <p>
-          {myData.text}
-        </p>
+        {
+          myData.text.map((eventText) => {
+            return <p>{eventText}</p>;
+          })
+        }
+
         <Gradient gradient_class="news_sw" />
         <img id="changingImageMobile" src={`/imgs/News${myData.image_1}`} alt="Article Image" />
-        {myData.text_2}
-      </div>
-      <div class="news_event_details">
+        {
+          myData.text_2.map((eventText2) => {
+            return <p>{eventText2}</p>;
+          })
+        }
         <p>
           Stay tuned for more updates and behind-the-scenes highlights from this year's Design
           Festival by signing up for our newsletter.
@@ -65,177 +82,187 @@ const { myData } = Astro.props;
       </div>
     </section>
   </section>
-</Skelet>
 
-<style>
-  /* MOBILE */
-
-  img {
-    width: 20rem;
-  }
-
-  .news_singleview_grid {
-    display: flex;
-    flex-direction: column;
-    margin-top: 120px;
-  }
-  .back_arrow_section {
-    padding: 20px;
-    border-width: 1px;
-    border-bottom-style: solid;
-    img {
-      width: 25px;
-      transform: rotate(135deg);
-    }
-  }
-  .news_date_and_author_flex,
-  .news_topics_flex {
-    display: flex;
-  }
-  .news_date_and_author_flex {
-    border-bottom-style: solid;
-    border-width: 1px;
-
-    p {
-      padding: 10px 20px;
-    }
-    & > p:first-child {
-      border-right-style: solid;
-      border-width: 1px;
-    }
-  }
-
-  .news_topics_flex {
-    padding: 20px;
-    padding-bottom: 0;
-    gap: 15px;
-  }
-
-  #changingImageDesktop,
-  .news_sw2 {
-    display: none;
-  }
-
-  #changingImageMobile {
-    height: 17rem;
-    width: auto;
-    margin: 2rem 20px;
-    border-radius: 30px;
-    position: relative;
-    left: 40%;
-  }
-
-  .news_txt {
-    padding: 1.5rem 20px;
-
-    h2 {
-      margin-bottom: 1rem;
-    }
-    p {
-      margin-bottom: 1.5rem;
-    }
-    p:last-of-type {
-      margin-bottom: 0rem;
-    }
-  }
-  .news_event_details {
-    margin: 20px;
-    margin-top: 0;
+  <style>
+    /* MOBILE */
 
     img {
-      margin: 1rem 0;
+      width: 20rem;
     }
-  }
 
-  /* DESKTOP */
-  @media (min-width: 800px) {
-    #changingImageMobile {
-      display: none;
-    }
-    #changingImageDesktop {
-      display: block;
+    .news_singleview_grid {
+      display: flex;
+      flex-direction: column;
+      margin-top: 120px;
     }
     .back_arrow_section {
-      grid-column: 1/-1;
-      padding: 20px 40px;
-
+      padding: 20px;
+      border-width: 1px;
+      border-bottom-style: solid;
       img {
-        width: 35px;
+        width: 25px;
         transform: rotate(135deg);
       }
     }
-    .news_singleview_grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-template-rows: auto 1fr;
-    }
-
-    /* ----------------------------LEFT COLUMN---------------------------- */
-    .left_img_column {
+    .news_date_and_author_flex,
+    .news_topics_flex {
       display: flex;
-      justify-content: center;
-      border-width: 1px;
-      border-right-style: solid;
-      img {
-        height: 25rem;
-        width: auto;
-        margin: 2rem 0;
-        border-radius: 30px;
-        position: sticky;
-        top: 10%;
-      }
     }
-
-    /* ----------------------------RIGHT COLUMN---------------------------- */
     .news_date_and_author_flex {
+      border-bottom-style: solid;
+      border-width: 1px;
+
       p {
-        padding: 10px 40px;
+        padding: 10px 20px;
       }
-    }
-    .porgramCard_placehoder {
-      width: 15rem;
-      height: auto;
-      border-radius: 30px;
+      & > p:first-child {
+        border-right-style: solid;
+        border-width: 1px;
+      }
     }
 
     .news_topics_flex {
-      padding: 20px 40px 0px 40px;
+      padding: 20px;
+      padding-bottom: 0;
+      gap: 15px;
+    }
+
+    #changingImageDesktop,
+    .news_sw2 {
+      display: none;
+    }
+
+    #changingImageMobile {
+      height: 17rem;
+      width: auto;
+      margin: 2rem 20px;
+      border-radius: 30px;
+      position: relative;
+      left: 40%;
     }
 
     .news_txt {
-      padding: 2.5rem 40px 2.5rem 40px;
+      padding: 1.5rem 20px;
 
       h2 {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 1.5rem;
+      }
+      p:last-of-type {
+        margin-bottom: 0rem;
       }
     }
-
     .news_event_details {
-      margin: 0 40px 20px 40px;
+      margin: 20px;
+      margin-top: 0;
 
       img {
-        margin: 1.5rem 0;
+        margin: 1rem 0;
       }
     }
-  }
-</style>
 
-<script>
-  window.addEventListener("scroll", () => {
-    console.log("myData fra js img slu", myData);
-    const imgDesktop = document.getElementById("changingImageDesktop");
-    const imgMobile = document.getElementById("changingImageMobile");
-    const scrollY = window.scrollY;
+    /* DESKTOP */
+    @media (min-width: 800px) {
+      #changingImageMobile {
+        display: none;
+      }
+      #changingImageDesktop {
+        display: block;
+      }
+      .back_arrow_section {
+        grid-column: 1/-1;
+        padding: 20px 40px;
 
-    // if (scrollY > 100) {
-    //   imgDesktop.src = `/imgs/news${myData.image_1}`;
-    //   imgMobile.src = `/imgs/news${myData.image_1}`;
-    // } else if (scrollY > 50) {
-    //   imgDesktop.src = `/imgs/news${myData.image_2}`;
-    //   imgMobile.src = `/imgs/news${myData.image_2}`;
-    // } else {
-    //   imgDesktop.src = `/imgs/news${myData.image_3}`;
-    //   imgMobile.src = `/imgs/news${myData.image_3}`;
-    // }
-  });
-</script>
+        img {
+          width: 35px;
+          transform: rotate(135deg);
+        }
+      }
+      .news_singleview_grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto 1fr;
+      }
+
+      /* ----------------------------LEFT COLUMN---------------------------- */
+      .left_img_column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-width: 1px;
+        border-right-style: solid;
+        img {
+          height: auto;
+          width: 25rem;
+          margin: 2rem 0;
+          border-radius: 30px;
+          /* position: sticky; */
+          top: 10%;
+        }
+      }
+
+      /* ----------------------------RIGHT COLUMN---------------------------- */
+      .news_date_and_author_flex {
+        p {
+          padding: 10px 40px;
+        }
+      }
+      .porgramCard_placehoder {
+        width: 15rem;
+        height: auto;
+        border-radius: 30px;
+      }
+
+      .news_topics_flex {
+        padding: 20px 40px 0px 40px;
+      }
+
+      .news_txt {
+        padding: 2.5rem 40px 2.5rem 40px;
+
+        h2 {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .news_event_details {
+        margin: 0 40px 20px 40px;
+
+        img {
+          margin: 1.5rem 0;
+        }
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+  <script>
+    const img1 = document.getElementById("changingImageDesktop1");
+    const img2 = document.getElementById("changingImageDesktop2");
+    const img3 = document.getElementById("changingImageDesktop3");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY < 100) {
+        img1.classList.remove("hidden");
+        img2.classList.add("hidden");
+        img3.classList.add("hidden");
+      } else if (scrollY < 200) {
+        img1.classList.add("hidden");
+        img2.classList.remove("hidden");
+        img3.classList.add("hidden");
+      } else {
+        img1.classList.add("hidden");
+        img2.classList.add("hidden");
+        img3.classList.remove("hidden");
+      }
+    });
+  </script>
+</Skelet>

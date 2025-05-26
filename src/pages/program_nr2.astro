@@ -5,30 +5,28 @@ import Dropdown from "../components/Dropdown.astro";
 
 import Skelet from "../layouts/Skelet.astro";
 
-const data = await fetch(
-  "https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events",
-  {
-    method: "GET",
-    headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
-    },
-  }
-).then((res) => res.json());
+const data = await fetch("https://hdwrzbktzyoytozzhhrw.supabase.co/rest/v1/events", {
+  method: "GET",
+  headers: {
+    apikey:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhkd3J6Ymt0enlveXRvenpoaHJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4MDIxMzYsImV4cCI6MjA2MjM3ODEzNn0.3w77RtPOv0ngqCNY7WUomweHq-aqoPC2LlEKmQBj1H0",
+  },
+}).then((res) => res.json());
 
-// trækker alle .type ud af event objekterne inde i data arrayet
+// trækker alle .type ud af event objekterne inde i data arrayet og putter dem i en const
 const allEventTypes = data.flatMap((event) => event.type);
-// fjerner alle duplikater af eventTypes
+console.log(data.map((event) => event.type));
+// fjerner alle duplikater af eventTypes og putter dem i en const
 const uniqueEventTypes = [...new Set(allEventTypes)];
 
-// trækker alle .type ud af event objekterne inde i data arrayet
+// trækker alle .topic ud af event objekterne inde i data arrayet og putter dem i en const
 const allEventTopics = data.flatMap((event) => event.topic);
-// fjerner alle duplikater af eventTypes
+// fjerner alle duplikater af eventTopics og putter dem i en const
 const uniqueEventTopics = [...new Set(allEventTopics)];
 
-// trækker alle .type ud af event objekterne inde i data arrayet
+// trækker alle .venue ud af event objekterne inde i data arrayet og putter dem i en const
 const allEventVenues = data.flatMap((event) => event.venue);
-// fjerner alle duplikater af eventTypes
+//  fjerner alle duplikater af eventVenues og putter dem i en const
 const uniqueEventVenues = [...new Set(allEventVenues)];
 ---
 
@@ -36,24 +34,20 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
   <div class="program_wrapper">
     <h1>Program</h1>
     <h3>
-      Over four days, the festival unfolds across three iconic Copenhagen
-      venues: BLOX, HUSET, and The Black Diamond.
+      Over four days, the festival unfolds across three iconic Copenhagen venues: BLOX, HUSET, and
+      The Black Diamond.
     </h3>
     <p>
-      Each location hosts a vibrant mix of talks, workshops, exhibitions, and
-      experiences focused on the festival’s core topics — video production,
-      motion graphics, marketing, branding, AI design, animation, and web
-      design.
+      Each location hosts a vibrant mix of talks, workshops, exhibitions, and experiences focused on
+      the festival’s core topics — video production, motion graphics, marketing, branding, AI
+      design, animation, and web design.
     </p>
     <p class="p_last">
-      Explore the schedule below and start planning your journey through the
-      future of digital creativity. For directions and more information view <a
-        href="/map.html"
-        data-cursor="fill"><u>Map</u></a
+      Explore the schedule below and start planning your journey through the future of digital
+      creativity. For directions and more information view <a href="/map.html" data-cursor="fill"
+        ><u>Map</u></a
       >
-      or <a href="/practical_information.html" data-cursor="fill"
-        ><u>Practical Information</u></a
-      >
+      or <a href="/practical_information.html" data-cursor="fill"><u>Practical Information</u></a>
     </p>
     <div class="flex">
       <div class="dropdown_filtrering">
@@ -115,42 +109,29 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("04.09.2025")) {
-              return (
-                <ProgramCard
-                  data={event}
-                  link={`/program/${event.slug_program}`}
-                />
-              );
+              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
             }
             return null;
           })
         }
       </ProgramRow>
+
       <ProgramRow h1Date="05.09" stretchedNumber="05">
         {
           data.map((event) => {
             if (event.dates.includes("05.09.2025")) {
-              return (
-                <ProgramCard
-                  data={event}
-                  link={`/program/${event.slug_program}`}
-                />
-              );
+              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
             }
             return null;
           })
         }
       </ProgramRow>
+
       <ProgramRow h1Date="06.09" stretchedNumber="06">
         {
           data.map((event) => {
             if (event.dates.includes("06.09.2025")) {
-              return (
-                <ProgramCard
-                  data={event}
-                  link={`/program/${event.slug_program}`}
-                />
-              );
+              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
             }
             return null;
           })
@@ -160,12 +141,7 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
         {
           data.map((event) => {
             if (event.dates.includes("07.09.2025")) {
-              return (
-                <ProgramCard
-                  data={event}
-                  link={`/program/${event.slug_program}`}
-                />
-              );
+              return <ProgramCard data={event} link={`/program/${event.slug_program}`} />;
             }
             return null;
           })
@@ -190,18 +166,22 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
   h1 {
     margin: 120px 2.5rem 2.5rem 2.5rem;
   }
-
   .flex {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    margin: 1rem 40px;
+    gap: 30px;
+    margin: 1rem 20px;
   }
 
   .dropdown_filtrering {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 15px;
+    > * {
+      max-width: fit-content;
+    }
   }
-
   .searchbar_wrapper {
     display: flex;
     width: 10rem;
@@ -212,17 +192,17 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     flex-shrink: 0;
     border-radius: 3.75rem;
     border: 1px solid var(--black);
+    align-self: flex-end;
   }
   svg {
     width: 15px;
     height: 15px;
   }
+
   input {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-
-    /* Optional: set custom defaults if needed */
     width: 100%;
     background: none;
     border: none;
@@ -230,8 +210,6 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     box-shadow: none;
     padding: 0;
     margin: 0;
-
-    color: inherit;
   }
   @media (min-width: 800px) {
     p {
@@ -243,6 +221,21 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     h3 {
       margin: 0 40px;
       margin-bottom: 10px;
+    }
+    .flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 1rem 40px;
+    }
+    .searchbar_wrapper {
+      order: 1;
+    }
+
+    .dropdown_filtrering {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
     }
   }
 </style>
@@ -302,8 +295,7 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
       if (selectedEventType === "allEventTypes") {
         card.style.display = "block";
       } else {
-        card.style.display =
-          selectedEventType === cardEventType ? "block" : "none";
+        card.style.display = selectedEventType === cardEventType ? "block" : "none";
       }
     });
   }

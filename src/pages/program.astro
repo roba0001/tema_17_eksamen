@@ -272,11 +272,12 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
 
   function filterTopics(selectedTopic) {
     cards.forEach((card) => {
-      const cardTopic = card.dataset.topic;
+      const cardTopic = card.dataset.topic.split(","); // convert string to array
+
       if (selectedTopic === "allTopics") {
         card.style.display = "block";
       } else {
-        card.style.display = selectedTopic === cardTopic ? "block" : "none";
+        card.style.display = cardTopic.includes(selectedTopic) ? "block" : "none";
       }
     });
   }

@@ -25,6 +25,7 @@ import CursorToggle from "../components/Cursor_Toggle.astro";
   <body>
     <div class="inner_cursor"></div>
     <div class="outer_cursor"><p></p></div>
+
     <Burgermenu />
     <main>
       <slot />
@@ -110,9 +111,7 @@ import CursorToggle from "../components/Cursor_Toggle.astro";
       }
 
       .outer_cursor.cursor-fill {
-        /* tilføj border hvis man ikke kan se cursor */
         border-color: black;
-
         transition: none;
       }
 
@@ -142,13 +141,6 @@ import CursorToggle from "../components/Cursor_Toggle.astro";
 
       .outer_cursor.cursor-text p {
         color: var(--green);
-        font-family: "Red Hat Display", sans-serif;
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        pointer-events: none;
-        z-index: 4000;
       }
     }
 
@@ -171,30 +163,32 @@ import CursorToggle from "../components/Cursor_Toggle.astro";
 
     document.addEventListener("mouseover", (e) => {
       const target = e.target.closest("[data-cursor]");
+
       if (target) {
+        // gem data-cursor værdi i en const
         const type = target.dataset.cursor;
-        // tilføj klasse .cursor-fill når mus hover over element med data-fill
+
         if (type === "fill") {
+          //  hvis type er fill, tilføj klasse .cursor-fill
           innerCursor.classList.add("cursor-fill");
           outerCursor.classList.add("cursor-fill");
-        }
-        // gem data-cursor-text indhold i en const (text)
-        // kør funktion showCursorText med text som parameter når mus hover over element med data-text
-        else if (type === "text") {
-          const text = target.dataset.cursorText || "";
+        } else if (type === "text") {
+          // gem data-cursor-text indhold i en const (text)
+          // kør funktion showCursorText med text som argument når mus hover over element med data-cursor="text"
+          const text = target.dataset.cursorText;
           showCursorText(text);
         }
       }
     });
 
-    // sæt textContent på p til at være text og tilføj display block hvis den er hidden
     function showCursorText(text) {
       const innerText = outerCursor.querySelector("p");
       if (innerText) {
+        // sæt textContent på p til at være indholdet af variablen text
         innerText.textContent = text;
-        innerText.style.display = "block";
+
+        // tilføj klassen cursor-text
         outerCursor.classList.add("cursor-text");
-        innerCursor.classList.add("");
       }
     }
 

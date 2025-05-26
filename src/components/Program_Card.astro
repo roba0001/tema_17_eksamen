@@ -11,7 +11,7 @@ const { data, link } = Astro.props;
   data-topic={data.topic}
   data-venue={data.venue}
 >
-  <a href={link}>
+  <a data-cursor="fill" href={link}>
     <div class="img_and_eventtype_wrapper">
       <CardCategory className="program" text={data.type} />
       <img src={`/imgs/Program/${data.gallery_1}`} alt="Event image" />

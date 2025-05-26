@@ -178,9 +178,6 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     display: flex;
     flex-direction: column;
     gap: 15px;
-    > * {
-      max-width: fit-content;
-    }
   }
   .searchbar_wrapper {
     display: flex;
@@ -211,6 +208,7 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     padding: 0;
     margin: 0;
   }
+
   @media (min-width: 800px) {
     p {
       margin: 0 40px;
@@ -230,6 +228,10 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
     }
     .searchbar_wrapper {
       order: 1;
+    }
+
+    select {
+      width: 10rem;
     }
 
     .dropdown_filtrering {

@@ -72,6 +72,8 @@ const { myData } = Astro.props;
           myData.text_2.map((eventText2) => {
             if (eventText2) {
               return <p>{eventText2}</p>;
+            } else {
+              return "";
             }
           })
         }

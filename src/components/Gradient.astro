@@ -14,7 +14,11 @@ const { gradient_class } = Astro.props;
     flex-shrink: 0;
     border-radius: 1263px;
     z-index: -1;
-    background: radial-gradient(50.06% 50% at 50.06% 50%, var(--green) 0%, var(--off_white) 100%);
+    background: radial-gradient(
+      50.06% 50% at 50.06% 50%,
+      var(--green) 0%,
+      var(--off_white) 100%
+    );
   }
   .practical1 {
     width: 800px;
@@ -33,12 +37,11 @@ const { gradient_class } = Astro.props;
     position: fixed;
   }
   .program_sw {
-    /* position: absolute;
+    position: absolute;
     width: 1900px;
     height: 1500px;
     top: -700px;
-    right: 0px; */
-    display: none;
+    right: 0px;
   }
 
   .news_sw {
@@ -53,9 +56,8 @@ const { gradient_class } = Astro.props;
     height: 800px;
     top: 800px;
     right: -300px;
+    position: fixed;
     z-index: -1;
-    position: absolute;
-    display: none;
   }
   .news_2 {
     width: 1000px;
@@ -63,8 +65,7 @@ const { gradient_class } = Astro.props;
     top: 10px;
     left: -200px;
     z-index: -1;
-    position: absolute;
-    display: none;
+    position: fixed;
   }
   .news_3 {
     width: 850px;
@@ -72,8 +73,7 @@ const { gradient_class } = Astro.props;
     top: 1520px;
     left: 30px;
     z-index: -1;
-    position: absolute;
-    display: none;
+    position: fixed;
   }
   .tickets_2 {
     display: none;
@@ -90,11 +90,10 @@ const { gradient_class } = Astro.props;
   }
   @media (min-width: 800px) {
     .program_sw {
-      /* width: 1900px;
+      width: 1900px;
       height: 1500px;
       top: -700px;
-      right: -300px; */
-      display: none;
+      right: -300px;
     }
 
     .news_sw {

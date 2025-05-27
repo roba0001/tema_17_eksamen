@@ -28,24 +28,26 @@ const { myData } = Astro.props;
 
 <Skelet>
   <div class="news_singleview_grid">
-    <a href="../news" class="back_arrow_section">
+    <a href="/news" class="back_arrow_section">
       <img data-cursor="fill" src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </a>
 
     <div class="left_img_column">
-      <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
-      <img
-        class="hidden"
-        id="changingImageDesktop2"
-        src={`/imgs/news${myData.image_2}`}
-        alt="Article Image"
-      />
-      <img
-        class="hidden"
-        id="changingImageDesktop3"
-        src={`/imgs/news${myData.image_3}`}
-        alt="Article Image"
-      />
+      <div class="desktop_imgs">
+        <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+        <img
+          class="hidden"
+          id="changingImageDesktop2"
+          src={`/imgs/news${myData.image_2}`}
+          alt="Article Image"
+        />
+        <img
+          class="hidden"
+          id="changingImageDesktop3"
+          src={`/imgs/news${myData.image_3}`}
+          alt="Article Image"
+        />
+      </div>
     </div>
 
     <div class="right_txt_column">
@@ -70,11 +72,7 @@ const { myData } = Astro.props;
 
         {
           myData.text_2.map((eventText2) => {
-            if (eventText2) {
-              return <p>{eventText2}</p>;
-            } else {
-              return "";
-            }
+            return <p>{eventText2}</p>;
           })
         }
 
@@ -131,20 +129,16 @@ const { myData } = Astro.props;
       gap: 15px;
     }
 
-    #changingImageDesktop1,
-    #changingImageDesktop2,
-    #changingImageDesktop3,
+    .desktop_imgs,
     .news_sw2 {
       display: none;
     }
 
     #changingImageMobile {
-      height: 17rem;
-      width: auto;
+      height: auto;
+      width: 20rem;
       margin: 2rem 20px;
       border-radius: 30px;
-      position: relative;
-      left: 40%;
     }
 
     .news_txt {
@@ -177,7 +171,8 @@ const { myData } = Astro.props;
         display: none;
       }
 
-      .news_sw2 {
+      .news_sw2,
+      .desktop_imgs {
         display: block;
       }
 

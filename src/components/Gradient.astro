@@ -79,12 +79,7 @@ const { gradient_class } = Astro.props;
     display: none;
   }
   .tickets_2 {
-    width: 800px;
-    height: 800px;
-    top: 40px;
-    left: -600px;
-    z-index: -1;
-    position: fixed;
+    display: none;
   }
 
   .tickets {
@@ -141,6 +136,24 @@ const { gradient_class } = Astro.props;
       left: 30px;
       z-index: -1;
       position: absolute;
+    }
+    .tickets_2 {
+      width: 800px;
+      height: 800px;
+      top: 40px;
+      left: -600px;
+      z-index: -1;
+      position: fixed;
+    }
+
+    .tickets {
+      width: 800px;
+      height: 800px;
+      bottom: -200px;
+      right: -100px;
+      z-index: -1;
+      position: fixed;
+      overflow: hidden;
     }
   }
 </style>

@@ -272,7 +272,7 @@ const uniqueEventVenues = [...new Set(allEventVenues)];
 
   function filterTopics(selectedTopic) {
     cards.forEach((card) => {
-      const cardTopic = card.dataset.topic.split(","); // convert string to array
+      const cardTopic = card.dataset.topic.split(",");
 
       if (selectedTopic === "allTopics") {
         card.style.display = "block";

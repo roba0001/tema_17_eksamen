@@ -61,19 +61,19 @@ const { myData } = Astro.props;
         <h2>
           {myData.title}
         </h2>
-        {
+        <!-- {
           myData.text.map((eventText) => {
             return <p>{eventText}</p>;
           })
-        }
+        } -->
 
         <Gradient gradient_class="news_sw" />
         <img id="changingImageMobile" src={`/imgs/News${myData.image_1}`} alt="Article Image" />
-        {
+        <!-- {
           myData.text_2.map((eventText2) => {
             return <p>{eventText2}</p>;
           })
-        }
+        } -->
         <p>
           Stay tuned for more updates and behind-the-scenes highlights from this year's Design
           Festival by signing up for our newsletter.
@@ -243,30 +243,29 @@ const { myData } = Astro.props;
   </style>
 
   <script>
-    const img1 = document.getElementById("changingImageDesktop1");
-    const img2 = document.getElementById("changingImageDesktop2");
-    const img3 = document.getElementById("changingImageDesktop3");
+    window.addEventListener("DOMContentLoaded", () => {
+      const img1 = document.getElementById("changingImageDesktop1");
+      const img2 = document.getElementById("changingImageDesktop2");
+      const img3 = document.getElementById("changingImageDesktop3");
 
-    const images = [img1, img2, img3];
-    let currentIndex = 0;
+      const images = [img1, img2, img3];
+      let currentIndex = 0;
 
-    function showImage(index) {
-      images.forEach((img, i) => {
-        if (i === index) {
-          img.classList.remove("hidden");
-        } else {
-          img.classList.add("hidden");
-        }
-      });
-    }
+      function showImage(index) {
+        images.forEach((img, i) => {
+          if (i === index) {
+            img.classList.remove("hidden");
+          } else {
+            img.classList.add("hidden");
+          }
+        });
+      }
 
-    // Initially show the first image
-    showImage(currentIndex);
-
-    // Change image every 3 seconds (3000 milliseconds)
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
       showImage(currentIndex);
-    }, 2000);
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }, 2000);
+    });
   </script>
 </Skelet>

@@ -59,8 +59,26 @@ const { myData } = Astro.props;
       </div>
       <div class="news_txt">
         <h2>{myData.title}</h2>
+        {
+          myData.text.map((eventText) => {
+            return <p>{eventText}</p>;
+          })
+        }
+        <p>{myData.text_2}</p>
+
+        <!-- {
+          myData.text.map((eventText) => {
+            return <p>{eventText}</p>;
+          })
+        } -->
+
         <Gradient gradient_class="news_sw" />
         <img id="changingImageMobile" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+        <!-- {
+          myData.text_2.map((eventText2) => {
+            return <p>{eventText2}</p>;
+          })
+        } -->
         <p>
           Stay tuned for more updates and behind-the-scenes highlights from this year's Design
           Festival by signing up for our newsletter.

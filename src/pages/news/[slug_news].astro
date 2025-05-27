@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 const { myData } = Astro.props;
 ---
 
-<Skelet>
+<Skelet title={myData.title}>
   <div class="news_singleview_grid">
     <a href="/news" class="back_arrow_section">
       <img data-cursor="fill" src="/imgs/Program/numbers/arrow.svg" alt="arrow" />

@@ -33,19 +33,21 @@ const { myData } = Astro.props;
     </a>
 
     <div class="left_img_column">
-      <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
-      <img
-        class="hidden"
-        id="changingImageDesktop2"
-        src={`/imgs/news${myData.image_2}`}
-        alt="Article Image"
-      />
-      <img
-        class="hidden"
-        id="changingImageDesktop3"
-        src={`/imgs/news${myData.image_3}`}
-        alt="Article Image"
-      />
+      <div class="desktop_imgs">
+        <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+        <img
+          class="hidden"
+          id="changingImageDesktop2"
+          src={`/imgs/news${myData.image_2}`}
+          alt="Article Image"
+        />
+        <img
+          class="hidden"
+          id="changingImageDesktop3"
+          src={`/imgs/news${myData.image_3}`}
+          alt="Article Image"
+        />
+      </div>
     </div>
 
     <div class="right_txt_column">
@@ -127,20 +129,16 @@ const { myData } = Astro.props;
       gap: 15px;
     }
 
-    #changingImageDesktop1,
-    #changingImageDesktop2,
-    #changingImageDesktop3,
+    .desktop_imgs,
     .news_sw2 {
       display: none;
     }
 
     #changingImageMobile {
-      height: 17rem;
-      width: auto;
+      height: auto;
+      width: 20rem;
       margin: 2rem 20px;
       border-radius: 30px;
-      position: relative;
-      left: 40%;
     }
 
     .news_txt {
@@ -173,7 +171,8 @@ const { myData } = Astro.props;
         display: none;
       }
 
-      .news_sw2 {
+      .news_sw2,
+      .desktop_imgs {
         display: block;
       }
 

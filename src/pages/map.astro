@@ -84,48 +84,75 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
     margin-top: 60px;
     position: relative;
     overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
-    }
+  }
 
-    button {
-      position: absolute;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
+  .map_container img {
+    width: 100%;
+    height: auto;
+  }
 
-    button[data-venue="huset"] {
-      top: 26%;
-      left: 12.5%;
-    }
-    button[data-venue="blox"] {
-      top: 81%;
-      left: 40%;
-    }
-    button[data-venue="black_diamond"] {
-      top: 66%;
-      left: 62%;
-    }
+  .map_container button {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .map_container button[data-venue="huset"] {
+    top: 26%;
+    left: 12.5%;
+  }
+
+  .map_container button[data-venue="blox"] {
+    top: 81%;
+    left: 40%;
+  }
+
+  .map_container button[data-venue="black_diamond"] {
+    top: 66%;
+    left: 62%;
   }
 
   .text_container {
     margin: 40px 20px;
-    h1 {
-      margin-bottom: 1.62rem;
-    }
   }
+
+  .text_container h1 {
+    margin-bottom: 1.62rem;
+  }
+
   .map_pin.active {
-    background-color: var(--green);
-    p {
-      color: var(--black);
-    }
+    background: var(--green) !important;
   }
+
+  .map_pin.active p {
+    color: var(--black) !important;
+  }
+
   .map_pin.active svg path {
     fill: var(--black);
     stroke: black;
+  }
+
+  .map_container button {
+    display: flex;
+    height: 1.5rem;
+    padding: 1rem 0.625rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem;
+    align-self: stretch;
+    border-radius: 3.75rem;
+    width: fit-content;
+    background-color: var(--black);
+  }
+  .map_container svg path {
+    fill: var(--off_white);
+  }
+
+  .map_container button p {
+    color: var(--off_white);
   }
 
   /* ------------------DESKTOP------------------ */
@@ -136,7 +163,7 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      grid-template-rows: 185px 1fr; /* Adjust this */
+      grid-template-rows: 185px 1fr;
       height: 100vh;
     }
 
@@ -147,92 +174,76 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       margin: 0;
-
       border-width: 1px;
       border-bottom-style: solid;
+    }
 
-      > * {
-        margin: 1rem 40px;
-        align-items: flex-end;
-      }
-      > *:not(:first-child) {
-        border-right: 1px solid black;
-      }
+    .text_container > * {
+      margin: 1rem 40px;
+      align-items: flex-end;
+    }
 
-      h1 {
-        display: grid;
-        grid-column: 2;
-        grid-row: 1;
-      }
-      p {
-        grid-column: 1;
-        grid-row: 1;
+    .text_container > *:not(:first-child) {
+      border-right: 1px solid black;
+    }
 
-        display: flex;
-        justify-content: space-between;
-        gap: 3rem;
-        margin: 0;
-        padding: 1rem 40px;
+    .text_container h1 {
+      display: grid;
+      grid-column: 2;
+      grid-row: 1;
+    }
 
-        &::before {
-          content: "( Directions )";
-          width: auto;
-          white-space: nowrap;
-          font-family: "GeneralSans", sans-serif;
-          font-size: 18px;
-          font-weight: 600;
-          font-style: normal;
-          color: var(--black);
-        }
-      }
+    .text_container p {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      margin: 0;
+      padding: 1rem 40px;
+    }
+
+    .text_container p::before {
+      content: "( Directions )";
+      width: auto;
+      white-space: nowrap;
+      font-family: "GeneralSans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      font-style: normal;
+      color: var(--black);
     }
 
     .map_container {
       margin: 0;
-
       border-right-style: solid;
       border-width: 1px;
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      svg {
-        width: 15px;
-        height: 20px;
-        path {
-          fill: var(--off_white);
-        }
-      }
+    .map_container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      button {
-        display: flex;
-        height: 1.5rem;
-        padding: 1rem 0.625rem;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 0.25rem;
-        align-self: stretch;
-        border-radius: 3.75rem;
-        width: fit-content;
-        background-color: var(--black);
-        p {
-          color: var(--off_white);
-        }
-      }
-      button[data-venue="huset"] {
-        top: 27%;
-        left: 13%;
-      }
-      button[data-venue="blox"] {
-        top: 82%;
-        left: 41%;
-      }
-      button[data-venue="black_diamond"] {
-        top: 69%;
-        left: 61%;
-      }
+    .map_container svg {
+      width: 15px;
+      height: 20px;
+    }
+
+    .map_container button[data-venue="huset"] {
+      top: 27%;
+      left: 13%;
+    }
+
+    .map_container button[data-venue="blox"] {
+      top: 82%;
+      left: 41%;
+    }
+
+    .map_container button[data-venue="black_diamond"] {
+      top: 69%;
+      left: 61%;
     }
 
     .map_accordion_wrapper {

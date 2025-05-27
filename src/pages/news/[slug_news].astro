@@ -27,12 +27,12 @@ const { myData } = Astro.props;
 ---
 
 <Skelet>
-  <section class="news_singleview_grid">
+  <div class="news_singleview_grid">
     <a href="../news" class="back_arrow_section">
       <img data-cursor="fill" src="/imgs/Program/numbers/arrow.svg" alt="arrow" />
     </a>
 
-    <section class="left_img_column">
+    <div class="left_img_column">
       <img id="changingImageDesktop1" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
       <img
         class="hidden"
@@ -46,9 +46,9 @@ const { myData } = Astro.props;
         src={`/imgs/news${myData.image_3}`}
         alt="Article Image"
       />
-    </section>
+    </div>
 
-    <section class="right_txt_column">
+    <div class="right_txt_column">
       <div class="news_date_and_author_flex">
         <p>Date: {myData.date}</p>
         <p>Author: {myData.author}</p>
@@ -58,34 +58,36 @@ const { myData } = Astro.props;
         <CardCategory className="newsNoMargin" text={myData.type} />
       </div>
       <div class="news_txt">
-        <h2>
-          {myData.title}
-        </h2>
-        <!-- {
+        <h2>{myData.title}</h2>
+        {
           myData.text.map((eventText) => {
             return <p>{eventText}</p>;
           })
-        } -->
+        }
 
         <Gradient gradient_class="news_sw" />
-        <img id="changingImageMobile" src={`/imgs/News${myData.image_1}`} alt="Article Image" />
-        <!-- {
+        <img id="changingImageMobile" src={`/imgs/news${myData.image_1}`} alt="Article Image" />
+
+        {
           myData.text_2.map((eventText2) => {
-            return <p>{eventText2}</p>;
+            if (eventText2) {
+              return <p>{eventText2}</p>;
+            } else {
+              return "";
+            }
           })
-        } -->
+        }
+
         <p>
           Stay tuned for more updates and behind-the-scenes highlights from this year's Design
           Festival by signing up for our newsletter.
         </p>
         <Gradient gradient_class="news_sw2" />
       </div>
-    </section>
-  </section>
+    </div>
+  </div>
 
   <style>
-    /* MOBILE */
-
     img {
       width: 20rem;
     }
@@ -95,39 +97,43 @@ const { myData } = Astro.props;
       flex-direction: column;
       margin-top: 120px;
     }
+
     .back_arrow_section {
       padding: 20px;
       border-width: 1px;
       border-bottom-style: solid;
-      img {
-        width: 25px;
-        transform: rotate(135deg);
-      }
     }
-    .news_date_and_author_flex,
-    .news_topics_flex {
-      display: flex;
+
+    .back_arrow_section img {
+      width: 25px;
+      transform: rotate(135deg);
     }
+
     .news_date_and_author_flex {
+      display: flex;
       border-bottom-style: solid;
       border-width: 1px;
+    }
 
-      p {
-        padding: 10px 20px;
-      }
-      & > p:first-child {
-        border-right-style: solid;
-        border-width: 1px;
-      }
+    .news_date_and_author_flex p {
+      padding: 10px 20px;
+    }
+
+    .news_date_and_author_flex > p:first-child {
+      border-right-style: solid;
+      border-width: 1px;
     }
 
     .news_topics_flex {
+      display: flex;
       padding: 20px;
       padding-bottom: 0;
       gap: 15px;
     }
 
-    #changingImageDesktop,
+    #changingImageDesktop1,
+    #changingImageDesktop2,
+    #changingImageDesktop3,
     .news_sw2 {
       display: none;
     }
@@ -143,50 +149,55 @@ const { myData } = Astro.props;
 
     .news_txt {
       padding: 1.5rem 20px;
-
-      h2 {
-        margin-bottom: 1rem;
-      }
-      p {
-        margin-bottom: 1.5rem;
-      }
-      p:last-of-type {
-        margin-bottom: 0rem;
-      }
     }
+
+    .news_txt h2 {
+      margin-bottom: 1rem;
+    }
+
+    .news_txt p {
+      margin-bottom: 1.5rem;
+    }
+
+    .news_txt p:last-of-type {
+      margin-bottom: 0rem;
+    }
+
     .news_event_details {
       margin: 20px;
       margin-top: 0;
-
-      img {
-        margin: 1rem 0;
-      }
     }
 
-    /* DESKTOP */
+    .news_event_details img {
+      margin: 1rem 0;
+    }
+
     @media (min-width: 800px) {
       #changingImageMobile {
         display: none;
       }
-      #changingImageDesktop {
+
+      .news_sw2 {
         display: block;
       }
+
       .back_arrow_section {
         grid-column: 1/-1;
         padding: 20px 40px;
-
-        img {
-          width: 35px;
-          transform: rotate(135deg);
-        }
       }
+
+      .back_arrow_section img {
+        width: 35px;
+        transform: rotate(135deg);
+      }
+
       .news_singleview_grid {
         display: grid;
         grid-template-columns: 1fr 2fr;
         grid-template-rows: auto 1fr;
+        height: 90vh;
       }
 
-      /* ----------------------------LEFT COLUMN---------------------------- */
       .left_img_column {
         display: flex;
         flex-direction: column;
@@ -194,22 +205,20 @@ const { myData } = Astro.props;
         align-items: center;
         border-width: 1px;
         border-right-style: solid;
-        img {
-          height: auto;
-          width: 25rem;
-          margin: 2rem 0;
-          border-radius: 30px;
-          /* position: sticky; */
-          top: 10%;
-        }
       }
 
-      /* ----------------------------RIGHT COLUMN---------------------------- */
-      .news_date_and_author_flex {
-        p {
-          padding: 10px 40px;
-        }
+      .left_img_column img {
+        height: auto;
+        width: 20rem;
+        margin: 2rem 0;
+        border-radius: 30px;
+        top: 10%;
       }
+
+      .news_date_and_author_flex p {
+        padding: 10px 40px;
+      }
+
       .porgramCard_placehoder {
         width: 15rem;
         height: auto;
@@ -222,23 +231,26 @@ const { myData } = Astro.props;
 
       .news_txt {
         padding: 2.5rem 40px 2.5rem 40px;
+      }
 
-        h2 {
-          margin-bottom: 2rem;
-        }
+      .news_txt h2 {
+        margin-bottom: 2rem;
       }
 
       .news_event_details {
         margin: 0 40px 20px 40px;
+      }
 
-        img {
-          margin: 1.5rem 0;
-        }
+      .news_event_details img {
+        margin: 1.5rem 0;
       }
     }
 
     .hidden {
-      display: none;
+      display: none !important;
+    }
+    .show {
+      display: block !important;
     }
   </style>
 
@@ -252,11 +264,15 @@ const { myData } = Astro.props;
       let currentIndex = 0;
 
       function showImage(index) {
+        console.log(index);
         images.forEach((img, i) => {
           if (i === index) {
+            console.log(img);
             img.classList.remove("hidden");
+            img.classList.add("show");
           } else {
             img.classList.add("hidden");
+            img.classList.remove("show");
           }
         });
       }

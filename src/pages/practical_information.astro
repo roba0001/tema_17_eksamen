@@ -7,7 +7,7 @@ import Locations from "../components/Locations.astro";
 import "../style/styles.css";
 ---
 
-<Skelet>
+<Skelet title="Practical Information">
   <Gradient gradient_class="practical1" />
   <Gradient gradient_class="practical2" />
   <div class="practical_container">
@@ -160,9 +160,7 @@ import "../style/styles.css";
       allInfos.forEach((info) => info.classList.remove("visible"));
 
       // Show only those matching the tab
-      const toShow = document.querySelectorAll(
-        `.practical_info[data-tab="${tabName}"]`
-      );
+      const toShow = document.querySelectorAll(`.practical_info[data-tab="${tabName}"]`);
       toShow.forEach((el) => el.classList.add("visible"));
     });
   });

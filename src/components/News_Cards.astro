@@ -31,12 +31,12 @@ const { data, link } = Astro.props;
     line-height: normal;
     font-weight: 600;
     font-style: normal;
-    color: var(--black_opacity);
+    color: #1e3201;
   }
   #container {
     display: flex;
     flex-direction: row;
-    background-color: rgba(207, 255, 92, 0.5);
+    background-color: #f2ffc7;
     /* background-color: var(--green); */
     border-radius: 30px;
     overflow: hidden;
@@ -100,7 +100,10 @@ const { data, link } = Astro.props;
   .row_2 {
     grid-row: span 7;
   }
-
+  img {
+    width: auto;
+    height: auto;
+  }
   @media (max-width: 800px) {
     .bottom {
       width: 150px;

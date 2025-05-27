@@ -33,11 +33,12 @@ const { gradient_class } = Astro.props;
     position: fixed;
   }
   .program_sw {
-    position: absolute;
+    /* position: absolute;
     width: 1900px;
     height: 1500px;
     top: -700px;
-    right: 0px;
+    right: 0px; */
+    display: none;
   }
 
   .news_sw {
@@ -89,10 +90,11 @@ const { gradient_class } = Astro.props;
   }
   @media (min-width: 800px) {
     .program_sw {
-      width: 1900px;
+      /* width: 1900px;
       height: 1500px;
       top: -700px;
-      right: -300px;
+      right: -300px; */
+      display: none;
     }
 
     .news_sw {

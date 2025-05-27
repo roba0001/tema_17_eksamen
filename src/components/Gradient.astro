@@ -106,12 +106,21 @@ const { gradient_class } = Astro.props;
   .program2 {
     display: none;
   }
+  .about {
+    width: 800px;
+    height: 800px;
+    bottom: 25rem;
+    right: -25rem;
+    z-index: -1;
+    position: fixed;
+    overflow: hidden;
+  }
   @media (min-width: 800px) {
     .program_sw {
-      width: 1900px;
+      width: 200rem;
       height: 1500px;
       top: -700px;
-      right: -300px;
+      right: 2rem 32px;
     }
 
     .news_sw {
@@ -196,6 +205,15 @@ const { gradient_class } = Astro.props;
       height: 800px;
       bottom: -20rem;
       right: 60rem;
+      z-index: -1;
+      position: fixed;
+      overflow: hidden;
+    }
+    .about {
+      width: 800px;
+      height: 800px;
+      bottom: 14rem;
+      right: -18rem;
       z-index: -1;
       position: fixed;
       overflow: hidden;

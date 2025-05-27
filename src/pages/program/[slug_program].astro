@@ -221,10 +221,9 @@ const { myData } = Astro.props;
     position: absolute;
     bottom: 0;
     right: 0;
-    cursor: se-resize;
     z-index: 10;
     border-top-left-radius: 2px;
-    transform: translate(50%, 50%); /* Slightly pull it outside */
+    transform: translate(50%, 50%);
     cursor: none;
   }
 
@@ -472,6 +471,7 @@ const { myData } = Astro.props;
 </style>
 
 <script>
+  // DETTE SCRIPT ER BLEVT LAVET MED HJÆLP AF AI //
   const container = document.querySelector(".images_container");
   const resizables = document.querySelectorAll(".resizable");
 
@@ -554,13 +554,16 @@ const { myData } = Astro.props;
       }
     });
   });
-  resizables.forEach((el) => {
-    el.addEventListener("mousedown", () => {
-      // Reset all to z-index 1
-      resizables.forEach((r) => (r.style.zIndex = 1));
 
-      // Bring the clicked one to front (z-index 5)
-      el.style.zIndex = 5;
+  resizables.forEach((imgClick) => {
+    // Hvert element i resizables kaldes imgClick
+    imgClick.addEventListener("mousedown", () => {
+      // For hverimgClick kaldes imgClick ved Mousedown
+      // Reset alle billeders (img) z-index til 1
+      resizables.forEach((img) => (img.style.zIndex = 1));
+
+      // Det billede som er blevet klikket på (imgClick) får z-index 5
+      imgClick.style.zIndex = 5;
     });
   });
 </script>

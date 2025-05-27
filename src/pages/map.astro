@@ -4,6 +4,7 @@ import "../style/styles.css";
 import MapRowHuset from "../components/MapRow_Huset.astro";
 import MapRowBLOX from "../components/MapRow_BLOX.astro";
 import MapRowDiamond from "../components/MapRow_Diamond.astro";
+import Gradient from "../components/Gradient.astro";
 ---
 
 <Skelet title="Map">
@@ -68,6 +69,8 @@ import MapRowDiamond from "../components/MapRow_Diamond.astro";
         maps, use the sidebar or select a location on the map below.
       </p>
     </div>
+    <Gradient gradient_class="map" />
+
     <div class="map_accordion_wrapper">
       <MapRowHuset />
       <MapRowBLOX />
